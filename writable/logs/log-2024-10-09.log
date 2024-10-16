@@ -1,0 +1,391 @@
+INFO - 2024-10-09 12:08:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:09:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:10:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 12:10:04 --> Undefined array key "nama_item"
+in APPPATH\Views\_jasa.php on line 42.
+ 1 APPPATH\Views\_jasa.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_item"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php', 42)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('_jasa', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('_jasa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin->jasa()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:10:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:10:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 12:10:15 --> Undefined array key "nama_item"
+in APPPATH\Views\_jasa.php on line 42.
+ 1 APPPATH\Views\_jasa.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_item"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php', 42)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('_jasa', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('_jasa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin->jasa()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:10:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:10:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:10:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 12:10:51 --> mysqli_sql_exception: Unknown column 'id_k' in 'field list' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `id_k`, ...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_k`, ...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_k`, ...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `id_k`, ...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ci4-template\app\Models\KategoriModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\Admin.php(210): App\Models\KategoriModel->getKategori()
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\Admin->kategori()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 12:10:51 --> Unknown column 'id_k' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `id_k`, `kategori`
+FROM `tbl_kategori`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_k`, `kategori`
+FROM `tbl_kategori`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_k`, `kategori`
+FROM `tbl_kategori`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `id_k`, `kategori`
+FROM `tbl_kategori`', [], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\KategoriModel.php(18): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin.php(210): App\Models\KategoriModel->getKategori()
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin->kategori()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:10:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:11:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 12:11:01 --> Undefined array key "nama_item"
+in APPPATH\Views\_jasa.php on line 42.
+ 1 APPPATH\Views\_jasa.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_item"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php', 42)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('_jasa', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('_jasa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin->jasa()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:15:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 12:15:24 --> Undefined array key "nama_item"
+in APPPATH\Views\_jasa.php on line 43.
+ 1 APPPATH\Views\_jasa.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_item"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php', 43)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('_jasa', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('_jasa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin->jasa()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 12:15:30 --> Undefined array key "nama_item"
+in APPPATH\Views\_jasa.php on line 43.
+ 1 APPPATH\Views\_jasa.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_item"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php', 43)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('_jasa', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('_jasa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin->jasa()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:16:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:17:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:22:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:28:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:50:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 12:50:37 --> Undefined array key "id_jasa"
+in APPPATH\Views\_jasa.php on line 47.
+ 1 APPPATH\Views\_jasa.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_jasa"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php', 47)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\_jasa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('_jasa', [], true)
+ 5 APPPATH\Controllers\JasaController.php(28): view('_jasa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 12:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:53:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:56:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:57:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:59:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 12:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:01:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:01:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 13:01:45 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ja...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ja...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ja...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ja...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\JasaController.php(47): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\JasaController->simpanjasa()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 13:01:45 --> Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jasa` (`nama_item`, `type`, `min_harga`, `max_harga`, `created_at`, `updated_at`) VALUES (\'jjJ\', \'jj\', \'009\', \'99\', \'2024-10-09 13:01:45\', \'2024-10-09 13:01:45\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jasa` (`nama_item`, `type`, `min_harga`, `max_harga`, `created_at`, `updated_at`) VALUES (\'jjJ\', \'jj\', \'009\', \'99\', \'2024-10-09 13:01:45\', \'2024-10-09 13:01:45\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jasa` (`nama_item`, `type`, `min_harga`, `max_harga`, `created_at`, `updated_at`) VALUES (\'jjJ\', \'jj\', \'009\', \'99\', \'2024-10-09 13:01:45\', \'2024-10-09 13:01:45\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jasa` (`nama_item`, `type`, `min_harga`, `max_harga`, `created_at`, `updated_at`) VALUES (:nama_item:, :type:, :min_harga:, :max_harga:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\JasaController.php(47): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->simpanjasa()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 13:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:04:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:06:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:09:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:09:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:09:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 13:09:27 --> mysqli_sql_exception: Unknown column 'jasa.id_jasa' in 'where clause' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` S...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` S...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` S...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` S...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\JasaController.php(76): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 13:09:27 --> Unknown column 'jasa.id_jasa' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:09:27\'
+WHERE `jasa`.`id_jasa` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:09:27\'
+WHERE `jasa`.`id_jasa` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:09:27\'
+WHERE `jasa`.`id_jasa` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` SET `nama_item` = :nama_item:, `type` = :type:, `min_harga` = :min_harga:, `max_harga` = :max_harga:, `updated_at` = :updated_at:
+WHERE `jasa`.`id_jasa` IN :jasa.id_jasa:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 13:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 13:10:36 --> mysqli_sql_exception: Unknown column 'jasa.id_jasa' in 'where clause' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` S...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` S...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` S...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` S...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\JasaController.php(76): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 13:10:36 --> Unknown column 'jasa.id_jasa' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:36\'
+WHERE `jasa`.`id_jasa` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:36\'
+WHERE `jasa`.`id_jasa` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:36\'
+WHERE `jasa`.`id_jasa` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` SET `nama_item` = :nama_item:, `type` = :type:, `min_harga` = :min_harga:, `max_harga` = :max_harga:, `updated_at` = :updated_at:
+WHERE `jasa`.`id_jasa` IN :jasa.id_jasa:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 13:10:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 13:10:48 --> mysqli_sql_exception: Unknown column 'jasa.id_jasa' in 'where clause' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` S...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` S...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` S...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` S...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\JasaController.php(76): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 13:10:48 --> Unknown column 'jasa.id_jasa' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:48\'
+WHERE `jasa`.`id_jasa` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:48\'
+WHERE `jasa`.`id_jasa` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:48\'
+WHERE `jasa`.`id_jasa` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` SET `nama_item` = :nama_item:, `type` = :type:, `min_harga` = :min_harga:, `max_harga` = :max_harga:, `updated_at` = :updated_at:
+WHERE `jasa`.`id_jasa` IN :jasa.id_jasa:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 13:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 13:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 13:10:53 --> mysqli_sql_exception: Unknown column 'jasa.id_jasa' in 'where clause' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` S...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` S...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` S...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` S...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\JasaController.php(76): CodeIgniter\Model->update('', Array)
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 13:10:53 --> Unknown column 'jasa.id_jasa' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:53\'
+WHERE `jasa`.`id_jasa` IN (\'\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:53\'
+WHERE `jasa`.`id_jasa` IN (\'\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` SET `nama_item` = \'jsjjsjs\', `type` = \'barang\', `min_harga` = \'67000\', `max_harga` = \'89000\', `updated_at` = \'2024-10-09 13:10:53\'
+WHERE `jasa`.`id_jasa` IN (\'\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` SET `nama_item` = :nama_item:, `type` = :type:, `min_harga` = :min_harga:, `max_harga` = :max_harga:, `updated_at` = :updated_at:
+WHERE `jasa`.`id_jasa` IN :jasa.id_jasa:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update('', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 20:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:06:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:06:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:06:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 20:06:44 --> mysqli_sql_exception: Unknown column 'jasa.id_jasa' in 'where clause' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` S...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` S...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` S...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` S...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\ci4-template\app\Controllers\JasaController.php(76): CodeIgniter\Model->update('', Array)
+#8 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-09 20:06:44 --> Unknown column 'jasa.id_jasa' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `jasa` SET `nama_item` = \'asdc\', `type` = \'asdc\', `min_harga` = \'2000\', `max_harga` = \'5000\', `updated_at` = \'2024-10-09 20:06:44\'
+WHERE `jasa`.`id_jasa` IN (\'\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `jasa` SET `nama_item` = \'asdc\', `type` = \'asdc\', `min_harga` = \'2000\', `max_harga` = \'5000\', `updated_at` = \'2024-10-09 20:06:44\'
+WHERE `jasa`.`id_jasa` IN (\'\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `jasa` SET `nama_item` = \'asdc\', `type` = \'asdc\', `min_harga` = \'2000\', `max_harga` = \'5000\', `updated_at` = \'2024-10-09 20:06:44\'
+WHERE `jasa`.`id_jasa` IN (\'\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `jasa` SET `nama_item` = :nama_item:, `type` = :type:, `min_harga` = :min_harga:, `max_harga` = :max_harga:, `updated_at` = :updated_at:
+WHERE `jasa`.`id_jasa` IN :jasa.id_jasa:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update('', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 20:18:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:21:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 20:22:26 --> Updates are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Model.php on line 391.
+ 1 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 20:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 20:24:38 --> Updates are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Model.php on line 391.
+ 1 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-10-09 20:27:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:27:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 20:29:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-09 20:29:07 --> Updates are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Model.php on line 391.
+ 1 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\JasaController.php(76): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\JasaController->updatejasa()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JasaController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,237 @@
+INFO - 2023-08-21 12:02:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 12:02:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-08-21 12:49:48 --> Invalid file: "welcompe_message.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcompe_message.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('welcompe_message', [], true)
+ 3 APPPATH/Controllers/Home.php(18): view('welcompe_message')
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-21 12:49:48 --> Invalid file: "welcompe_message.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcompe_message.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('welcompe_message', [], true)
+ 3 APPPATH/Controllers/Home.php(18): view('welcompe_message')
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-08-21 16:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 16:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 16:27:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 16:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-08-21 16:34:28 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php(174): mysqli->real_connect('localhost', 'root', 'root', 'dbwsl', 3306, '', 0)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#6 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#11 {main}
+CRITICAL - 2023-08-21 16:34:28 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_users`
+WHERE `username` = \'admin12345\' AND `password` = \'7488e331b8b64e5794da3fa4eb10ad5d\'
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/MAMP/htdocs/wgsl/public/index.php')
+INFO - 2023-08-21 16:36:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-08-21 16:36:07 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php(174): mysqli->real_connect('localhost', 'root', 'root', 'dbwsl', 3306, '', 0)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#6 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#11 {main}
+CRITICAL - 2023-08-21 16:36:07 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_users`
+WHERE `username` = \'admin12345\' AND `password` = \'7488e331b8b64e5794da3fa4eb10ad5d\'
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/MAMP/htdocs/wgsl/public/index.php')
+INFO - 2023-08-21 16:37:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-08-21 16:37:01 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php(174): mysqli->real_connect('localhost', 'root', 'root', 'dbwsl', 3306, '', 0)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#6 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#11 {main}
+CRITICAL - 2023-08-21 16:37:01 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_users`
+WHERE `username` = \'admin12345\' AND `password` = \'7488e331b8b64e5794da3fa4eb10ad5d\'
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/MAMP/htdocs/wgsl/public/index.php')
+INFO - 2023-08-21 16:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-08-21 16:37:16 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php(174): mysqli->real_connect('localhost', 'root', 'root', 'dbwsl', 3306, '', 0)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Applications/MAMP/htdocs/wgsl/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/MAMP/htdocs/wgsl/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/MAMP/htdocs/wgsl/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/MAMP/htdocs/wgsl/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/MAMP/htdocs/wgsl/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 /Applications/MAMP/htdocs/wgsl/app/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+#6 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#7 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Applications/MAMP/htdocs/wgsl/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/MAMP/htdocs/wgsl/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Applications/MAMP/htdocs/wgsl/system/Commands/Server/rewrite.php(47): require_once('/Applications/M...')
+#11 {main}
+CRITICAL - 2023-08-21 16:37:16 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_users`
+WHERE `username` = \'admin12345\' AND `password` = \'7488e331b8b64e5794da3fa4eb10ad5d\'
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Home.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/MAMP/htdocs/wgsl/public/index.php')
+INFO - 2023-08-21 17:16:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 17:16:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 17:16:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 21:05:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 21:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:32:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:32:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:32:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:34:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:34:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:34:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:34:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:35:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:36:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:36:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:38:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:38:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:38:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:38:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:41:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-21 23:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

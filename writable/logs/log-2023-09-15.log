@@ -1,0 +1,18 @@
+INFO - 2023-09-15 19:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-15 19:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-15 19:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-15 19:51:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-15 20:03:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-09-15 20:03:45 --> Undefined variable: kas
+in APPPATH/Views/_jurnal-print.php on line 41.
+ 1 APPPATH/Views/_jurnal-print.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: kas', '/Applications/MAMP/htdocs/wgsl/app/Views/_jurnal-print.php', 41, [...])
+ 2 SYSTEMPATH/View/View.php(224): include('/Applications/MAMP/htdocs/wgsl/app/Views/_jurnal-print.php')
+ 3 SYSTEMPATH/View/View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1176): CodeIgniter\View\View->render('_jurnal-print', [], true)
+ 5 APPPATH/Controllers/Admin.php(546): view('_jurnal-print', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Admin->cetakjurnal()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-09-15 20:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-15 20:06:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
