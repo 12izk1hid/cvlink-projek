@@ -57,7 +57,7 @@ $routes->get('infousers', 'UserController::index');
     $routes->get('delete', 'UserController::delete');
 
     $routes->get('infosurvei', 'SurveiController::index');
-    $routes->post('save', 'SurveiController::save');
+    $routes->post('survey/save', 'SurveiController::save');
     $routes->post('update', 'SurveiController::update');
     $routes->get('delete', 'SurveiController::delete');
 

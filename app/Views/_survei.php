@@ -67,40 +67,43 @@
     </section>
 </div>
 
-<!-- Tambah survei-->
+<!-- Tambah survei -->
 <div class="modal fade" id="tambah" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Tambah Survei</h4>
             </div>
-            <form class="form" method="post" action="<?= base_url() ?>/save">
+            <form class="form" method="post" action="<?= base_url('survey/save') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_surveyors">id surveyor</label>
-                        <input type="text" class="form-control" name="id_surveyors" placeholder="Masukan id surveyor" required>
+                        <label for="id_surveyors">ID Surveyor</label>
+                        <select name="id_surveyor">
+                        <?php foreach ($surveyors as $surveyor): ?>
+                            <option value="<?= $surveyor['id']; ?>"><?= $surveyor['id']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Tanggal_survei">Tanggal Survei</label>
-                        <input type="date" class="form-control" name="Tanggal_survei" placeholder="Masukan Tanggal survei" required>
+                        <input type="date" class="form-control" name="Tanggal_survei" placeholder="Masukkan Tanggal survei" required>
                     </div>
                     <div class="form-group">
                         <label for="Jenis_instalasi">Jenis Instalasi</label>
-                        <input type="text" class="form-control" name="Jenis_instalasi"  placeholder="Masukan Jenis Instalasi" required>
+                        <input type="text" class="form-control" name="Jenis_instalasi" placeholder="Masukkan Jenis Instalasi" required>
                     </div>
                     <div class="form-group">
                         <label for="kebutuhan_material">Kebutuhan Material</label>
-                        <input type="text" class="form-control" name="kebutuhan_material"  placeholder="Masukan Kebutuhan Material" required>
+                        <input type="text" class="form-control" name="kebutuhan_material" placeholder="Masukkan Kebutuhan Material" required>
                     </div>
                     <div class="form-group">
-                        <label for="estimasi_waktu">estimasi_waktu</label>
-                        <input type="text" class="form-control" name="estimasi_waktu" placeholder="Masukan Estimasi Waktu" required>
+                        <label for="estimasi_waktu">Estimasi Waktu</label>
+                        <input type="text" class="form-control" name="estimasi_waktu" placeholder="Masukkan Estimasi Waktu" required>
                     </div>
                     <div class="form-group">
                         <label for="catatan_hasil_survei">Catatan Hasil Survei</label>
-                        <input type="text" class="form-control" name="catatan_hasil_survei" placeholder="Masukan Catatan Hasil Survei" required>
+                        <input type="text" class="form-control" name="catatan_hasil_survei" placeholder="Masukkan Catatan Hasil Survei" required>
                     </div>
-                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -110,6 +113,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Edit survei -->
 <div class="modal fade" id="edit" tabindex="-1" role="dialog">

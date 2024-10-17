@@ -15,5 +15,14 @@ class SurveiModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['id', 'id_surveyors', 'Tanggal_survei', 'Jenis_instalasi', 'kebutuhan_material', 'estimasi_waktu', 'catatan_hasil_survei'];
 
-
+    // Fungsi untuk mengambil data id dari pengguna yang role-nya surveyor
+    public function getSurveyors()
+    {
+        // Gunakan query builder untuk mengambil data dari tabel users dengan role 'surveyor'
+        return $this->db->table('users')
+                        ->select('id')  // Ambil kolom id saja
+                        ->where('role', 'surveyor')  // Kondisi role = surveyor
+                        ->get()
+                        ->getResultArray();  // Mengembalikan hasil sebagai array
+    }
 }

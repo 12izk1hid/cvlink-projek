@@ -103,9 +103,11 @@
                     <div class="form-group">
                         <label for="role">Role</label>
                         <select class="form-control" name="role" id="role" placeholder="Masukan Role" required>
-                            <option value="">Pilih Role</option>
+                        <option value="">Pilih Role</option>
                             <option value="admin">Admin</option>
-                            <option value="user">User</option>
+                            <option value="klien">Klien</option>
+                            <option value="surveyor">Surveyor</option>
+                            <option value="teknisi">Teknisi</option>
                         </select>
                     </div>
                 </div>
@@ -157,7 +159,9 @@
                         <select class="form-control" name="role" id="role" placeholder="Masukan Role" required>
                             <option value="">Pilih Role</option>
                             <option value="admin">Admin</option>
-                            <option value="user">User</option>
+                            <option value="klien">Klien</option>
+                            <option value="surveyor">Surveyor</option>
+                            <option value="teknisi">Teknisi</option>
                         </select>
                     </div>
                     </div>
