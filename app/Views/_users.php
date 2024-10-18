@@ -24,7 +24,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">No</th>
+                                    <th width="5%">id</th>
                                     <th>Nama</th>
                                     <th>Username</th>
                                     <th>Password</th>
@@ -40,7 +40,7 @@
                                 $nom = 1;
                                 foreach ($users as $dt) { ?>
                                     <tr>
-                                        <td width="5%" class="text-center"><?= $nom++; ?></td>
+                                        <td <?= esc($dt['id']); ?> width="5%" class="text-center"><?= $nom++; ?></td>
                                         <td><?= esc($dt['nama']); ?></td>
                                         <td><?= esc($dt['username']); ?></td>
                                         <td><?= esc($dt['password']); ?></td>

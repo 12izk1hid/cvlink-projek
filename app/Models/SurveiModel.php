@@ -13,7 +13,8 @@ class SurveiModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'id_surveyors', 'Tanggal_survei', 'Jenis_instalasi', 'kebutuhan_material', 'estimasi_waktu', 'catatan_hasil_survei'];
+    protected $allowedFields = ['id_surveyors', 'Tanggal_survei', 'Jenis_instalasi', 'kebutuhan_material', 'estimasi_waktu', 'catatan_hasil_survei'];
+
 
     // Fungsi untuk mengambil data id dari pengguna yang role-nya surveyor
     public function getSurveyors()

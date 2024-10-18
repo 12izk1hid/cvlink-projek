@@ -1,4 +1,4 @@
-__ci_last_regenerate|i:1729147684;_ci_previous_url|s:52:"http://localhost:8080/ci4-template/public/infosurvei";id|s:1:"3";username|s:10:"admin12345";id_level|s:1:"1";nama|s:13:"Administrator";isLogin|b:1;pesan|s:321:"<div class="alert alert-danger alert-dismissible">
+__ci_last_regenerate|i:1729174508;_ci_previous_url|s:52:"http://localhost:8080/ci4-template/public/infosurvei";id|s:1:"3";username|s:10:"admin12345";id_level|s:1:"1";nama|s:13:"Administrator";isLogin|b:1;pesan|s:321:"<div class="alert alert-danger alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h4><i class="icon fa fa-times"></i> Gagal menyimpan data survei, periksa kembali inputan Anda</h4>
                     </div>";__ci_vars|a:1:{s:5:"pesan";s:3:"old";}

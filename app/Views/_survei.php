@@ -41,7 +41,7 @@
                                 $nom = 1;
                                 foreach ($hasil_survei as $dt) { ?>
                                     <tr>
-                                        <td width="5%" name="id" class="text-center"><?= $nom++; ?></td>
+                                        <td <?= esc($dt['id']);?> width="5%"  class="text-center"><?= $nom++; ?></td>
                                         <td><?= esc($dt['id_surveyors']); ?></td>
                                         <td><?= esc($dt['Tanggal_survei']); ?></td>
                                         <td><?= esc($dt['Jenis_instalasi']); ?></td>
@@ -49,10 +49,13 @@
                                         <td><?= esc($dt['estimasi_waktu']); ?></td>
                                         <td><?= esc($dt['catatan_hasil_survei']); ?></td>
                                         <td width="8%" class="text-center">
-                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" data-surveyors="<?= esc($dt['id_surveyors']) ?>" data-username="<?= esc($dt['Tanggal_survei']) ?>" data-password="<?= esc($dt['Jenis_instalasi']) ?>" data-alamat="<?= esc($dt['kebutuhan_material']) ?>" data-email="<?= esc($dt['estimasi_waktu']) ?>" data-no_hp="<?= esc($dt['catatan_hasil_survei']) ?>" href="#edit" class="edit-user" title="Edit User">
-                                                <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
+                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" data-id_surveyors="<?= esc($dt['id_surveyors']) ?>" data-Tanggal_survei="<?= esc($dt['Tanggal_survei']) ?>" 
+                                            data-Jenis_instalasi="<?= esc($dt['Jenis_instalasi']) ?>" data-kebutuhan_material="<?= esc($dt['kebutuhan_material']) ?>" data-estimasi_waktu="<?= esc($dt['estimasi_waktu']) ?>" 
+                                            data-catatan_hasil_survei="<?= esc($dt['catatan_hasil_survei']) ?>" href="#edit" class="edit-survei" title="Edit Survei">
+                                               
+                                            <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
-                                            <a href="<?= base_url('delete?id=' . $dt['id']); ?>" class="delete" title="Delete">
+                                            <a href="<?= base_url('survei/delete?id=' . $dt['id']); ?>" class="delete" title="Delete">
                                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                             </a>
                                         </td>
@@ -77,8 +80,8 @@
             <form class="form" method="post" action="<?= base_url('survey/save') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_surveyors">ID Surveyor</label>
-                        <select name="id_surveyor">
+                        <label for="id_surveyors" id="id_surveyors" >ID Surveyor</label>
+                        <select  id="id_surveyors" name="id_surveyors">
                         <?php foreach ($surveyors as $surveyor): ?>
                             <option value="<?= $surveyor['id']; ?>"><?= $surveyor['id']; ?></option>
                         <?php endforeach; ?>
@@ -122,31 +125,35 @@
             <div class="modal-header">
                 <h4 class="modal-title">Edit Survei</h4>
             </div>
-            <form class="form" method="post" action="<?= base_url() ?>/save">
+            <form class="form" method="post" action="<?= base_url('survey/edit') ?>">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="id_surveyors">id surveyor</label>
-                        <input type="text" class="form-control" name="id_surveyors" placeholder="Masukan id suveyor" required>
+                     <div class="form-group">
+                        <label for="id_surveyors">ID Surveyor</label>
+                        <select id="id_surveyors" name="id_surveyors">
+                        <?php foreach ($surveyors as $surveyor): ?>
+                            <option value="<?= $surveyor['id']; ?>"><?= $surveyor['id']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Tanggal_survei">Tanggal Survei</label>
-                        <input type="text" class="form-control" name="Tanggal_survei" placeholder="Masukan Tanggal survei" required>
+                        <input type="date" class="form-control"   name="Tanggal_survei" id ="Tanggal_survei" placeholder="Masukan Tanggal survei" required>
                     </div>
                     <div class="form-group">
                         <label for="Jenis_instalasi">Jenis Instalasi</label>
-                        <input type="text" class="form-control" name="Jenis_instalasi"  placeholder="Masukan Jenis Instalasi" required>
+                        <input type="text" class="form-control"  name="Jenis_instalasi" id ="Jenis_instalasi" placeholder="Masukan Jenis Instalasi" required>
                     </div>
                     <div class="form-group">
                         <label for="Kebutuhan_material">Kebutuhan Material</label>
-                        <input type="text" class="form-control" name="kebutuhan_material"  placeholder="Masukan Kebutuhan Material" required>
+                        <input type="text" class="form-control"   name="kebutuhan_material" id ="kebutuhan_material" placeholder="Masukan Kebutuhan Material" required>
                     </div>
                     <div class="form-group">
                         <label for="estimasi_waktu">estimasi_waktu</label>
-                        <input type="email" class="form-control" name="estimasi_waktu" placeholder="Masukan Estimasi Waktu" required>
+                        <input type="text" class="form-control" name="estimasi_waktu" id ="estimasi_waktu" placeholder="Masukan Estimasi Waktu" required>
                     </div>
                     <div class="form-group">
                         <label for="catatan_hasil_survei">Catatan Hasil Survei</label>
-                        <input type="text" class="form-control" name="catatan_hasil_survei" placeholder="Masukan Catatan Hasil Survei" required>
+                        <input type="text" class="form-control" name="catatan_hasil_survei" id ="catatan_hasil_survei" placeholder="Masukan Catatan Hasil Survei" required>
                     </div>
                    
                 </div>
@@ -162,8 +169,8 @@
 <script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script>
     $(document).ready(function() {
-        $(document).on("click", ".edit-user", function() {
-            var id = $(this).data('id');
+        $(document).on("click", ".edit-survei", function() {
+          var id = $(this).data('id');
             var id_surveyors= $(this).data('id_surveyors');
             var Tanggal_survei = $(this).data('Tanggal_survei');
             var Jenis_instalasi = $(this).data('Jenis_instalasi');
@@ -172,14 +179,15 @@
             var catatan_hasil_survei = $(this).data('catatan_hasil_survei');
             
 
-            $(".modal-body #id").val(id);
+      $(".modal-body #id").val(id);
             $(".modal-body #id_surveyors").val(id_surveyors);
             $(".modal-body #Tanggal_survei").val(Tanggal_survei);
             $(".modal-body #Jenis_instalasi").val(Jenis_instalasi);
             $(".modal-body #kebutuhan_material").val(kebutuhan_material);
             $(".modal-body #estimasi_waktu").val(estimasi_waktu);
             $(".modal-body #catatan_hasil_survei").val(catatan_hasil_survei);
-            
+            // Tampilkan modal edit
+            $('#edit').modal('show');
         });
     });
 </script>
