@@ -49,10 +49,9 @@
                                         <td><?= esc($dt['estimasi_waktu']); ?></td>
                                         <td><?= esc($dt['catatan_hasil_survei']); ?></td>
                                         <td width="8%" class="text-center">
-                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" data-id_surveyors="<?= esc($dt['id_surveyors']) ?>" data-Tanggal_survei="<?= esc($dt['Tanggal_survei']) ?>" 
-                                            data-Jenis_instalasi="<?= esc($dt['Jenis_instalasi']) ?>" data-kebutuhan_material="<?= esc($dt['kebutuhan_material']) ?>" data-estimasi_waktu="<?= esc($dt['estimasi_waktu']) ?>" 
+                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" data-id_surveyors="<?= esc($dt['id_surveyors']) ?>" data-tanggal_survei="<?= esc($dt['Tanggal_survei']) ?>" 
+                                            data-jenis_instalasi="<?= $dt['Jenis_instalasi'] ?>" data-kebutuhan_material="<?= esc($dt['kebutuhan_material']) ?>" data-estimasi_waktu="<?= esc($dt['estimasi_waktu']) ?>" 
                                             data-catatan_hasil_survei="<?= esc($dt['catatan_hasil_survei']) ?>" href="#edit" class="edit-survei" title="Edit Survei">
-                                               
                                             <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
                                             <a href="<?= base_url('survei/delete?id=' . $dt['id']); ?>" class="delete" title="Delete">
@@ -127,13 +126,9 @@
             </div>
             <form class="form" method="post" action="<?= base_url('survey/edit') ?>">
                 <div class="modal-body">
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="id_surveyors">ID Surveyor</label>
-                        <select id="id_surveyors" name="id_surveyors">
-                        <?php foreach ($surveyors as $surveyor): ?>
-                            <option value="<?= $surveyor['id']; ?>"><?= $surveyor['id']; ?></option>
-                        <?php endforeach; ?>
-                        </select>
+                        <input type="text" class="form-control" name="id_surveyors" id ="id_surveyors" placeholder="ID Surveyor" required>
                     </div>
                     <div class="form-group">
                         <label for="Tanggal_survei">Tanggal Survei</label>
@@ -172,16 +167,14 @@
         $(document).on("click", ".edit-survei", function() {
           var id = $(this).data('id');
             var id_surveyors= $(this).data('id_surveyors');
-            var Tanggal_survei = $(this).data('Tanggal_survei');
-            var Jenis_instalasi = $(this).data('Jenis_instalasi');
+            var date = $(this).data('tanggal_survei')
+            var Jenis_instalasi = $(this).data('jenis_instalasi');
             var kebutuhan_material = $(this).data('kebutuhan_material');
             var estimasi_waktu = $(this).data('estimasi_waktu');
             var catatan_hasil_survei = $(this).data('catatan_hasil_survei');
-            
-
       $(".modal-body #id").val(id);
             $(".modal-body #id_surveyors").val(id_surveyors);
-            $(".modal-body #Tanggal_survei").val(Tanggal_survei);
+            $(".modal-body #Tanggal_survei").val(date);
             $(".modal-body #Jenis_instalasi").val(Jenis_instalasi);
             $(".modal-body #kebutuhan_material").val(kebutuhan_material);
             $(".modal-body #estimasi_waktu").val(estimasi_waktu);
