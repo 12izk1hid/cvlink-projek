@@ -1,18 +1,74 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Sep 05, 2023 at 03:50 PM
--- Server version: 5.7.26
--- PHP Version: 7.4.2
+-- Host: localhost
+-- Generation Time: Oct 18, 2024 at 05:40 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `dbwgsl`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hasil_survei`
+--
+
+CREATE TABLE `hasil_survei` (
+  `id` int(11) NOT NULL,
+  `id_surveyors` int(11) DEFAULT NULL,
+  `Tanggal_survei` date NOT NULL,
+  `Jenis_instalasi` varchar(100) NOT NULL,
+  `kebutuhan_material` text NOT NULL,
+  `estimasi_waktu` varchar(15) NOT NULL,
+  `catatan_hasil_survei` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `hasil_survei`
+--
+
+INSERT INTO `hasil_survei` (`id`, `id_surveyors`, `Tanggal_survei`, `Jenis_instalasi`, `kebutuhan_material`, `estimasi_waktu`, `catatan_hasil_survei`) VALUES
+(1, 1, '2024-10-05', 'Instalasi Listrik', 'Kabel 4m, 1 unit saklar', '3 hari', 'Semua material tersedia'),
+(2, 2, '2024-10-10', 'Pengeboran', '1 unit bor, 2 unit cangkul', '6 hari', 'Sumber air sudah ditemukan'),
+(3, 3, '2024-10-19', 'Instalasi CCTV', '5 unit cctv', '1 hari', 'Material masih kurang'),
+(6, 7, '2024-10-20', 'xxx', 'xxx', 'xxx', 'xxx');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jasa`
+--
+
+CREATE TABLE `jasa` (
+  `id` int(10) NOT NULL,
+  `nama_item` varchar(100) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `min_harga` varchar(20) NOT NULL,
+  `max_harga` varchar(20) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jasa`
+--
+
+INSERT INTO `jasa` (`id`, `nama_item`, `type`, `min_harga`, `max_harga`, `created_at`, `updated_at`) VALUES
+(1, 'jsjjsjs', 'barang', '67000', '89000', '2024-10-09', '2024-10-10');
 
 -- --------------------------------------------------------
 
@@ -23,9 +79,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_accountname` (
   `acc_no` varchar(10) NOT NULL,
   `account_name` varchar(255) NOT NULL,
-  `tgl_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tgl_create` datetime NOT NULL DEFAULT current_timestamp(),
   `usercreate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tbl_accountname`
@@ -115,12 +171,12 @@ CREATE TABLE `tbl_invoice` (
   `penerima` varchar(255) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `notelp` varchar(20) NOT NULL,
-  `tgl_dibuat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `tgl_diterima` datetime NOT NULL,
   `jumlah` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL COMMENT '1. buat, 2. sisa, 3.lunas',
   `userupdate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_invoice`
@@ -144,9 +200,9 @@ CREATE TABLE `tbl_invoicedetail` (
   `jumlah` varchar(255) NOT NULL,
   `pajak` double NOT NULL COMMENT 'dalam bent persen',
   `biaya` int(11) NOT NULL,
-  `tgl_dibuat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `tgl_update` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_invoicedetail`
@@ -167,9 +223,9 @@ INSERT INTO `tbl_invoicedetail` (`id`, `id_invoice`, `keterangan`, `jumlah`, `pa
 CREATE TABLE `tbl_jabatan` (
   `id` int(11) NOT NULL,
   `jabatan` varchar(100) NOT NULL,
-  `tgl_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_create` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `userupdate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tbl_jabatan`
@@ -196,7 +252,7 @@ CREATE TABLE `tbl_jurnal` (
   `kredit` int(11) NOT NULL,
   `referensi` varchar(15) NOT NULL,
   `usercreate` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -212,9 +268,9 @@ CREATE TABLE `tbl_jurnalbank` (
   `debet` int(11) NOT NULL,
   `kredit` int(11) NOT NULL,
   `referensi` varchar(15) NOT NULL,
-  `tglinput` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tglinput` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `usercreate` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_jurnalbank`
@@ -242,9 +298,9 @@ CREATE TABLE `tbl_kas` (
   `id` int(11) NOT NULL,
   `kas` varchar(10) NOT NULL,
   `total` bigint(20) NOT NULL,
-  `tgl_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `userid` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_kas`
@@ -257,6 +313,24 @@ INSERT INTO `tbl_kas` (`id`, `kas`, `total`, `tgl_update`, `userid`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_kategori`
+--
+
+CREATE TABLE `tbl_kategori` (
+  `id` int(11) NOT NULL,
+  `kategori` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_kategori`
+--
+
+INSERT INTO `tbl_kategori` (`id`, `kategori`) VALUES
+(1, 'Umum');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_leveluser`
 --
 
@@ -264,7 +338,7 @@ CREATE TABLE `tbl_leveluser` (
   `id_level` int(11) NOT NULL,
   `level` varchar(20) NOT NULL,
   `userupdate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_leveluser`
@@ -285,9 +359,9 @@ CREATE TABLE `tbl_pendapatan` (
   `invoice_num` varchar(20) NOT NULL,
   `keterangan` text NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `tgl_dibuat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `usercreate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -301,9 +375,9 @@ CREATE TABLE `tbl_pengeluaran` (
   `acc_no` varchar(10) NOT NULL,
   `keterangan` text NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `tgl_dibuat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `usercreate` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -319,9 +393,9 @@ CREATE TABLE `tbl_users` (
   `id_level` int(11) NOT NULL,
   `aktif` char(1) NOT NULL COMMENT 'Y/N',
   `idupdate` int(11) NOT NULL,
-  `tgl_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tgl_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tgl_create` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tgl_update` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_users`
@@ -330,9 +404,47 @@ CREATE TABLE `tbl_users` (
 INSERT INTO `tbl_users` (`id`, `username`, `nama`, `password`, `id_level`, `aktif`, `idupdate`, `tgl_create`, `tgl_update`) VALUES
 (3, 'admin12345', 'Administrator', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'Y', 1, '2023-08-21 16:26:23', '2023-08-12 11:01:58');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `no_hp` int(20) NOT NULL,
+  `role` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `nama`, `username`, `password`, `alamat`, `email`, `no_hp`, `role`) VALUES
+(5, 'qwer', 'qwer', '$2y$10$.OhzZZC2iypPirOeOnker.wm7TpxAomhYGkfMIEBy56', 'jl. qwer', 'qwer@gmail.com', 82626269, 'admin'),
+(7, 'arif', 'arif', '$2y$10$F241Fo6is/sQCCPTwdA.w.ZoV61AOVsvrWa2P.7cmlv', 'jl arif', 'arif@gmail.com', 8765, 'surveyor'),
+(8, 'ccc', 'ccc', '$2y$10$x6hrd5zlTeD94AvCe8GEYuSfNvL2IqIY0rivP3xYM3i', 'jl.ccc', 'ccc@gmail.com', 87555, 'surveyor');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `hasil_survei`
+--
+ALTER TABLE `hasil_survei`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jasa`
+--
+ALTER TABLE `jasa`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_accountname`
@@ -377,6 +489,12 @@ ALTER TABLE `tbl_kas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_kategori`
+--
+ALTER TABLE `tbl_kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_leveluser`
 --
 ALTER TABLE `tbl_leveluser`
@@ -402,8 +520,26 @@ ALTER TABLE `tbl_users`
   ADD KEY `id_level` (`id_level`) USING BTREE;
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `hasil_survei`
+--
+ALTER TABLE `hasil_survei`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `jasa`
+--
+ALTER TABLE `jasa`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice`
@@ -442,6 +578,12 @@ ALTER TABLE `tbl_kas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tbl_kategori`
+--
+ALTER TABLE `tbl_kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tbl_leveluser`
 --
 ALTER TABLE `tbl_leveluser`
@@ -464,3 +606,14 @@ ALTER TABLE `tbl_pengeluaran`
 --
 ALTER TABLE `tbl_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
