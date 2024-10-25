@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small><?= $title ?></small>
+            <small><?= htmlspecialchars($title) ?></small>
         </h1>
     </section>
     <!-- Main content -->
@@ -18,13 +18,11 @@
                         </button>
                     </div>
                     <div class="box-body">
-                        <?php if ((session()->getFlashdata('pesan') !== NULL)) {
-                            echo session()->getFlashdata('pesan');
-                        }  ?>
+                        <?= session()->getFlashdata('pesan') ? session()->getFlashdata('pesan') : ''; ?>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">No</th>
+                                    <th width="5%">ID Jasa</th>
                                     <th>Nama Item</th>
                                     <th>Type</th>
                                     <th>Min Harga</th>
@@ -33,24 +31,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $nom = 1;
-
-                                foreach ($jasa as $dt) { ?>
+                                <?php $nom = 1; foreach ($jasa as $dt): ?>
                                     <tr>
-                                        <td width="5%" class="text-center"><?= $nom++; ?></td>
-                                        <td><?= $dt['nama_item'] ?></td>
-                                        <td><?= $dt['type']; ?></td>
-                                        <td><?= $dt['min_harga']; ?></td>
-                                        <td><?= $dt['max_harga']; ?></td>
-                                        <td width="8%" class="text-center">
-                                        <a data-toggle="modal" data-id="<?= $dt['id'] ?>" data-nama_item="<?= $dt['nama_item'] ?>" data-type="<?= $dt['type'] ?>" data-min_harga="<?= $dt['min_harga'] ?>" data-max_harga="<?= $dt['max_harga'] ?>" href="#edit" class="edit-jasa" title="Edit Jasa"><button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button></a>
-                                        <a href="<?= base_url('jasa/delete?id=' . $dt['id']); ?>" class="delete" title="Delete">
-                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-                                        </a>
+                                    <td class="text-center"><?= esc($dt['id']); ?></td>
+                                        <td><?= htmlspecialchars($dt['nama_item']) ?></td>
+                                        <td><?= htmlspecialchars($dt['type']); ?></td>
+                                        <td><?= number_format($dt['min_harga'], 0, ',', '.'); ?></td>
+                                        <td><?= number_format($dt['max_harga'], 0, ',', '.'); ?></td>
+                                        <td class="text-center">
+                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" 
+                                               data-nama_item="<?= htmlspecialchars($dt['nama_item']) ?>" 
+                                               data-type="<?= htmlspecialchars($dt['type']) ?>" 
+                                               data-min_harga="<?= $dt['min_harga'] ?>" 
+                                               data-max_harga="<?= $dt['max_harga'] ?>" 
+                                               href="#edit" class="edit-jasa" title="Edit Jasa">
+                                                <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
+                                            </a>
+                                            <a href="<?= base_url('jasa/delete?id=' . $dt['id']); ?>" class="delete" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus jasa ini?');">
+                                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                            </a>
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -67,7 +69,8 @@
             <div class="modal-header">
                 <h4 class="modal-title">Tambah Jasa</h4>
             </div>
-            <form class="form" method="post" action="<?= base_url('jasa/save') ?>">
+            <form method="post" action="<?= base_url('jasa/save') ?>" enctype="multipart/form-data">
+                <?= csrf_field() ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="namaItem">Nama Item</label>
@@ -102,7 +105,8 @@
             <div class="modal-header">
                 <h4 class="modal-title">Edit Jasa</h4>
             </div>
-            <form class="form" method="post" action="<?= base_url('jasa/update') ?>">
+            <form method="post" action="<?= base_url('jasa/update') ?>" enctype="multipart/form-data">
+                <?= csrf_field() ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="namaItem">Nama Item</label>

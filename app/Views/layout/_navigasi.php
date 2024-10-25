@@ -39,12 +39,12 @@
                          <i class="fa fa-angle-left pull-right"></i>
                      </span>
                  </a>
-                 <ul class="treeview-menu">
+              <!--   <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infouser"><i class="fa fa-circle-o"></i> User</a></li>
                  </ul>
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infokategori"><i class="fa fa-circle-o"></i>Kategori</a></li>
-                 </ul>
+            </ul>-->
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infojasa"><i class="fa fa-circle-o"></i>Jasa</a></li>
                  </ul>
@@ -53,6 +53,9 @@
                  </ul>
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infosurvei"><i class="fa fa-circle-o"></i>Survei</a></li>
+                 </ul>
+                 <ul class="treeview-menu">
+                     <li><a href="<?= base_url() ?>infokontrak"><i class="fa fa-circle-o"></i>Kontrak</a></li>
                  </ul>
              </li>
              <li class="treeview">

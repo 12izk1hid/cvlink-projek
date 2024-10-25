@@ -58,8 +58,13 @@ $routes->get('infousers', 'UserController::index');
 
     $routes->get('infosurvei', 'SurveiController::index');
     $routes->post('survey/save', 'SurveiController::save');
-    $routes->post('update', 'SurveiController::update');
+    $routes->post('survey/edit', 'SurveiController::update');
     $routes->get('survei/delete', 'SurveiController::delete');
+
+    $routes->get('infokontrak', 'KontrakController::index');
+    $routes->post('kontrak/save', 'KontrakController::save');
+    $routes->post('kontrak/edit', 'KontrakController::update');
+    $routes->get('kontrak/delete', 'KontrakController::delete');
 
 $routes->get('/infouser', 'Admin::user');
 $routes->post('/simpanuser', 'Admin::simpanuser');

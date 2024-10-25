@@ -24,7 +24,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">id</th>
+                                    <th width="5%">ID</th>
                                     <th>Nama</th>
                                     <th>Username</th>
                                     <th>Password</th>
@@ -40,7 +40,7 @@
                                 $nom = 1;
                                 foreach ($users as $dt) { ?>
                                     <tr>
-                                        <td <?= esc($dt['id']); ?> width="5%" class="text-center"><?= $nom++; ?></td>
+                                        <td class="text-center"><?= esc($dt['id']); ?></td>
                                         <td><?= esc($dt['nama']); ?></td>
                                         <td><?= esc($dt['username']); ?></td>
                                         <td><?= esc($dt['password']); ?></td>
@@ -48,11 +48,11 @@
                                         <td><?= esc($dt['email']); ?></td>
                                         <td><?= esc($dt['no_hp']); ?></td>
                                         <td><?= esc($dt['role']); ?></td>
-                                        <td width="8%" class="text-center">
-                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" data-nama="<?= esc($dt['nama']) ?>" data-username="<?= esc($dt['username']) ?>" data-password="<?= esc($dt['password']) ?>" data-alamat="<?= esc($dt['alamat']) ?>" data-email="<?= esc($dt['email']) ?>" data-no_hp="<?= esc($dt['no_hp']) ?>" data-role="<?= esc($dt['role']) ?>"  href="#edit" class="edit-user" title="Edit User">
+                                        <td class="text-center">
+                                            <a data-toggle="modal" data-id="<?= esc($dt['id']) ?>" data-nama="<?= esc($dt['nama']) ?>" data-username="<?= esc($dt['username']) ?>" data-password="<?= esc($dt['password']) ?>" data-alamat="<?= esc($dt['alamat']) ?>" data-email="<?= esc($dt['email']) ?>" data-no_hp="<?= esc($dt['no_hp']) ?>" data-role="<?= esc($dt['role']) ?>" href="#edit" class="edit-user" title="Edit User">
                                                 <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
-                                            <a href="<?= base_url('delete?id=' . $dt['id']); ?>" class="delete" title="Delete">
+                                            <a href="<?= base_url('delete?id=' . esc($dt['id'])); ?>" class="delete" title="Delete">
                                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                             </a>
                                         </td>
@@ -78,32 +78,32 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama" required>
+                        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
+                        <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required>
                     </div>
                     <div class="form-group">
-                        <label for="username">Password</label>
-                        <input type="text" class="form-control" name="password"  placeholder="Masukan Password" required>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control" name="alamat"  placeholder="Masukan Alamat" required>
+                        <input type="text" class="form-control" name="alamat" placeholder="Masukkan Alamat" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Masukan Email" required>
+                        <input type="email" class="form-control" name="email" placeholder="Masukkan Email" required>
                     </div>
                     <div class="form-group">
                         <label for="no_hp">No HP</label>
-                        <input type="text" class="form-control" name="no_hp" placeholder="Masukan No HP" required>
+                        <input type="text" class="form-control" name="no_hp" placeholder="Masukkan No HP" required>
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
-                        <select class="form-control" name="role" id="role" placeholder="Masukan Role" required>
-                        <option value="">Pilih Role</option>
+                        <select class="form-control" name="role" required>
+                            <option value="">Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="klien">Klien</option>
                             <option value="surveyor">Surveyor</option>
@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                 </div>
             </form>
@@ -132,31 +132,31 @@
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="hidden" class="form-control" name="id" id="id">
-                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan Nama" required>
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukan Username" required>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan Username" required>
                     </div>
                     <div class="form-group">
-                        <label for="username">Password</label>
-                        <input type="text" class="form-control" name="password" id="password" placeholder="Masukan Password" required>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan Password" required>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat" required>
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Masukan Email" required>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan Email" required>
                     </div>
                     <div class="form-group">
                         <label for="no_hp">No HP</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Masukan No HP" required>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Masukkan No HP" required>
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
-                        <select class="form-control" name="role" id="role" placeholder="Masukan Role" required>
+                        <select class="form-control" name="role" id="role" required>
                             <option value="">Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="klien">Klien</option>
@@ -164,10 +164,9 @@
                             <option value="teknisi">Teknisi</option>
                         </select>
                     </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
                 </div>
             </form>
