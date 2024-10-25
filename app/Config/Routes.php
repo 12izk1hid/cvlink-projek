@@ -66,6 +66,11 @@ $routes->get('infousers', 'UserController::index');
     $routes->post('kontrak/edit', 'KontrakController::update');
     $routes->get('kontrak/delete', 'KontrakController::delete');
 
+    $routes->get('infoinvoice', 'InvoiceController::index');
+    $routes->post('invoice/save', 'InvoiceController::save');
+    $routes->post('invoice/edit', 'InvoiceController::update');
+    $routes->get('invoice/delete', 'InvoiceController::delete');
+
 $routes->get('/infouser', 'Admin::user');
 $routes->post('/simpanuser', 'Admin::simpanuser');
 $routes->post('/updateuser', 'Admin::updateuser');

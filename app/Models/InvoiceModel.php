@@ -6,41 +6,21 @@ use CodeIgniter\Model;
 
 class InvoiceModel extends Model
 {
+    protected $DBGroup          = 'default';
+    protected $table            = 'invoice';
+    protected $primaryKey       = 'id_kontrak';
+    protected $useAutoIncrement = true;
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = false;
+    protected $protectFields    = true;
+    protected $allowedFields = ['id_kontrak', 'harga', 'Status'];
 
-    protected $table = 'tbl_invoice';
-    protected $primaryKey = 'id';
-    //field yang akan di tampilkan
-    protected $allowedFields = ['penerima', 'alamat', 'notelp', 'jumlah', 'status', 'userupdate'];
-
-    // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'tgl_dibuat';
-    protected $updatedField  = 'tgl_diterima';
-    protected $deletedField  = 'deleted_at';
-
-    public function getInvoice()
+    // Fungsi untuk mengambil data id dari pengguna yang role-nya surveyor
+    public function getKontrak()
     {
-        return $this->findAll();
-    }
-
-    public function ambilidInvoicemaks()
-    {
-        $builder = $this->db->table('tbl_invoice');
-        $builder->selectMax('id');
-        $query = $builder->get();
-        return $query->getResultArray();
-    }
-
-    public function getInvoiceDetail($id = '')
-    {
-        $builder = $this->db->table('tbl_invoice');
-        $builder->select('*');
-        $builder->join('tbl_invoicedetail', 'tbl_invoicedetail.id_invoice = tbl_invoice.id', 'inner');
-        if ($id) {
-            $builder->where('id_invoice', $id);
-        }
-        $query = $builder->get();
-        return $query->getResultArray();
+        return $this->db->table('kontrak')
+                        ->select('id')                
+                        ->get()
+                        ->getResultArray();  
     }
 }

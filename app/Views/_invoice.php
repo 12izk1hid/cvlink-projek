@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Informasi
+            Dashboard
             <small><?= $title ?></small>
         </h1>
     </section>
@@ -12,25 +12,22 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#tambahData">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#tambah">
                             <i class="fa fa-plus"></i>
-                            New Invoice
+                            Tambah Invoice
                         </button>
                     </div>
                     <div class="box-body">
-                        <?php if ((session()->getFlashdata('pesan') !== NULL)) {
+                        <?php if (session()->getFlashdata('pesan') !== NULL) {
                             echo session()->getFlashdata('pesan');
-                        }  ?>
+                        } ?>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="8%">No</th>
-                                    <th width="10%">Tanggal</th>
-                                    <th width="12%">Invoice Number</th>
-                                    <th>Penerima</th>
-                                    <th width="12%">Notelp</th>
-                                    <th width="10%">status</th>
-                                    <th width="10%">Jumlah</th>
+                                    <th>ID Kontrak</th>
+                                    <th>Harga</th>
+                                    <th>Status</th>
+                                    <th width="12%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,20 +35,20 @@
                                 $nom = 1;
                                 foreach ($invoice as $dt) { ?>
                                     <tr>
-                                        <td width="5%" class="text-center"><?= $nom++; ?></td>
-                                        <td><?= date('d-m-Y', strtotime($dt['tgl_dibuat'])); ?></td>
-                                        <td><?= $invoicecode . date('Y', strtotime($dt['tgl_dibuat'])) . '-' . $dt['id']; ?></td>
-                                        <td><?= $dt['penerima'] . '<br>' . $dt['alamat']; ?></td>
-                                        <td><?= $dt['notelp']; ?></td>
-                                        <td><?php
-                                            if ($dt['status'] == '1')
-                                                echo 'Belum di bayar';
-                                            else if ($dt['status'] == '2')
-                                                echo 'Belum Lunas';
-                                            else
-                                                echo 'Lunas';
-                                            ?></td>
-                                        <td class="text-right"><?= number_format($dt['jumlah']); ?></td>
+                                        <td><?= esc($dt['id_kontrak']); ?></td>
+                                        <td><?= esc($dt['harga']); ?></td>
+                                        <td><?= esc($dt['Status']); ?></td>
+                                        <td class="text-center">
+                                            <a data-id_kontrak="<?= esc($dt['id_kontrak']) ?>" 
+                                               data-harga="<?= esc($dt['harga']) ?>" 
+                                               data-status="<?= esc($dt['Status']) ?>" 
+                                               href="#edit" class="edit-invoice" title="Edit Invoice">
+                                                <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
+                                            </a>
+                                            <a href="<?= base_url('invoice/delete?id_kontrak=' . esc($dt['id_kontrak'])); ?>" class="delete" title="Delete">
+                                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -63,38 +60,34 @@
     </section>
 </div>
 
-
-
-
-<!-- Tambah Data -->
-<div class="modal fade" id="tambahData" role="dialog">
+<!-- Tambah Invoice -->
+<div class="modal fade" id="tambah" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">New Invoice</h4>
+                <h4 class="modal-title">Tambah Invoice</h4>
             </div>
-            <form class="form" method="post" action="<?= base_url() ?>/simpaninvoice">
+            <form class="form" method="post" action="<?= base_url('invoice/save') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Invoice Number</label>
-                        <input type="hidden" class="form-control" name="id_invoice" value="<?= $id  ?>">
-                        <input type="text" class="form-control" name="id" value="<?= $id ?>" readonly>
+                        <label for="id_kontrak">ID Kontrak</label>
+                        <select id="id_kontrak" name="id_kontrak" onchange="fetchHarga(this.value)" required>
+                            <?php foreach ($kontrak as $k): ?>
+                                <option value="<?= esc($k['id']); ?>"><?= esc($k['id']); ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Date</label>
-                        <input type="text" class="form-control" name="tgl_dibuat" id="datepicker" placeholder="Selec Date" required>
+                        <label for="harga">Harga</label>
+                        <input type="text" id="harga" class="form-control" name="harga" placeholder="Harga" readonly required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">To</label>
-                        <input type="text" class="form-control" name="penerima" placeholder="To" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Address</label>
-                        <input type="text" class="form-control" name="alamat" value="-" placeholder="Address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Phone Number</label>
-                        <input type="text" class="form-control" name="notelp" value="-" placeholder="Phone Number" required>
+                        <label for="Status">Status</label>
+                        <select class="form-control" name="Status" id="Status" required>
+                            <option value="">Pilih Role</option>
+                            <option value="selesai">Selesai</option>
+                            <option value="pending">Pending</option> 
+                        </select>                    
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -106,28 +99,72 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Edit Invoice -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Invoice</h4>
+            </div>
+            <form class="form" method="post" action="<?= base_url('invoice/update') ?>">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="id_kontrak">ID Kontrak</label>
+                        <input type="text" id="id_kontrak_edit" name="id_kontrak" readonly class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="harga">Harga</label>
+                        <input type="text" id="harga_edit" class="form-control" name="harga" placeholder="Harga" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <input type="hidden" name="id" id="id">
+                        <select class="form-control" name="Status" id="Status" required>
+                            <option value="">Pilih Role</option>
+                            <option value="selesai">Selesai</option>
+                            <option value="pending">Pending</option> 
+                        </select>                      
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script>
     $(document).ready(function() {
+        $('.edit-invoice').on('click', function() {
+            var id_kontrak = $(this).data('id_kontrak');
+            var harga = $(this).data('harga');
+            var status = $(this).data('Status');
 
-        var rupiah = document.getElementById('jumlah');
-        rupiah.addEventListener('keyup', function(e) {
-            rupiah.value = formatRupiah(this.value, 'Rp. ');
-        })
+            $('#id_kontrak_edit').val(id_kontrak);
+            $('#harga_edit').val(harga);
+            $('#status_edit').val(status);
 
-        function formatRupiah(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
+            $('#edit').modal('show');
+        });
     });
+
+    function fetchHarga(idKontrak) {
+        if (idKontrak) {
+            fetch(`get_harga.php?id_kontrak=${idKontrak}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.harga) {
+                        document.getElementById('harga').value = data.harga;
+                    } else {
+                        document.getElementById('harga').value = '';
+                    }
+                })
+                .catch(error => console.error('Error fetching harga:', error));
+        } else {
+            document.getElementById('harga').value = '';
+        }
+    }
 </script>

@@ -57,6 +57,9 @@
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infokontrak"><i class="fa fa-circle-o"></i>Kontrak</a></li>
                  </ul>
+                 <ul class="treeview-menu">
+                     <li><a href="<?= base_url() ?>infoinvoice"><i class="fa fa-circle-o"></i>Invoice</a></li>
+                 </ul>
              </li>
              <li class="treeview">
                  <a href="#">
