@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2024 at 05:40 PM
+-- Generation Time: Oct 27, 2024 at 08:06 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -42,10 +42,32 @@ CREATE TABLE `hasil_survei` (
 --
 
 INSERT INTO `hasil_survei` (`id`, `id_surveyors`, `Tanggal_survei`, `Jenis_instalasi`, `kebutuhan_material`, `estimasi_waktu`, `catatan_hasil_survei`) VALUES
-(1, 1, '2024-10-05', 'Instalasi Listrik', 'Kabel 4m, 1 unit saklar', '3 hari', 'Semua material tersedia'),
-(2, 2, '2024-10-10', 'Pengeboran', '1 unit bor, 2 unit cangkul', '6 hari', 'Sumber air sudah ditemukan'),
-(3, 3, '2024-10-19', 'Instalasi CCTV', '5 unit cctv', '1 hari', 'Material masih kurang'),
-(6, 7, '2024-10-20', 'xxx', 'xxx', 'xxx', 'xxx');
+(1, 8, '2024-10-05', 'Instalasi Listrik', 'Kabel 4m, 1 unit saklar', '3 hari', 'Semua material tersedia'),
+(2, 7, '2024-10-10', 'Pengeboran', '1 unit bor, 2 unit cangkul', '6 hari', 'Sumber air sudah ditemukan'),
+(3, 8, '2024-10-19', 'Instalasi CCTV', '5 unit cctv', '1 hari', 'Material masih kurang'),
+(8, 7, '2024-10-28', 'fffx', 'fffx', 'fffx', 'fffx');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `id_kontrak` int(11) NOT NULL,
+  `harga` varchar(50) NOT NULL,
+  `Status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`id_kontrak`, `harga`, `Status`) VALUES
+(1, 'Rp. 2000.000', 'Selesai'),
+(2, 'Rp. 7.500.000', 'Selesai'),
+(3, 'Rp. 5000.000', 'Selesai'),
+(14, '', 'pending');
 
 -- --------------------------------------------------------
 
@@ -68,7 +90,61 @@ CREATE TABLE `jasa` (
 --
 
 INSERT INTO `jasa` (`id`, `nama_item`, `type`, `min_harga`, `max_harga`, `created_at`, `updated_at`) VALUES
-(1, 'jsjjsjs', 'barang', '67000', '89000', '2024-10-09', '2024-10-10');
+(1, 'jsjjsjs', 'barang', '67000', '89000', '2024-10-09', '2024-10-10'),
+(8, 'vvv', 'vvv', '1', '2', '2024-10-24', '2024-10-24'),
+(9, 'zczcz', 'zczz', '3', '4', '2024-10-24', '2024-10-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kontrak`
+--
+
+CREATE TABLE `kontrak` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_hasil_survei` int(10) UNSIGNED NOT NULL,
+  `id_klien` int(11) UNSIGNED NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `harga` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kontrak`
+--
+
+INSERT INTO `kontrak` (`id`, `id_hasil_survei`, `id_klien`, `created_at`, `updated_at`, `harga`) VALUES
+(1, 1, 10, '2024-10-06', '2024-10-07', '2000000'),
+(2, 2, 9, '2024-10-11', '2024-10-12', '7500000'),
+(3, 3, 9, '2024-10-20', '2024-10-21', '5000000'),
+(14, 1, 9, '2024-10-27', '2024-10-27', '1112'),
+(15, 8, 11, '2024-10-30', '2024-10-31', '111111');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemasangan`
+--
+
+CREATE TABLE `pemasangan` (
+  `id` int(11) NOT NULL,
+  `id_kontrak` int(11) NOT NULL,
+  `tanggal_mulai` date NOT NULL,
+  `tanggal_selesai` date NOT NULL,
+  `status_pemasangan` varchar(100) NOT NULL,
+  `id_teknisi` int(11) NOT NULL,
+  `catatan_pemasangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pemasangan`
+--
+
+INSERT INTO `pemasangan` (`id`, `id_kontrak`, `tanggal_mulai`, `tanggal_selesai`, `status_pemasangan`, `id_teknisi`, `catatan_pemasangan`) VALUES
+(1, 1, '2024-10-08', '2024-10-11', 'Selesai', 1, 'Tidak ada kendala'),
+(2, 2, '2024-10-13', '2024-10-19', 'Selesai', 2, 'Tidak Ada Kendala'),
+(3, 3, '2024-10-22', '2024-10-22', 'Selesai', 3, 'Tidak Ada Kendala'),
+(7, 2, '2024-10-29', '2024-10-30', 'proses', 12, 'zxc');
 
 -- --------------------------------------------------------
 
@@ -428,7 +504,12 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `alamat`, `email`, `no_hp`, `role`) VALUES
 (5, 'qwer', 'qwer', '$2y$10$.OhzZZC2iypPirOeOnker.wm7TpxAomhYGkfMIEBy56', 'jl. qwer', 'qwer@gmail.com', 82626269, 'admin'),
 (7, 'arif', 'arif', '$2y$10$F241Fo6is/sQCCPTwdA.w.ZoV61AOVsvrWa2P.7cmlv', 'jl arif', 'arif@gmail.com', 8765, 'surveyor'),
-(8, 'ccc', 'ccc', '$2y$10$x6hrd5zlTeD94AvCe8GEYuSfNvL2IqIY0rivP3xYM3i', 'jl.ccc', 'ccc@gmail.com', 87555, 'surveyor');
+(8, 'ccc', 'ccc', '$2y$10$x6hrd5zlTeD94AvCe8GEYuSfNvL2IqIY0rivP3xYM3i', 'jl.ccc', 'ccc@gmail.com', 87555, 'surveyor'),
+(9, 'Agus', 'agus', '$2y$10$n3l.M8bn6S34LRCP8EPhW.1/qUA67gUIfMqk8DV43JU', 'jl agus', 'agus@gmail.com', 83333, 'klien'),
+(10, 'rey', 'rey', '$2y$10$PF/SwLT/5H.BPml6YkFW5./R5ph/RP.b2dDvKHgyDfs', 'jl rey', 'rey@gmail.com', 8222, 'klien'),
+(11, 'c', 'c', '$2y$10$dlwTS7wtJF5QlW3wDnLlp.x7gJ4V1MKqKkDPB6sCpNy', 'c', 'c@gmail.com', 987, 'klien'),
+(12, 'fah', 'fah', '$2y$10$hE.ha2VAP.tcN6iXsuScv.N95OZEnNT3QWSP/A0bW2h', 'Jl fah', 'fah@gmail.com', 866, 'teknisi'),
+(13, 'van', 'van', '$2y$10$OyCstM7p2ShoqERhpS9SieGZzheALGwKF/R2lmUjKxT', 'jl van', 'van@gmail.com', 81414, 'teknisi');
 
 --
 -- Indexes for dumped tables
@@ -441,9 +522,29 @@ ALTER TABLE `hasil_survei`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id_kontrak`);
+
+--
 -- Indexes for table `jasa`
 --
 ALTER TABLE `jasa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kontrak`
+--
+ALTER TABLE `kontrak`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kontrak_id_hasil_survei_foreign` (`id_hasil_survei`),
+  ADD KEY `kontrak_id_user_foreign` (`id_klien`);
+
+--
+-- Indexes for table `pemasangan`
+--
+ALTER TABLE `pemasangan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -533,13 +634,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `hasil_survei`
 --
 ALTER TABLE `hasil_survei`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `id_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `kontrak`
+--
+ALTER TABLE `kontrak`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `pemasangan`
+--
+ALTER TABLE `pemasangan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice`
@@ -611,7 +730,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

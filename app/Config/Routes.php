@@ -70,6 +70,11 @@ $routes->get('infousers', 'UserController::index');
     $routes->post('invoice/save', 'InvoiceController::save');
     $routes->post('invoice/edit', 'InvoiceController::update');
     $routes->get('invoice/delete', 'InvoiceController::delete');
+    
+    $routes->get('infopemasangan', 'PemasanganController::index');
+    $routes->post('pemasangan/save', 'PemasanganController::save');
+    $routes->post('pemasangan/edit', 'PemasanganController::update');
+    $routes->get('pemasangan/delete', 'PemasanganController::delete');
 
 $routes->get('/infouser', 'Admin::user');
 $routes->post('/simpanuser', 'Admin::simpanuser');

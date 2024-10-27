@@ -19,8 +19,17 @@ class InvoiceModel extends Model
     public function getKontrak()
     {
         return $this->db->table('kontrak')
-                        ->select('id')                
+                        ->select('id','harga')                
                         ->get()
                         ->getResultArray();  
     }
+    public function getHargaByKontrak($id_kontrak) {
+        return $this->db->table('nama_tabel')
+                        ->select('harga')
+                        ->where('id_kontrak', $id_kontrak)
+                        ->get()
+                        ->getRowArray(); // Pastikan ini mengembalikan row yang sesuai
+    }
+    
 }
+

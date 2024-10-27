@@ -60,7 +60,7 @@
     </section>
 </div>
 
-<!-- Tambah Invoice -->
+<!-- Modal Tambah Invoice -->
 <div class="modal fade" id="tambah" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -81,10 +81,11 @@
                         <label for="harga">Harga</label>
                         <input type="text" id="harga" class="form-control" name="harga" placeholder="Harga" readonly required>
                     </div>
+
                     <div class="form-group">
                         <label for="Status">Status</label>
                         <select class="form-control" name="Status" id="Status" required>
-                            <option value="">Pilih Role</option>
+                            <option value="">Pilih Status</option>
                             <option value="selesai">Selesai</option>
                             <option value="pending">Pending</option> 
                         </select>                    
@@ -118,7 +119,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Status">Status</label>
-                        <input type="hidden" name="id" id="id">
+                 
                         <select class="form-control" name="Status" id="Status" required>
                             <option value="">Pilih Role</option>
                             <option value="selesai">Selesai</option>
@@ -152,19 +153,21 @@
     });
 
     function fetchHarga(idKontrak) {
-        if (idKontrak) {
-            fetch(`get_harga.php?id_kontrak=${idKontrak}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.harga) {
-                        document.getElementById('harga').value = data.harga;
-                    } else {
-                        document.getElementById('harga').value = '';
-                    }
-                })
-                .catch(error => console.error('Error fetching harga:', error));
-        } else {
-            document.getElementById('harga').value = '';
-        }
+    if (idKontrak) {
+        fetch(`<?= base_url('invoiceModel/getHargaByIdKontrak') ?>?id_kontrak=${idKontrak}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.harga) {
+                    document.getElementById('harga').value = data.harga;
+                } else {
+                    document.getElementById('harga').value = '';
+                }
+            })
+            .catch(error => console.error('Error fetching harga:', error));
+    } else {
+        document.getElementById('harga').value = '';
     }
+}
+
+
 </script>
