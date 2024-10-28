@@ -92,7 +92,7 @@ class PemasanganController extends BaseController
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $update = [
-                'id'      => $this->request->getPost('id_pemasangan'),
+                'id'      => $this->request->getPost('id'),
                 'id_kontrak'       => $this->request->getPost('id_kontrak'),
                 'tanggal_mulai'     => $this->request->getPost('tanggal_mulai'),
                 'tanggal_selesai'    => $this->request->getPost('tanggal_selesai'),
@@ -103,7 +103,7 @@ class PemasanganController extends BaseController
                 $where = [
                     'id'   => $this->request->getVar('id'),  // Mendapatkan ID pemasangan dari form
                 ];
-                $this-> pemasanganModel->update($where['id'], $update);
+                $this-> pemasanganModel->update($where, $update);
                 $session->setFlashdata(
                     'pesan',
                     '<div class="alert alert-success alert-dismissible">

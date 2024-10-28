@@ -3,17 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\InvoiceModel;
+use App\Models\KontrakModel;
 
 
 class InvoiceController extends BaseController
 {
     protected $invoiceModel;
-
+    protected $kontrakModel;
 
     public function __construct()
     {
         $this->invoiceModel = new InvoiceModel();
- 
+        $this->kontrakModel = new KontrakModel();
     }
 
     public function index()
@@ -39,11 +40,12 @@ class InvoiceController extends BaseController
     public function save()
     {
         $session = session();
+        // dd( $this->request->getPost('status'));
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $insert = [
                 'id_kontrak' => $this->request->getPost('id_kontrak'),
-                'harga' => $this->request->getPost('harga'),
-                'Status' => $this->request->getPost('Status')
+                'harga' => $this->kontrakModel->getHargaFromId($this->request->getPost('id_kontrak')),
+                'status' => $this->request->getPost('status'),
             ];
 
             $this->invoiceModel->insert($insert);
@@ -63,11 +65,12 @@ class InvoiceController extends BaseController
     public function update()
     {
         $session = session();
+        // dd($this->request->getPost('status'));
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $id_kontrak = $this->request->getPost('id_kontrak');
             $update = [
                 'harga' => $this->request->getPost('harga'),
-                'Status' => $this->request->getPost('Status')
+                'status' => $this->request->getPost('status')
             ];
 
             $this->invoiceModel->update($id_kontrak, $update);

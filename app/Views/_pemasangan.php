@@ -137,11 +137,11 @@
                 <h4 class="modal-title">Edit Pemasangan</h4>
             </div>
             <form class="form" method="post" action="<?= base_url('pemasangan/edit') ?>">
+                <input type="hidden" name="id" id="id_edit">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="id_kontrak">Id kontrak</label>
-                        <input type="hidden" name="id" id="id">
-                        <select id="id_kontrak" name="id_kontrak" required>
+                        <select id="id_kontrak_edit" name="id_kontrak" required>
                             <?php foreach ($Id_kontrak as $kontrak): ?>
                                 <option value="<?= esc($kontrak['id']); ?>"><?= esc($kontrak['id']); ?></option>
                             <?php endforeach; ?>
@@ -157,17 +157,16 @@
                     </div>
                     <div class="form-group">
                         <label for="status_pemasangan">Role</label>
-                        <select class="form-control" name="status_pemasangan" id="status_pemasangan" required>
-                        <option value="">Pilih Status</option>
-                            <option value="selesai">Selesai</option>
-                            <option value="Proses Pengerjaan">Proses Pengerjaan</option>
+                        <select class="form-control" name="status_pemasangan" id="spe" required>
+                            <option value="">Pilih Status</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="proses">Proses Pengerjaan</option>
                             <option value="Belum Ada Pengerjaan">Belum Ada Pengerjaan</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="id_teknisi">Id Teknisi</label>
-                        <input type="hidden" name="id" id="id">
-                        <select id="id_teknisi" name="id_teknisi" required>
+                        <select id="id_teknisi_edit" name="id_teknisi" required>
                             <?php foreach ($Id_teknisi as $teknisi): ?>
                                 <option value="<?= esc($teknisi['id']); ?>"><?= esc($teknisi['id']); ?></option>
                             <?php endforeach; ?>
@@ -199,12 +198,12 @@
             var id_teknisi = $(this).data('id_teknisi');
             var catatan_pemasangan = $(this).data('catatan_pemasangan');
 
-            $('#id').val(id);
-            $('#id_kontrak').val(id_kontrak);
+            $('#id_edit').val(id);
+            $('#id_kontrak_edit').val(id_kontrak);
             $('#tanggal_mulai').val(tanggal_mulai);
             $('#tanggal_selesai').val(tanggal_selesai);
-            $('#status_pemasangan').val(status_pemasangan);
-            $('#id_teknisi').val(id_teknisi);
+            $('#spe').val(status_pemasangan);
+            $('#id_teknisi_edit').val(id_teknisi);
             $('#catatan_pemasangan').val(catatan_pemasangan);
         });
     });

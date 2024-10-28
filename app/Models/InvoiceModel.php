@@ -13,7 +13,7 @@ class InvoiceModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields = ['id_kontrak', 'harga', 'Status'];
+    protected $allowedFields = ['id_kontrak', 'harga', 'status'];
 
     // Fungsi untuk mengambil data id dari pengguna yang role-nya surveyor
     public function getKontrak()

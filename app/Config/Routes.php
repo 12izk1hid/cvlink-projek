@@ -52,29 +52,29 @@ $routes->get('jasa/delete', 'JasaController::delete');          // Menghapus dat
 
 
 $routes->get('infousers', 'UserController::index');
-    $routes->post('save', 'UserController::save');
-    $routes->post('update', 'UserController::update');
-    $routes->get('delete', 'UserController::delete');
+$routes->post('save', 'UserController::save');
+$routes->post('update', 'UserController::update');
+$routes->get('delete', 'UserController::delete');
 
-    $routes->get('infosurvei', 'SurveiController::index');
-    $routes->post('survey/save', 'SurveiController::save');
-    $routes->post('survey/edit', 'SurveiController::update');
-    $routes->get('survei/delete', 'SurveiController::delete');
+$routes->get('infosurvei', 'SurveiController::index');
+$routes->post('survey/save', 'SurveiController::save');
+$routes->post('survey/edit', 'SurveiController::update');
+$routes->get('survei/delete', 'SurveiController::delete');
 
-    $routes->get('infokontrak', 'KontrakController::index');
-    $routes->post('kontrak/save', 'KontrakController::save');
-    $routes->post('kontrak/edit', 'KontrakController::update');
-    $routes->get('kontrak/delete', 'KontrakController::delete');
+$routes->get('infokontrak', 'KontrakController::index');
+$routes->post('kontrak/save', 'KontrakController::save');
+$routes->post('kontrak/edit', 'KontrakController::update');
+$routes->get('kontrak/delete', 'KontrakController::delete');
 
-    $routes->get('infoinvoice', 'InvoiceController::index');
-    $routes->post('invoice/save', 'InvoiceController::save');
-    $routes->post('invoice/edit', 'InvoiceController::update');
-    $routes->get('invoice/delete', 'InvoiceController::delete');
-    
-    $routes->get('infopemasangan', 'PemasanganController::index');
-    $routes->post('pemasangan/save', 'PemasanganController::save');
-    $routes->post('pemasangan/edit', 'PemasanganController::update');
-    $routes->get('pemasangan/delete', 'PemasanganController::delete');
+$routes->get('infoinvoice', 'InvoiceController::index');
+$routes->post('invoice/save', 'InvoiceController::save');
+$routes->post('invoice/update', 'InvoiceController::update');
+$routes->get('invoice/delete', 'InvoiceController::delete');
+
+$routes->get('infopemasangan', 'PemasanganController::index');
+$routes->post('pemasangan/save', 'PemasanganController::save');
+$routes->post('pemasangan/edit', 'PemasanganController::update');
+$routes->get('pemasangan/delete', 'PemasanganController::delete');
 
 $routes->get('/infouser', 'Admin::user');
 $routes->post('/simpanuser', 'Admin::simpanuser');

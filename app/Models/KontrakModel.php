@@ -35,5 +35,9 @@ class KontrakModel extends Model
                       ->get()
                       ->getResultArray();  // Mengembalikan hasil sebagai array
   }
+
+  public function getHargaFromId($id) {
+    return $this->db->table('kontrak')->select('harga')->where('id', $id)->get()->getResultArray()[0]['harga'];
+  }
 }
 

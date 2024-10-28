@@ -84,7 +84,7 @@
 
                     <div class="form-group">
                         <label for="Status">Status</label>
-                        <select class="form-control" name="Status" id="Status" required>
+                        <select class="form-control" name="status" id="Status" required>
                             <option value="">Pilih Status</option>
                             <option value="selesai">Selesai</option>
                             <option value="pending">Pending</option> 
@@ -120,7 +120,7 @@
                     <div class="form-group">
                         <label for="Status">Status</label>
                  
-                        <select class="form-control" name="Status" id="Status" required>
+                        <select class="form-control" name="status" id="status" required>
                             <option value="">Pilih Role</option>
                             <option value="selesai">Selesai</option>
                             <option value="pending">Pending</option> 
@@ -142,32 +142,14 @@
         $('.edit-invoice').on('click', function() {
             var id_kontrak = $(this).data('id_kontrak');
             var harga = $(this).data('harga');
-            var status = $(this).data('Status');
+            var status = $(this).data('status');
 
             $('#id_kontrak_edit').val(id_kontrak);
             $('#harga_edit').val(harga);
-            $('#status_edit').val(status);
+            $('#status').val(status)
 
             $('#edit').modal('show');
         });
     });
-
-    function fetchHarga(idKontrak) {
-    if (idKontrak) {
-        fetch(`<?= base_url('invoiceModel/getHargaByIdKontrak') ?>?id_kontrak=${idKontrak}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.harga) {
-                    document.getElementById('harga').value = data.harga;
-                } else {
-                    document.getElementById('harga').value = '';
-                }
-            })
-            .catch(error => console.error('Error fetching harga:', error));
-    } else {
-        document.getElementById('harga').value = '';
-    }
-}
-
 
 </script>

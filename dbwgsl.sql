@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2024 at 08:06 AM
+-- Generation Time: Oct 28, 2024 at 04:44 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -64,10 +64,11 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`id_kontrak`, `harga`, `Status`) VALUES
-(1, 'Rp. 2000.000', 'Selesai'),
-(2, 'Rp. 7.500.000', 'Selesai'),
-(3, 'Rp. 5000.000', 'Selesai'),
-(14, '', 'pending');
+(1, 'Rp. 4000.000', 'pending'),
+(2, 'Rp. 7.500.000', 'selesai'),
+(3, 'Rp. 5.000.000', 'pending'),
+(14, '1112', 'pending'),
+(15, '111111', 'selesai');
 
 -- --------------------------------------------------------
 
@@ -141,10 +142,8 @@ CREATE TABLE `pemasangan` (
 --
 
 INSERT INTO `pemasangan` (`id`, `id_kontrak`, `tanggal_mulai`, `tanggal_selesai`, `status_pemasangan`, `id_teknisi`, `catatan_pemasangan`) VALUES
-(1, 1, '2024-10-08', '2024-10-11', 'Selesai', 1, 'Tidak ada kendala'),
-(2, 2, '2024-10-13', '2024-10-19', 'Selesai', 2, 'Tidak Ada Kendala'),
-(3, 3, '2024-10-22', '2024-10-22', 'Selesai', 3, 'Tidak Ada Kendala'),
-(7, 2, '2024-10-29', '2024-10-30', 'proses', 12, 'zxc');
+(8, 15, '2024-10-01', '2024-10-25', 'Belum Ada Pengerjaan', 13, 'zxc'),
+(9, 3, '2024-10-31', '2024-10-31', 'Selesai', 12, 'zzzc');
 
 -- --------------------------------------------------------
 
@@ -658,7 +657,7 @@ ALTER TABLE `kontrak`
 -- AUTO_INCREMENT for table `pemasangan`
 --
 ALTER TABLE `pemasangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice`
