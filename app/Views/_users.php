@@ -24,10 +24,10 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID</th>
+                                    <!-- <th width="5%">ID</th> -->
                                     <th>Nama</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
+                                    <!-- <th>Username</th> -->
+                                    <!-- <th>Password</th> -->
                                     <th>Alamat</th>
                                     <th>Email</th>
                                     <th>No HP</th>
@@ -40,10 +40,10 @@
                                 $nom = 1;
                                 foreach ($users as $dt) { ?>
                                     <tr>
-                                        <td class="text-center"><?= esc($dt['id']); ?></td>
+                                        <!-- <td class="text-center"><?= esc($dt['id']); ?></td> -->
                                         <td><?= esc($dt['nama']); ?></td>
-                                        <td><?= esc($dt['username']); ?></td>
-                                        <td><?= esc($dt['password']); ?></td>
+                                        <!-- <td><?= esc($dt['username']); ?></td> -->
+                                        <!-- <td><?= esc($dt['password']); ?></td> -->
                                         <td><?= esc($dt['alamat']); ?></td>
                                         <td><?= esc($dt['email']); ?></td>
                                         <td><?= esc($dt['no_hp']); ?></td>

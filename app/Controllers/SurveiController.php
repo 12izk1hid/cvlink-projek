@@ -19,10 +19,10 @@ class SurveiController extends BaseController
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             // Ambil daftar surveyors
             $surveyors = $this->surveiModel->getSurveyors();
-
+            // dd($this->surveiModel->getData());
             $data = [
                 'title' => 'hasil_survei',
-                'hasil_survei'  => $this->surveiModel->findAll(),
+                'hasil_survei'  => $this->surveiModel->getData(),
                 'surveyors'     => $surveyors  // Tambahkan data surveyors ke view
             ];
             return view('layout/_header')

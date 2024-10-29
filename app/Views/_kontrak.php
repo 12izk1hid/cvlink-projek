@@ -1,3 +1,11 @@
+<!-- Sertakan CSS Bootstrap dan Bootstrap Select -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+
+<!-- Sertakan JS jQuery, Bootstrap, dan Bootstrap Select -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -24,31 +32,22 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID Kontrak</th>
-                                    <th>ID Hasil Survei</th>
-                                    <th>ID Klien</th>
-                                    <th>Created At</th>
-                                    <th>Updated At</th>
-                                    <th>Harga</th>
+                                    <th width="5%">ID Invoice</th>
+                                    <th>Barang/Jasa</th>
+                                    <!-- <th>Client</th> -->
+                                    <!-- <th>Created At</th> -->
+                                    <!-- <th>Updated At</th> -->
+                                    <!-- <th>Harga</th> -->
                                     <th width="12%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($kontrak as $dt): ?>
                                     <tr>
-                                        <td class="text-center"><?= esc($dt['id']); ?></td> <!-- Ambil ID dari database -->
-                                        <td><?= esc($dt['id_hasil_survei']); ?></td>
-                                        <td><?= esc($dt['id_klien']); ?></td>
-                                        <td><?= esc($dt['created_at']); ?></td>
-                                        <td><?= esc($dt['updated_at']); ?></td>
-                                        <td><?= esc($dt['harga']); ?></td>
+                                        <td><?= esc($dt['id_tagihan']); ?></td>
+                                        <td><?= esc($dt['id_jasa']); ?></td>
                                         <td width="8%" class="text-center">
-                                            <a data-toggle="modal" data-id="<?= esc($dt['id']) ?>" 
-                                               data-id_hasil_survei="<?= esc($dt['id_hasil_survei']) ?>" 
-                                               data-id_klien="<?= esc($dt['id_klien']) ?>" 
-                                               data-created_at="<?= esc($dt['created_at']) ?>" 
-                                               data-updated_at="<?= esc($dt['updated_at']) ?>" 
-                                               data-harga="<?= esc($dt['harga']) ?>" 
+                                            <a data-toggle="modal" data-id="<?= esc($dt['id_tagihan']) ?>" 
                                                href="#edit" class="edit-kontrak" title="Edit kontrak">
                                                 <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
@@ -77,32 +76,20 @@
             <form class="form" method="post" action="<?= base_url('kontrak/save') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_hasil_survei">ID Hasil Survei</label>
-                        <select id="id_hasil_survei" name="id_hasil_survei" required>
-                            <?php foreach ($id_hasil_survei as $survei): ?>
-                                <option value="<?= esc($survei['id']); ?>"><?= esc($survei['id']); ?></option>
+                        <label for="id">ID Transaksi (Invoice)</label>
+                        <select id="id" name="id" required class='form-control'>
+                            <?php foreach ($tagihan as $t): ?>
+                                <option value="<?= esc($t); ?>"><?= esc($t); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="id_klien">ID klien</label>
-                        <select id="id_klien" name="id_klien" required>
-                        <?php foreach ($kliens as $klien): ?>
-                                <option value="<?= esc($klien['id']); ?>"><?= esc($klien['id']); ?></option>
+                        <label for="id_jasa">Jasa/Barang yang Dibutuhkan</label>
+                        <select id="id_jasa" name="id_jasa[]" required class="form-control selectpicker" multiple data-live-search="true">
+                            <?php foreach ($items as $item): ?>
+                                <option value="<?= esc($item['id']); ?>"><?= esc($item['nama_item']); ?></option>
                             <?php endforeach; ?>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="created_at">Created At</label>
-                        <input type="date" class="form-control" name="created_at" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="updated_at">Updated At</label>
-                        <input type="date" class="form-control" name="updated_at" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="harga">Harga</label>
-                        <input type="text" class="form-control" name="harga" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -127,8 +114,8 @@
                         <label for="id_hasil_survei">ID Hasil Survei</label>
                         <input type="hidden" name="id" id="id">
                         <select id="id_hasil_survei" name="id_hasil_survei" required>
-                            <?php foreach ($id_hasil_survei as $survei): ?>
-                                <option value="<?= esc($survei['id']); ?>"><?= esc($survei['id']); ?></option>
+                            <?php foreach ($tagihan as $t): ?>
+                                <option value="<?= esc($t); ?>"><?= esc($t); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

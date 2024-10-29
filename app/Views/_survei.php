@@ -25,7 +25,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%">ID Survei</th>
-                                    <th>ID Surveyors</th>
+                                    <th>Surveyor</th>
                                     <th>Tanggal Survei</th>
                                     <th>Jenis Instalasi</th>
                                     <th>Kebutuhan Material</th>
@@ -40,7 +40,7 @@
                                 foreach ($hasil_survei as $dt) { ?>
                                     <tr>
                                         <td class="text-center"><?= esc($dt['id']); ?></td>
-                                        <td><?= esc($dt['id_surveyors']); ?></td>
+                                        <td><?= esc($dt['nama_surveyor']); ?></td>
                                         <td><?= esc($dt['Tanggal_survei']); ?></td>
                                         <td><?= esc($dt['Jenis_instalasi']); ?></td>
                                         <td><?= esc($dt['kebutuhan_material']); ?></td>
@@ -82,10 +82,10 @@
             <form class="form" method="post" action="<?= base_url('survey/save') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_surveyors">ID Surveyor</label>
-                        <select id="id_surveyors" name="id_surveyors" required>
+                        <label for="id_surveyors">Surveyor</label>
+                        <select id="id_surveyors" name="id_surveyors" class="form-control"  required>
                             <?php foreach ($surveyors as $surveyor): ?>
-                                <option value="<?= esc($surveyor['id']); ?>"><?= esc($surveyor['id']); ?></option>
+                                <option value="<?= esc($surveyor['id']); ?>"><?= esc($surveyor['nama']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -128,12 +128,12 @@
             </div>
             <form class="form" method="post" action="<?= base_url('survey/edit') ?>">
                 <div class="modal-body">
+                    <input type="hidden" name="id" id="id">
                     <div class="form-group">
-                        <label for="id_surveyors">ID Surveyor</label>
-                        <input type="hidden" name="id" id="id">
-                        <select id="id_surveyors" name="id_surveyors" required>
+                        <label for="id_surveyors">Surveyor</label>
+                        <select id="id_surveyors" name="id_surveyors" class="form-control"  required>
                             <?php foreach ($surveyors as $surveyor): ?>
-                                <option value="<?= esc($surveyor['id']); ?>"><?= esc($surveyor['id']); ?></option>
+                                <option value="<?= esc($surveyor['id']); ?>"><?= esc($surveyor['nama']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

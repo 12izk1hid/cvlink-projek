@@ -22,7 +22,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID Jasa</th>
+                                    <!-- <th width="5%">ID Jasa</th> -->
                                     <th>Nama Item</th>
                                     <th>Type</th>
                                     <th>Min Harga</th>
@@ -33,7 +33,7 @@
                             <tbody>
                                 <?php $nom = 1; foreach ($jasa as $dt): ?>
                                     <tr>
-                                    <td class="text-center"><?= esc($dt['id']); ?></td>
+                                    <!-- <td class="text-center"><?= esc($dt['id']); ?></td> -->
                                         <td><?= htmlspecialchars($dt['nama_item']) ?></td>
                                         <td><?= htmlspecialchars($dt['type']); ?></td>
                                         <td><?= number_format($dt['min_harga'], 0, ',', '.'); ?></td>
@@ -78,7 +78,10 @@
                     </div>
                     <div class="form-group">
                         <label for="type">Type</label>
-                        <input type="text" class="form-control" name="type" placeholder="Masukan Type Jasa" required>
+                        <select class="form-control" name="type" placeholder="Masukan Type Jasa" required>
+                            <option value="barang">Barang</option>
+                            <option value="jasa">Jasa</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="minHarga">Min Harga</label>
@@ -115,7 +118,10 @@
                     </div>
                     <div class="form-group">
                         <label for="type">Type</label>
-                        <input type="text" class="form-control" name="type" id="type" placeholder="Masukan Type Jasa" required>
+                        <select class="form-control" name="type" placeholder="Masukan Type Jasa" required>
+                            <option value="barang">Barang</option>
+                            <option value="jasa">Jasa</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="minHarga">Min Harga</label>

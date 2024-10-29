@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.3.8
     </div>
-    <strong>Copyright &copy; 2023 - <?= date('Y') ?> </strong> PT. Wiragawa Setia Logistik
+    <strong>Copyright &copy; 2023 - <?= date('Y') ?> </strong> CV. LINK
 </footer>
 <div class="control-sidebar-bg"></div>
 </div>

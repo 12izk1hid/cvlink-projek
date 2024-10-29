@@ -37,7 +37,7 @@ class UserController extends BaseController
             $insert = [
             'nama'      => $this->request->getPost('nama'),
             'username'  => $this->request->getPost('username'),
-            'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Hash password
+            'password'  => md5($this->request->getPost('password')), // Hash password
             'alamat'    => $this->request->getPost('alamat'),
             'email'     => $this->request->getPost('email'),
             'no_hp'     => $this->request->getPost('no_hp'),

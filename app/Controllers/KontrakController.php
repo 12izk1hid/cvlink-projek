@@ -2,31 +2,35 @@
 
 namespace App\Controllers;
 
+use App\Models\InvoiceModel;
 use App\Models\KontrakModel;
+use App\Models\JasaModel;
 
 
 class KontrakController extends BaseController
 {
     protected $kontrakModel;
-
+    protected $invoiceModel;
+    protected $jasaModel;
 
     public function __construct()
     {
         $this->kontrakModel = new KontrakModel();
-     
-
+        $this->invoiceModel = new InvoiceModel();
+        $this->jasaModel = new JasaModel();
     }
 
     public function index()
     {
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $id_hasil_survei = $this->kontrakModel->getid_hasil_survei(); // Mengambil semua hasil survei
             $kliens = $this->kontrakModel->getKlien();
+            // dd($this->invoiceModel->getIdUnsurveyedInvoice());
             $data = [
                 'title' => 'kontrak',
                 'kontrak'  => $this->kontrakModel->findAll(),
-                'id_hasil_survei' => $id_hasil_survei,       // Menyimpan hasil survei ke view
+                'tagihan' => $this->invoiceModel->getIdUnsurveyedInvoice(), 
+                'items' => $this->jasaModel->findAll(),
                 'kliens' =>  $kliens
             ];
             return view('layout/_header')
@@ -42,16 +46,24 @@ class KontrakController extends BaseController
     {
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $insert = [
-            'id'      => $this->request->getPost('id_kontrak'),
-            'id_hasil_survei'               => $this->request->getPost('id_hasil_survei'),
-            'id_klien'        => $this->request->getPost('id_klien'),
-            'created_at'       => $this->request->getPost('created_at'),
-            'updated_at'     => $this->request->getPost('updated_at'),
-            'harga'        => $this->request->getPost('harga'),
-        ];
+            $id_tagihan = $this->request->getPost('id');
 
-        $this->kontrakModel->insert($insert);
+            // Ambil id_jasa yang merupakan array
+            $id_jasa_array = $this->request->getPost('id_jasa');
+        
+            // Pastikan id_jasa_array bukan kosong
+            if (!empty($id_jasa_array)) {
+                foreach ($id_jasa_array as $id_jasa) {
+                    // Persiapkan data untuk setiap insert
+                    $insert = [
+                        'id_tagihan' => $id_tagihan,
+                        'id_jasa'    => $id_jasa,
+                    ];
+                    
+                    // Insert data ke dalam kontrak model
+                    $this->kontrakModel->insert($insert);
+                }
+            }
             $session->setFlashdata(
                 'pesan',
                 '<div class="alert alert-success alert-dismissible">

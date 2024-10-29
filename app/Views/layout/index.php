@@ -9,7 +9,7 @@
 	<meta name="description" content="Sistem Logistik" />
 	<meta name="keywords" content="PT. WSL, logistik, logistic">
 	<meta name="author" content="ismael.sikumbang@gmail.com" />
-	<title>Sistem Informasi Logistik PT. Wiragawa Setia Logistik ()</title>
+	<title>Sistem Informasi CV.LINK ()</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -93,13 +93,13 @@
 						<!-- User Account: style can be found in dropdown.less -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+								<img src="<?= base_url() ?>assets/dist/img/cvlink.jpeg" class="user-image" alt="User Image">
 								<span class="hidden-xs">Hai ?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
 								<li class="user-header">
-									<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+									<img src="<?= base_url() ?>assets/dist/img/cvlink.jpeg" class="img-circle" alt="User Image">
 
 									<p>
 										nama
@@ -130,7 +130,7 @@
 				<!-- Sidebar user panel -->
 				<div class="user-panel">
 					<div class="pull-left image">
-						<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+						<img src="<?= base_url() ?>assets/dist/img/cvlink.jpeg" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
 						<p>Alexander Pierce</p>
@@ -199,7 +199,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 2.3.8
 			</div>
-			<strong>Copyright &copy; 2023 - <?= date('Y') ?> </strong> PT. Wiragawa Setia Logistik
+			<strong>Copyright &copy; 2023 - <?= date('Y') ?> </strong> PT.CV LINK
 		</footer>
 		<div class="control-sidebar-bg"></div>
 	</div>

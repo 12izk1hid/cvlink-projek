@@ -24,7 +24,8 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID Kontrak</th>
+                                    <th>ID</th>
+                                    <th>Username</th>
                                     <th>Harga</th>
                                     <th>Status</th>
                                     <th width="12%">Aksi</th>
@@ -35,17 +36,19 @@
                                 $nom = 1;
                                 foreach ($invoice as $dt) { ?>
                                     <tr>
-                                        <td><?= esc($dt['id_kontrak']); ?></td>
+                                        <td><?= esc($dt['id']); ?></td>
+                                        <td><?= esc($dt['nama_user']) ?></td>
                                         <td><?= esc($dt['harga']); ?></td>
                                         <td><?= esc($dt['Status']); ?></td>
                                         <td class="text-center">
-                                            <a data-id_kontrak="<?= esc($dt['id_kontrak']) ?>" 
+                                            <a data-id="<?= esc($dt['id']) ?>" 
+                                                data-username="<?= esc($dt['username']) ?>"
                                                data-harga="<?= esc($dt['harga']) ?>" 
                                                data-status="<?= esc($dt['Status']) ?>" 
                                                href="#edit" class="edit-invoice" title="Edit Invoice">
                                                 <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
-                                            <a href="<?= base_url('invoice/delete?id_kontrak=' . esc($dt['id_kontrak'])); ?>" class="delete" title="Delete">
+                                            <a href="<?= base_url('invoice/delete?id=' . esc($dt['id'])); ?>" class="delete" title="Delete">
                                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                             </a>
                                         </td>
@@ -70,25 +73,16 @@
             <form class="form" method="post" action="<?= base_url('invoice/save') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_kontrak">ID Kontrak</label>
-                        <select id="id_kontrak" name="id_kontrak" onchange="fetchHarga(this.value)" required>
-                            <?php foreach ($kontrak as $k): ?>
-                                <option value="<?= esc($k['id']); ?>"><?= esc($k['id']); ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="user_id">Client</label>
+                        <select class="form-control" name="username" id="user_id" required>
+                            <?php foreach($clients as $client) { ?>
+                                <option value="<?= $client['username'] ?>"><?= $client['nama'] ?></option>
+                            <?php } ?>
+                        </select>   
                     </div>
                     <div class="form-group">
-                        <label for="harga">Harga</label>
-                        <input type="text" id="harga" class="form-control" name="harga" placeholder="Harga" readonly required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Status">Status</label>
-                        <select class="form-control" name="status" id="Status" required>
-                            <option value="">Pilih Status</option>
-                            <option value="selesai">Selesai</option>
-                            <option value="pending">Pending</option> 
-                        </select>                    
+                        <label for="status">Status</label>
+                        <input id='status' name='status' readonly value='unsurveyed' class='form-control'>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -108,10 +102,12 @@
                 <h4 class="modal-title">Edit Invoice</h4>
             </div>
             <form class="form" method="post" action="<?= base_url('invoice/update') ?>">
+             <input type="hidden"name="id" id='edit_id' readonly>
+
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_kontrak">ID Kontrak</label>
-                        <input type="text" id="id_kontrak_edit" name="id_kontrak" readonly class="form-control" required>
+                        <label for='username'>Client</label>
+                        <input type="text" id="edit_username" readonly class='form-control'>
                     </div>
                     <div class="form-group">
                         <label for="harga">Harga</label>
@@ -120,10 +116,11 @@
                     <div class="form-group">
                         <label for="Status">Status</label>
                  
-                        <select class="form-control" name="status" id="status" required>
+                        <select class="form-control" name="status" id="status_edit" required>
                             <option value="">Pilih Role</option>
                             <option value="selesai">Selesai</option>
                             <option value="pending">Pending</option> 
+                            <option value="unsurveyed">Belum di Survey</option> 
                         </select>                      
                      </div>
                 </div>
@@ -140,13 +137,15 @@
 <script>
     $(document).ready(function() {
         $('.edit-invoice').on('click', function() {
-            var id_kontrak = $(this).data('id_kontrak');
+            var id = $(this).data('id');
             var harga = $(this).data('harga');
             var status = $(this).data('status');
+            var username = $(this).data('username')
 
-            $('#id_kontrak_edit').val(id_kontrak);
+            $('#edit_id').val(id);
             $('#harga_edit').val(harga);
-            $('#status').val(status)
+            $('#status_edit').val(status)
+            $('#edit_username').val(username)
 
             $('#edit').modal('show');
         });

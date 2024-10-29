@@ -29,12 +29,12 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="<?= base_url() ?>"><b>Login</b> WGSL</a>
+			<a href="<?= base_url() ?>"><b>Login</b> CV LINK  </a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="login-box-body">
 			<div class="text-center image">
-				<img src="<?= base_url() ?>assets/images/wgsl-bulat.png" class="img-circle" alt="User Image">
+				
 			</div>
 			<p class="login-box-msg">Masukan Username dan Password</p>
 			<?php if ((session()->getFlashdata('pesan') !== NULL)) { ?>
@@ -69,7 +69,7 @@
 			</form>
 
 			<div class="social-auth-links text-center">
-				<p>- PT. Wiragawa Setia Logistik -</p>
+				<p>- CV LINK -</p>
 			</div>
 			<!-- /.social-auth-links -->
 		</div>

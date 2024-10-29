@@ -21,9 +21,17 @@ class SurveiModel extends Model
     {
         // Gunakan query builder untuk mengambil data dari tabel users dengan role 'surveyor'
         return $this->db->table('users')
-                        ->select('id')  // Ambil kolom id saja
+                        ->select('id,nama')  // Ambil kolom id saja
                         ->where('role', 'surveyor')  // Kondisi role = surveyor
                         ->get()
                         ->getResultArray();  // Mengembalikan hasil sebagai array
+    }
+
+    public function getData() {
+        return $this->db->table('hasil_survei h')
+            ->select('u.nama as nama_surveyor, h.*')
+            ->join('users u', 'u.id = h.id_surveyors')
+            ->get()
+            ->getResultArray();
     }
 }

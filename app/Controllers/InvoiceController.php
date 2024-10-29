@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Models\InvoiceModel;
 use App\Models\KontrakModel;
+use App\Models\UsersModel;
 
 
 class InvoiceController extends BaseController
 {
     protected $invoiceModel;
     protected $kontrakModel;
+    protected $usersModel;
 
     public function __construct()
     {
         $this->invoiceModel = new InvoiceModel();
         $this->kontrakModel = new KontrakModel();
+        $this->usersModel = new UsersModel();
     }
 
     public function index()
@@ -25,9 +28,11 @@ class InvoiceController extends BaseController
             $kontrak = $this->invoiceModel->getKontrak();
             $data = [
                 'title' => 'Invoice',
-                'invoice' => $this->invoiceModel->findAll(),
-                'kontrak' => $kontrak
+                'invoice' => $this->invoiceModel->getData(),
+                'kontrak' => $kontrak,
+                'clients' => $this->usersModel->getUserByRole('klien')
             ];
+            // dd($data);
             return view('layout/_header')
                 . view('layout/_navigasi')
                 . view('_invoice', $data)
@@ -43,8 +48,8 @@ class InvoiceController extends BaseController
         // dd( $this->request->getPost('status'));
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $insert = [
-                'id_kontrak' => $this->request->getPost('id_kontrak'),
-                'harga' => $this->kontrakModel->getHargaFromId($this->request->getPost('id_kontrak')),
+                'username' => $this->request->getPost('username'),
+                'harga' => 0,
                 'status' => $this->request->getPost('status'),
             ];
 
@@ -67,13 +72,13 @@ class InvoiceController extends BaseController
         $session = session();
         // dd($this->request->getPost('status'));
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $id_kontrak = $this->request->getPost('id_kontrak');
+            $id = $this->request->getPost('id');
             $update = [
                 'harga' => $this->request->getPost('harga'),
                 'status' => $this->request->getPost('status')
             ];
 
-            $this->invoiceModel->update($id_kontrak, $update);
+            $this->invoiceModel->update($id, $update);
             $session->setFlashdata(
                 'pesan',
                 '<div class="alert alert-success alert-dismissible">
@@ -89,7 +94,7 @@ class InvoiceController extends BaseController
 
     public function delete()
     {
-        $id = $this->request->getGet('id_kontrak');
+        $id = $this->request->getGet('id');
         $session = session();
 
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {

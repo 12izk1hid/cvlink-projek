@@ -15,5 +15,14 @@ class UsersModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['nama', 'username', 'password', 'alamat', 'email', 'no_hp', 'role'];
 
+    public function getUserByRole($role) {
+        // dd($role);
+        return $this->db->table('users')
+                      ->select('*') 
+                      ->where('role', $role)  
+                      ->get()
+                      ->getResultArray();
+    }
+
 
 }

@@ -9,7 +9,7 @@
     <meta name="description" content="Sistem Logistik" />
     <meta name="keywords" content="PT. WSL, logistik, logistic">
     <meta name="author" content="ismael.sikumbang@gmail.com" />
-    <title>Sistem Informasi Logistik PT. Wiragawa Setia Logistik (WGSL)</title>
+    <title>Sistem Informasi CV LINK </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -45,9 +45,9 @@
             <!-- Logo -->
             <a href="<?= base_url() ?>admin" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>A</b>LT</span>
+                <span class="logo-mini"><b>CV</b>LINK</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>WGSL</b></span>
+                <span class="logo-lg"><b>CV.LINK</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -75,7 +75,7 @@
                                         <li><!-- start message -->
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="<?= base_url() ?>assets/dist/img/cvlink.jpeg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Support Team
@@ -93,13 +93,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="<?= base_url() ?>assets/dist/img/cvlink.jpeg" class="user-image" alt="User Image">
                                 <span class="hidden-xs">Hai <?= $session->get('username') ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="<?= base_url() ?>assets/dist/img/cvlink.jpeg" class="img-circle" alt="User Image">
                                     <p>
                                         <?= $session->get('nama') ?>
                                         <small><?= $session->get('username') ?></small>
