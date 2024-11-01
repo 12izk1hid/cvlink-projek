@@ -47,35 +47,57 @@ class KontrakController extends BaseController
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $id_tagihan = $this->request->getPost('id');
-
+    
             // Ambil id_jasa yang merupakan array
             $id_jasa_array = $this->request->getPost('id_jasa');
-        
+    
             // Pastikan id_jasa_array bukan kosong
             if (!empty($id_jasa_array)) {
+                $error_occurred = false; // Untuk mengecek jika ada kesalahan
+                $error_messages = []; // Untuk mengumpulkan pesan kesalahan
+    
                 foreach ($id_jasa_array as $id_jasa) {
                     // Persiapkan data untuk setiap insert
                     $insert = [
                         'id_tagihan' => $id_tagihan,
                         'id_jasa'    => $id_jasa,
                     ];
-                    
+    
                     // Insert data ke dalam kontrak model
-                    $this->kontrakModel->insert($insert);
+                    try {
+                        $this->kontrakModel->insert($insert);
+                    } catch (\Exception $e) {
+                        $error_occurred = true;
+                        $error_messages[] = $e->getMessage();
+                    }
+                }
+    
+                // Tampilkan pesan sesuai dengan hasil operasi
+                if ($error_occurred) {
+                    $session->setFlashdata(
+                        'pesan',
+                        '<div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-exclamation-triangle"></i> Gagal menyimpan beberapa data pengguna: ' . implode('; ', $error_messages) . '</h4>
+                        </div>'
+                    );
+                } else {
+                    $session->setFlashdata(
+                        'pesan',
+                        '<div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-check"></i> Berhasil simpan semua data pengguna</h4>
+                        </div>'
+                    );
                 }
             }
-            $session->setFlashdata(
-                'pesan',
-                '<div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i> Berhasil simpan data pengguna</h4>
-                </div>'
-            );
+    
             return redirect()->to(base_url() . 'infokontrak');
         } else {
             return redirect()->to(base_url());
         }
     }
+    
 
     public function update()
     {
@@ -83,7 +105,7 @@ class KontrakController extends BaseController
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $update = [
                 'id'      => $this->request->getPost('id_kontrak'),
-                'id_hasil_survei'               => $this->request->getPost('id_hasil_survei'),
+                'id_hasil_survei' => $this->request->getPost('id_hasil_survei'),
                 'id_klien'        => $this->request->getPost('id_klien'),
                 'created_at'       => $this->request->getPost('created_at'),
                 'updated_at'     => $this->request->getPost('updated_at'),
@@ -92,7 +114,7 @@ class KontrakController extends BaseController
             $where = [
                 'id'   => $this->request->getVar('id'),  // Mendapatkan ID jasa dari form
             ];
-            $this->kontrakModel->update($where['id'], $update);
+            // $this->kontrakModel->update($where['id'], $update);
             $session->setFlashdata(
                 'pesan',
                 '<div class="alert alert-success alert-dismissible">

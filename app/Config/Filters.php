@@ -24,6 +24,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'clientOnly' => \App\Filters\ClientMiddleware::class,
         //tambahan
         'auth'          => Auth::class,
         'noauth'        => Noauth::class,

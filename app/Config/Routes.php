@@ -30,7 +30,6 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/', 'Home::login');
 $routes->post('/ceklogin', 'Home::ceklogin');
 
 $routes->get('/home', 'Home::index');
@@ -56,6 +55,8 @@ $routes->post('save', 'UserController::save');
 $routes->post('update', 'UserController::update');
 $routes->get('delete', 'UserController::delete');
 
+$routes->get('client', 'ClientDashboardController::index');
+
 $routes->get('infosurvei', 'SurveiController::index');
 $routes->post('survey/save', 'SurveiController::save');
 $routes->post('survey/edit', 'SurveiController::update');
@@ -80,6 +81,7 @@ $routes->get('/infouser', 'Admin::user');
 $routes->post('/simpanuser', 'Admin::simpanuser');
 $routes->post('/updateuser', 'Admin::updateuser');
 
+$routes->get('/client/dashboard', 'ClientDashboardController::index', ['filter' => 'clientOnly']);
 
 
 // $routes->get('/infojabatan', 'Admin::jabatan');

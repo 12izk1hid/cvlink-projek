@@ -1,0 +1,27 @@
+#carouselExampleCaptions .carousel-inner {
+    height: 800px; 
+}
+
+#carouselExampleCaptions .carousel-item img {
+    height: 100%; 
+    object-fit: cover; 
+}
+
+h1 {
+    color: red;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Tersembunyi di luar layar dari kiri */
+    width: 300px;
+    height: 100%;
+    background: red; /* Warna latar belakang drawer */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s; /* Animasi saat drawer muncul */
+    z-index: 1050; /* Di atas elemen lain */
+}
+.drawer.open {
+    left: 0; /* Menampilkan drawer */
+}
