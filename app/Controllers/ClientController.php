@@ -4,17 +4,19 @@ namespace App\Controllers;
 
 use App\Models\JasaModel;
 use App\Models\InvoiceModel;
+use App\Models\UsersModel;
 
 class ClientController extends BaseController
 {
-
     protected $jasaModel;
     protected $invoiceModel;
+    protected $usersModel;
 
     public function __construct()
     {
         $this->jasaModel = new JasaModel();
         $this->invoiceModel = new InvoiceModel();
+        $this->usersModel = new UsersModel();
     }
 
     public function index()
@@ -30,11 +32,12 @@ class ClientController extends BaseController
             .view('clients/layout/footer');
     }
 
-    public function order() {
+    public function order()
+    {
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             return view('clients/layout/header')
-                .view('clients/layout/navigasi', [ 'loged' => true])
+                .view('clients/layout/navigasi', ['loged' => true])
                 .view('clients/order', [
                     'username' => $session->get('username'),
                     'services' => $this->jasaModel->getJasa()
@@ -47,13 +50,31 @@ class ClientController extends BaseController
 
     public function profile()
     {
+        $session = session();
+        $username = $session->get('username'); // Ambil username dari session
+
+        // Ambil data pengguna dari database berdasarkan username
+        $user = $this->usersModel->where('username', $username)->first();
+
+        // Cek apakah data pengguna ditemukan
+        if (!$user) {
+            return redirect()->to(base_url('login'));
+        }
+
+        // Kirim data $user ke view
+        $data = [
+            'user' => $user,
+            'loged' => true
+        ];
+
         return view('clients/layout/header')
-                .view('clients/layout/navigasi', [ 'loged' => true])
-                .view('clients/profile', [])
-                .view('clients/layout/footer');
+            .view('clients/layout/navigasi', $data)
+            .view('clients/profile', $data)
+            .view('clients/layout/footer');
     }
 
-    public function saveOrder() {
+    public function saveOrder()
+    {
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $insert = [
@@ -76,5 +97,4 @@ class ClientController extends BaseController
             return redirect()->to(base_url());
         }
     }
-    
 }

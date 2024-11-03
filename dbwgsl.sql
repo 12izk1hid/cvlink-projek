@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2024 at 02:37 PM
+-- Generation Time: Nov 03, 2024 at 05:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -120,7 +120,11 @@ CREATE TABLE `kontrak` (
 
 INSERT INTO `kontrak` (`id`, `id_tagihan`, `id_jasa`, `deskripsi`, `harga`) VALUES
 (38, 25, 11, '', 0),
-(39, 25, 12, '', 0);
+(39, 25, 12, '', 0),
+(40, 46, 10, '', 0),
+(41, 46, 11, '', 0),
+(42, 46, 12, '', 0),
+(43, 47, 13, '', 0);
 
 -- --------------------------------------------------------
 
@@ -180,7 +184,8 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `alamat`, `email`, `n
 (26, 'w', 'w', 'f1290186a5d0b1ceab27f4e77c0c5d68', 'w', 'w@gmail.com', 864433, 'klien'),
 (27, 'Ichan Lingga', 'ichan', '25d55ad283aa400af464c76d713c07ad', 'jln kdkkd', 'jjj@mail.com', 88776666, 'teknisi'),
 (28, 'Firja', 'firja', '25d55ad283aa400af464c76d713c07ad', 'jjj', 'jjj@mail.com', 8888, 'klien'),
-(29, 'jsjsj', 'aya', '25d55ad283aa400af464c76d713c07ad', 'hhh', 'hhh@mail.com', 9999, 'klien');
+(29, 'jsjsj', 'aya', '25d55ad283aa400af464c76d713c07ad', 'hhh', 'hhh@mail.com', 9999, 'klien'),
+(30, 'doli', 'doli', '25d55ad283aa400af464c76d713c07ad', 'jl doli', 'doli@gmail.com', 865444, 'surveyor');
 
 --
 -- Indexes for dumped tables
@@ -249,7 +254,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kontrak`
 --
 ALTER TABLE `kontrak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `pemasangan`
@@ -261,7 +266,7 @@ ALTER TABLE `pemasangan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
