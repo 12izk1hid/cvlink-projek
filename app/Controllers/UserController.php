@@ -23,7 +23,7 @@ class UserController extends BaseController
             ];
             return view('layout/_header')
                 . view('layout/_navigasi')
-                . view('_users', $data) // Mengarahkan ke view jasa
+                . view('_users', $data) // 
                 . view('layout/_footer');
         } else {
             return redirect()->to(base_url());

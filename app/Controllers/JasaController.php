@@ -24,7 +24,7 @@ class JasaController extends BaseController
             ];
             return view('layout/_header')
                 . view('layout/_navigasi')
-                . view('_jasa', $data) // Mengarahkan ke view jasa
+                . view('_jasa', $data)
                 . view('layout/_footer');
         } else {
             return redirect()->to(base_url());
@@ -41,7 +41,8 @@ class JasaController extends BaseController
                 'type'      => $this->request->getVar('type'),
                 'min_harga' => $this->request->getVar('min_harga'),
                 'max_harga' => $this->request->getVar('max_harga'),
-                'idupdate'  => $session->get('id'),  // Simpan ID user yang update
+                'photo_url' => $this->request->getVar('photo_url'), // Menyimpan URL gambar
+                'idupdate'  => $session->get('id'),
             ];
             $this->model->insert($insert);
             $session->setFlashdata(
@@ -67,10 +68,11 @@ class JasaController extends BaseController
                 'type'      => $this->request->getVar('type'),
                 'min_harga' => $this->request->getVar('min_harga'),
                 'max_harga' => $this->request->getVar('max_harga'),
-                'idupdate'  => $session->get('id'),  // ID user yang update
+                'photo_url' => $this->request->getVar('photo_url'), // Mengupdate URL gambar
+                'idupdate'  => $session->get('id'),
             ];
             $where = [
-                'id'   => $this->request->getVar('id'),  // Mendapatkan ID jasa dari form
+                'id' => $this->request->getVar('id'),
             ];
             $this->model->update($where['id'], $update);
             $session->setFlashdata(
@@ -87,14 +89,13 @@ class JasaController extends BaseController
     }
 
     // Fungsi untuk menghapus jasa
-    public function delete() {
-        $id = $this->request->getGet('id'); // Mengambil ID dari query string
+    public function delete()
+    {
+        $id = $this->request->getGet('id');
         $session = session();
 
         if (!empty($session->get('id')) && !empty($session->get('id_level'))) {
-            // Memeriksa apakah penghapusan data berhasil
             if ($this->model->delete($id)) {
-                // Set pesan sukses ke session
                 $session->setFlashdata(
                     'pesan',
                     '<div class="alert alert-success alert-dismissible">
@@ -103,7 +104,6 @@ class JasaController extends BaseController
                     </div>'
                 );
             } else {
-                // Set pesan gagal ke session
                 $session->setFlashdata(
                     'pesan',
                     '<div class="alert alert-danger alert-dismissible">
@@ -112,12 +112,9 @@ class JasaController extends BaseController
                     </div>'
                 );
             }
-            // Redirect ke halaman info jasa setelah penghapusan
             return redirect()->to(base_url('infojasa'));
-
         } else {
             return redirect()->to(base_url('infojasa'));
-
         }
     }
 }

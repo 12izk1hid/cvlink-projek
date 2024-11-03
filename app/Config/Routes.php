@@ -34,6 +34,8 @@ $routes->post('/ceklogin', 'Home::ceklogin');
 
 $routes->get('/home', 'Home::index');
 $routes->get('/admin', 'Admin::index');
+$routes->get('logout', 'Home::logout');
+$routes->get('/client', 'ClientDashboardController::index'); // Misal halaman client
 
 // $routes->get('/infoleveluser', 'Admin::leveluser');
 // $routes->post('/simpanleveluser', 'Admin::simpanleveluser');
@@ -56,6 +58,13 @@ $routes->post('update', 'UserController::update');
 $routes->get('delete', 'UserController::delete');
 
 $routes->get('client', 'ClientDashboardController::index');
+
+// Route untuk registrasi pengguna
+$routes->get('login', 'Home::index');
+$routes->post('ceklogin', 'Home::ceklogin');
+$routes->get('register', 'RegisterController::index');
+$routes->post('register/save', 'RegisterController::save');
+
 
 $routes->get('infosurvei', 'SurveiController::index');
 $routes->post('survey/save', 'SurveiController::save');

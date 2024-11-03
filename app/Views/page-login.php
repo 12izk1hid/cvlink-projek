@@ -29,18 +29,14 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="<?= base_url() ?>"><b>Login</b> CV LINK  </a>
+			<a href="<?= base_url() ?>"><b>Login</b> CV LINK</a>
 		</div>
-		<!-- /.login-logo -->
 		<div class="login-box-body">
-			<div class="text-center image">
-				
-			</div>
 			<p class="login-box-msg">Masukan Username dan Password</p>
 			<?php if ((session()->getFlashdata('pesan') !== NULL)) { ?>
 				<div class="alert alert-danger text-center alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<h4> <?= session()->getFlashdata('pesan'); ?></h4>
+					<h4><?= session()->getFlashdata('pesan'); ?></h4>
 				</div>
 			<?php }  ?>
 			<form action="<?= base_url() ?>ceklogin" method="post">
@@ -60,28 +56,25 @@
 							</label>
 						</div>
 					</div>
-					<!-- /.col -->
 					<div class="col-xs-4">
 						<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
 					</div>
-					<!-- /.col -->
 				</div>
 			</form>
 
 			<div class="social-auth-links text-center">
 				<p>- CV LINK -</p>
 			</div>
-			<!-- /.social-auth-links -->
-		</div>
-		<!-- /.login-box-body -->
-	</div>
-	<!-- /.login-box -->
 
-	<!-- jQuery 2.2.3 -->
+			<!-- Teks Registrasi -->
+			<div class="text-center">
+				<p>Jika anda tidak memiliki akun silahkan <a href="<?= base_url('register') ?>">registrasi </a>dahulu</p>
+			</div>
+		</div>
+	</div>
+
 	<script src="<?= base_url() ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
-	<!-- Bootstrap 3.3.6 -->
 	<script src="<?= base_url() ?>assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- iCheck -->
 	<script src="<?= base_url() ?>assets/plugins/iCheck/icheck.min.js"></script>
 	<script>
 		$(function() {
