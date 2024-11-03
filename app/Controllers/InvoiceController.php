@@ -2,22 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Models\InvoiceModel;
-use App\Models\KontrakModel;
-use App\Models\UsersModel;
-
-
-class InvoiceController extends BaseController
+class InvoiceController extends AdminController
 {
-    protected $invoiceModel;
-    protected $kontrakModel;
-    protected $usersModel;
-
     public function __construct()
     {
-        $this->invoiceModel = new InvoiceModel();
-        $this->kontrakModel = new KontrakModel();
-        $this->usersModel = new UsersModel();
+        parent::__construct();
     }
 
     public function index()
@@ -30,9 +19,10 @@ class InvoiceController extends BaseController
                 'title' => 'Invoice',
                 'invoice' => $this->invoiceModel->getData(),
                 'kontrak' => $kontrak,
-                'clients' => $this->usersModel->getUserByRole('klien')
+                'clients' => $this->usersModel->getUserByRole('klien'),
+                'technicians' => $this->usersModel->getUserByRole('teknisi'),
+                'surveyors' => $this->usersModel->getUserByRole('surveyor'),
             ];
-            // dd($data);
             return view('layout/_header')
                 . view('layout/_navigasi')
                 . view('_invoice', $data)
@@ -45,14 +35,16 @@ class InvoiceController extends BaseController
     public function save()
     {
         $session = session();
-        // dd( $this->request->getPost('status'));
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $insert = [
                 'username' => $this->request->getPost('username'),
                 'harga' => $this->request->getPost('harga'),
                 'status' => $this->request->getPost('status'),
-                'service' => $this->request->getPost('service')
+                'service' => $this->request->getPost('service'),
+                'id_teknisi' => $this->request->getPost('teknisi'),
+                'id_surveyor' => $this->request->getPost('surveyor'),
             ];
+            // dd($insert);
 
             $this->invoiceModel->insert($insert);
             $session->setFlashdata(

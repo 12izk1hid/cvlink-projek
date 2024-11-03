@@ -10,7 +10,7 @@
                     <a class="nav-link active" href="<?= base_url('/client') ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pesanan</a>
+                    <a class="nav-link" href="<?= base_url('client/order') ?>">Pesanan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
@@ -26,7 +26,7 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="profileMenu">
                         <li><a class="dropdown-item" href="<?= base_url('/client/profile') ?>">Profile</a></li>
-                        <li><a class="dropdown-item" href="<?= base_url('/client/settings') ?>">Settings</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('/client/order') ?>">Pesanan Saya</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a></li>
                     </ul>

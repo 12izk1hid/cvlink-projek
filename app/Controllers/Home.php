@@ -3,18 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\UsersModel;
-use App\Models\RegisterModel;
 
 
 class Home extends BaseController
 {
 
-    protected $registerModel;
-
+    protected $usersModel;
 
     public function __construct()
     {
-        $this->registerModel = new RegisterModel();
+        $this->usersModel = new UsersModel();
     }
 
     public function login()
@@ -56,7 +54,7 @@ class Home extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to(base_url('.'));
+        return redirect()->to(base_url());
     }
 
     public function register() 
@@ -76,7 +74,7 @@ class Home extends BaseController
             'role'      => $this->request->getPost('role'),
         ];
 
-        $this->registerModel->insert($insert);
+        $this->usersModel->insert($insert);
         session()->setFlashdata(
             'pesan',
             '<div class="alert alert-success alert-dismissible">

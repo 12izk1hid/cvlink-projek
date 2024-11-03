@@ -2,15 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\SurveiModel;
-
-class SurveiController extends BaseController
+class SurveiController extends AdminController
 {
-    protected $surveiModel;
 
     public function __construct()
     {
-        $this->surveiModel = new SurveiModel();
+        parent::__construct();
     }
 
     public function index()

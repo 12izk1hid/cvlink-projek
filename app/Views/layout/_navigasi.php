@@ -46,7 +46,7 @@
                      <li><a href="<?= base_url() ?>infokategori"><i class="fa fa-circle-o"></i>Kategori</a></li>
             </ul>-->
                  <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infojasa"><i class="fa fa-circle-o"></i>Jasa</a></li>
+                     <li><a href="<?= base_url() ?>infojasa"><i class="fa fa-circle-o"></i>Barang dan Jasa</a></li>
                  </ul>
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infousers"><i class="fa fa-circle-o"></i>Pengguna</a></li>

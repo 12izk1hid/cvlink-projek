@@ -2,16 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
-use App\Models\JasaModel;
+use App\Controllers\AdminController;
 
-class JasaController extends BaseController
+class JasaController extends AdminController
 {
-    protected $model;
-
     public function __construct()
     {
-        $this->model = new JasaModel();
+        parent::__construct();
     }
 
     public function index()
@@ -20,7 +17,7 @@ class JasaController extends BaseController
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $data = [
                 'title' => 'Jasa',
-                'jasa'  => $this->model->findAll()
+                'jasa'  => $this->jasaModel->findAll()
             ];
             return view('layout/_header')
                 . view('layout/_navigasi')
@@ -44,7 +41,7 @@ class JasaController extends BaseController
                 'photo_url' => $this->request->getVar('photo_url'), // Menyimpan URL gambar
                 'idupdate'  => $session->get('id'),
             ];
-            $this->model->insert($insert);
+            $this->jasaModel->insert($insert);
             $session->setFlashdata(
                 'pesan',
                 '<div class="alert alert-success alert-dismissible">
@@ -74,7 +71,7 @@ class JasaController extends BaseController
             $where = [
                 'id' => $this->request->getVar('id'),
             ];
-            $this->model->update($where['id'], $update);
+            $this->jasaModel->update($where['id'], $update);
             $session->setFlashdata(
                 'pesan',
                 '<div class="alert alert-success alert-dismissible">
@@ -95,7 +92,7 @@ class JasaController extends BaseController
         $session = session();
 
         if (!empty($session->get('id')) && !empty($session->get('id_level'))) {
-            if ($this->model->delete($id)) {
+            if ($this->jasaModel->delete($id)) {
                 $session->setFlashdata(
                     'pesan',
                     '<div class="alert alert-success alert-dismissible">

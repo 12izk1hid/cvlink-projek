@@ -27,11 +27,8 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
-
 // Landing Page and Auth
-$routes->get('/', 'ClientDashboardController::index');
+$routes->get('/', 'ClientController::index');
 $routes->get('login', 'Home::login');
 $routes->post('ceklogin', 'Home::ceklogin');
 $routes->get('register', 'Home::register');
@@ -39,94 +36,49 @@ $routes->post('register/save', 'Home::save');
 $routes->get('logout', 'Home::logout');
 
 // client
-$routes->get('client', 'ClientDashboardController::index');
-$routes->get('client/order', 'ClientDashboardController::order');
-$routes->get('client/profile', 'ClientDashboardController::profile');
+$routes->get('client', 'ClientController::index');
+$routes->get('client/order', 'ClientController::order');
+$routes->get('client/profile', 'ClientController::profile');
+$routes->post('client/order/save', 'ClientController::saveOrder');
 
 // admin dashboard
-$routes->get('/admin', 'Admin::index');
+$routes->get('admin', 'AdminController::index');
 
-$routes->get('/infokategori', 'Admin::kategori');
-$routes->post('/simpankategori', 'Admin::simpankategori');
-$routes->post('/updatekategori', 'Admin::updatekategori');
-$routes->post('/hapuskategori', 'Admin::hapuskategori');
+// jasa
+$routes->get('/infojasa', 'JasaController::index');
+$routes->post('jasa/save', 'JasaController::simpanjasa');
+$routes->post('jasa/update', 'JasaController::updatejasa');
+$routes->get('jasa/delete', 'JasaController::delete');
 
-$routes->get('/infojasa', 'JasaController::index');                 // Menampilkan daftar jasa
-$routes->post('jasa/save', 'JasaController::simpanjasa');        // Menyimpan data jasa
-$routes->post('jasa/update', 'JasaController::updatejasa');        // Mengupdate data jasa
-$routes->get('jasa/delete', 'JasaController::delete');          // Menghapus data jasa
-
+// user
 $routes->get('infousers', 'UserController::index');
 $routes->post('save', 'UserController::save');
 $routes->post('update', 'UserController::update');
 $routes->get('delete', 'UserController::delete');
 
+// survey
 $routes->get('infosurvei', 'SurveiController::index');
 $routes->post('survey/save', 'SurveiController::save');
 $routes->post('survey/edit', 'SurveiController::update');
 $routes->get('survei/delete', 'SurveiController::delete');
 
+// kontrak
 $routes->get('infokontrak', 'KontrakController::index');
 $routes->post('kontrak/save', 'KontrakController::save');
 $routes->post('kontrak/edit', 'KontrakController::update');
 $routes->get('kontrak/delete', 'KontrakController::delete');
 
+// invoice
 $routes->get('infoinvoice', 'InvoiceController::index');
 $routes->post('invoice/save', 'InvoiceController::save');
 $routes->post('invoice/update', 'InvoiceController::update');
 $routes->get('invoice/delete', 'InvoiceController::delete');
 
+// pemasangan
 $routes->get('infopemasangan', 'PemasanganController::index');
 $routes->post('pemasangan/save', 'PemasanganController::save');
 $routes->post('pemasangan/edit', 'PemasanganController::update');
 $routes->get('pemasangan/delete', 'PemasanganController::delete');
-
-$routes->get('/infouser', 'Admin::user');
-$routes->post('/simpanuser', 'Admin::simpanuser');
-$routes->post('/updateuser', 'Admin::updateuser');
-
-$routes->get('/infonomorakun', 'Admin::nomorakun');
-$routes->get('/shownomorakun', 'Admin::shownomorakun');
-$routes->post('/simpannomorakun', 'Admin::simpannomorakun');
-$routes->post('/updatenomorakun', 'Admin::updatenomorakun');
-
-$routes->get('/infoinvoice', 'Admin::invoice');
-$routes->post('/simpaninvoice', 'Admin::simpaninvoice');
-$routes->get('/detailinvoice/(:num)', 'Admin::detailinvoice/$1');
-$routes->post('/simpaninvoicedetail', 'Admin::simpaninvoicedetail');
-$routes->post('/hapusinvoicedetail', 'Admin::hapusinvoicedetail');
-$routes->post('/cetakinvoice', 'Admin::cetakinvoice');
-
-$routes->get('/infocashbank', 'Admin::cashbank');
-$routes->post('/simpancashbank', 'Admin::simpancashbank');
-$routes->post('/simpansaldoawalbulan', 'Admin::simpansaldoawalbulan');
-
-//laporan
-$routes->get('/infojurnal', 'Admin::jurnal');
-$routes->post('/cetakjurnal', 'Admin::cetakjurnal');
-
-$routes->get('logout', 'Home::logout');
-
-// $routes->post('/ceklogin', 'Home::ceklogin');
-// $routes->get('/logout', 'Home::logout');
-// $routes->get('/infoleveluser', 'Admin::leveluser');
-// $routes->post('/simpanleveluser', 'Admin::simpanleveluser');
-// $routes->post('/updateleveluser', 'Admin::updateleveluser');
-// $routes->get('/home', 'Home::index');
-// $routes->get('/admin', 'Admin::index');
-// $routes->get('/infoleveluser', 'Admin::leveluser');
-// $routes->post('/simpanleveluser', 'Admin::simpanleveluser');
-// $routes->post('/updateleveluser', 'Admin::updateleveluser');
-// $routes->get('/infopayable', 'Admin::payable');
-// $routes->post('/simpanpayable', 'Admin::simpanpayable');
-// $routes->get('/inforeceivable', 'Admin::receivable');
-// $routes->post('/simpanreceivable', 'Admin::simpanreceivable');
-// $routes->get('/infojabatan', 'Admin::jabatan');
-// $routes->post('/simpanjabatan', 'Admin::simpanjabatan');
-// $routes->post('/updatejabatan', 'Admin::updatejabatan');
-
-
-// $routes->get('(nama yang di panggil di controller/ menu)', 'Admin::(nama fungsi yang akan di baca di controller Admin)');
 
 /*
  * --------------------------------------------------------------------

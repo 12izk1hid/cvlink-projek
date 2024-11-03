@@ -2,15 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\UsersModel;
-
-class UserController extends BaseController
+class UserController extends AdminController
 {
-    protected $usersModel;
 
     public function __construct()
     {
-        $this->usersModel = new UsersModel();
+        parent::__construct();
     }
 
     public function index()
@@ -87,39 +84,40 @@ class UserController extends BaseController
         } else {
             return redirect()->to(base_url());
         }
-}
- // Fungsi untuk menghapus user
- public function delete() {
-    $id = $this->request->getGet('id'); // Mengambil ID dari query string
-    $session = session();
-
-    if (!empty($session->get('id')) && !empty($session->get('id_level'))) {
-        // Memeriksa apakah penghapusan data berhasil
-        if ($this->usersModel->delete($id)) {
-            // Set pesan sukses ke session
-            $session->setFlashdata(
-                'pesan',
-                '<div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i> Berhasil menghapus data jasa</h4>
-                </div>'
-            );
-        } else {
-            // Set pesan gagal ke session
-            $session->setFlashdata(
-                'pesan',
-                '<div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-times"></i> Gagal menghapus data jasa</h4>
-                </div>'
-            );
-        }
-        // Redirect ke halaman info jasa setelah penghapusan
-        return redirect()->to(base_url('infousers'));
-
-    } else {
-        return redirect()->to(base_url('infousers'));
-
     }
-}
+    
+ // Fungsi untuk menghapus user
+    public function delete() {
+        $id = $this->request->getGet('id'); // Mengambil ID dari query string
+        $session = session();
+
+        if (!empty($session->get('id')) && !empty($session->get('id_level'))) {
+            // Memeriksa apakah penghapusan data berhasil
+            if ($this->usersModel->delete($id)) {
+                // Set pesan sukses ke session
+                $session->setFlashdata(
+                    'pesan',
+                    '<div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-check"></i> Berhasil menghapus data jasa</h4>
+                    </div>'
+                );
+            } else {
+                // Set pesan gagal ke session
+                $session->setFlashdata(
+                    'pesan',
+                    '<div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-times"></i> Gagal menghapus data jasa</h4>
+                    </div>'
+                );
+            }
+            // Redirect ke halaman info jasa setelah penghapusan
+            return redirect()->to(base_url('infousers'));
+
+        } else {
+            return redirect()->to(base_url('infousers'));
+
+        }
+    }
 }

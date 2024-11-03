@@ -13,7 +13,7 @@ class InvoiceModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields = ['username', 'harga', 'status'];
+    protected $allowedFields = ['username', 'harga', 'status', 'id_teknisi', 'id_surveyor', 'request_description'];
 
     // Fungsi untuk mengambil data id dari pengguna yang role-nya surveyor
     public function getKontrak()
@@ -46,8 +46,10 @@ class InvoiceModel extends Model
 
     public function getData() {
         return $this->db->table('invoice')
-                ->select('invoice.*, users.nama as nama_user')
-                ->join('users', 'users.username = invoice.username')
+                ->select('invoice.*, s.nama as nama_user, t.nama as teknisi, r.nama as surveyor')
+                ->join('users s', 's.username = invoice.username')
+                ->join('users t', 't.username = invoice.id_teknisi', 'left')
+                ->join('users r', 'r.username = invoice.id_surveyor', 'left')
                 ->get()
                 ->getResultArray();
     }

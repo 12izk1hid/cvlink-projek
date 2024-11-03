@@ -2,15 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\PemasanganModel;
-
-class PemasanganController extends BaseController
+class PemasanganController extends AdminController
 {
-    protected $pemasanganModel;
 
     public function __construct()
     {
-        $this->pemasanganModel = new PemasanganModel();
+        parent::__construct();
     }
 
     public function index()

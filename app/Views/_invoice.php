@@ -28,6 +28,8 @@
                                     <th>Username</th>
                                     <th>Harga</th>
                                     <th>Status</th>
+                                    <th>Surveyor</th>
+                                    <th>Teknisi</th>
                                     <th width="12%">Aksi</th>
                                 </tr>
                             </thead>
@@ -40,12 +42,16 @@
                                         <td><?= esc($dt['nama_user']) ?></td>
                                         <td><?= esc($dt['harga']); ?></td>
                                         <td><?= esc($dt['Status']); ?></td>
+                                        <td><?= isset($dt['teknisi']) ? $dt['teknisi'] : 'Belum Ditentukan'; ?></td>
+                                        <td><?= isset($dt['surveyor']) ? $dt['surveyor'] : 'Belum Ditentukan'; ?></td>
                                         <td class="text-center">
                                             <a data-id="<?= esc($dt['id']) ?>" 
                                                 data-username="<?= esc($dt['username']) ?>"
-                                               data-harga="<?= esc($dt['harga']) ?>" 
-                                               data-status="<?= esc($dt['Status']) ?>" 
-                                               href="#edit" class="edit-invoice" title="Edit Invoice">
+                                                data-harga="<?= esc($dt['harga']) ?>" 
+                                                data-status="<?= esc($dt['Status']) ?>"
+                                                data-teknisi="<?= isset($dt['id_teknisi']) ? $dt['id_teknisi'] : ''; ?>" 
+                                                data-surveyor="<?= isset($dt['id_surveyor']) ? $dt['id_surveyor'] : ''; ?>" 
+                                                href="#edit" class="edit-invoice" title="Edit Invoice">
                                                 <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
                                             <a href="<?= base_url('invoice/delete?id=' . esc($dt['id'])); ?>" class="delete" title="Delete">
@@ -82,6 +88,24 @@
                         </select>   
                     </div>
                     <div class="form-group">
+                        <label for="teknisi">Teknisi</label>
+                        <select class="form-control" name="teknisi" id="teknisi" required>
+                            <option value="">Not Defined</option>
+                            <?php foreach($technicians as $technician) { ?>
+                                <option value="<?= $technician['username'] ?>"><?=  $technician['nama'] ?></option>
+                            <?php } ?>
+                        </select>                      
+                     </div>
+                     <div class="form-group">
+                        <label for="surveyor">Surveyor</label>
+                        <select class="form-control" name="surveyor" id="surveyor">
+                            <option value="">Not Defined</option>
+                            <?php foreach($surveyors as $surveyor) { ?>
+                                <option value="<?= $surveyor['username'] ?>"><?=  $surveyor['nama'] ?></option>
+                            <?php } ?>
+                        </select>                      
+                     </div>
+                    <div class="form-group">
                         <label for="status">Status</label>
                         <input id='status' name='status' readonly value='unsurveyed' class='form-control'>
                     </div>
@@ -115,8 +139,25 @@
                         <input type="text" id="harga_edit" class="form-control" name="harga" placeholder="Harga" required>
                     </div>
                     <div class="form-group">
+                        <label for="edit_teknisi">Teknisi</label>
+                        <select class="form-control" name="teknisi" id="edit_teknisi" required>
+                            <option value="">Not Defined</option>
+                            <?php foreach($technicians as $technician) { ?>
+                                <option value="<?= $technician['username'] ?>"><?=  $technician['nama'] ?></option>
+                            <?php } ?>
+                        </select>                      
+                     </div>
+                     <div class="form-group">
+                        <label for="edit_surveyor">Surveyor</label>
+                        <select class="form-control" name="surveyor" id="edit_surveyor">
+                            <option value="">Not Defined</option>
+                            <?php foreach($surveyors as $surveyor) { ?>
+                                <option value="<?= $surveyor['username'] ?>"><?=  $surveyor['nama'] ?></option>
+                            <?php } ?>
+                        </select>                      
+                     </div>
+                    <div class="form-group">
                         <label for="Status">Status</label>
-                 
                         <select class="form-control" name="status" id="status_edit" required>
                             <option value="">Pilih Role</option>
                             <option value="selesai">Selesai</option>
@@ -138,15 +179,19 @@
 <script>
     $(document).ready(function() {
         $('.edit-invoice').on('click', function() {
-            var id = $(this).data('id');
-            var harga = $(this).data('harga');
-            var status = $(this).data('status');
+            var id = $(this).data('id')
+            var harga = $(this).data('harga')
+            var status = $(this).data('status')
             var username = $(this).data('username')
+            var surveyor = $(this).data('surveyor')
+            var teknisi = $(this).data('teknisi')
 
             $('#edit_id').val(id);
             $('#harga_edit').val(harga);
             $('#status_edit').val(status)
             $('#edit_username').val(username)
+            $('#edit_surveyor').val(surveyor)
+            $('#edit_teknisi').val(teknisi)
 
             $('#edit').modal('show');
         });

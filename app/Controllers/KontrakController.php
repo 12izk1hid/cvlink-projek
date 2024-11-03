@@ -2,22 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\InvoiceModel;
-use App\Models\KontrakModel;
-use App\Models\JasaModel;
-
-
-class KontrakController extends BaseController
+class KontrakController extends AdminController
 {
-    protected $kontrakModel;
-    protected $invoiceModel;
-    protected $jasaModel;
 
     public function __construct()
     {
-        $this->kontrakModel = new KontrakModel();
-        $this->invoiceModel = new InvoiceModel();
-        $this->jasaModel = new JasaModel();
+        parent::__construct();
     }
 
     public function index()

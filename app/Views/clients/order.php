@@ -1,7 +1,4 @@
-<form class="form" method="post" action="<?= base_url('invoice/save') ?>">
-    <input name='username' value='<?= $username ?>' type='hidden'> 
-    <input name='status' value='unsurveyed' type='hidden'>
-    <input name='harga' value='0' type='hidden'>
+<form class="form" method="post" action="<?= base_url('client/order/save') ?>">
     <div class="modal-body">
         <div class="form-group">
             <label for="user_id">Layanan </label>
