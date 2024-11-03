@@ -71,6 +71,7 @@
                 <h4 class="modal-title">Tambah Invoice</h4>
             </div>
             <form class="form" method="post" action="<?= base_url('invoice/save') ?>">
+                <input type='hidden' name='harga' value='0' >
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="user_id">Client</label>

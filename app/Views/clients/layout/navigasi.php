@@ -10,7 +10,7 @@
                     <a class="nav-link active" href="<?= base_url('/client') ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pesan Sekarang</a>
+                    <a class="nav-link" href="#">Pesanan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
@@ -32,6 +32,7 @@
                     </ul>
                 </div>
             <?php else: ?>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 <button class="btn btn-primary" onclick="window.location.href='<?= base_url('login') ?>'">Login</button>
             <?php endif; ?>
         </div>

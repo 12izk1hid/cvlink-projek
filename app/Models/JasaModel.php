@@ -20,4 +20,8 @@ class JasaModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    public function getJasa() {
+        return $this->db->table('jasa')->select('*')->where('type', 'jasa')->get()->getResultArray();
+    }
 }

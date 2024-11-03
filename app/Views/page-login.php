@@ -34,10 +34,7 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">Masukan Username dan Password</p>
 			<?php if ((session()->getFlashdata('pesan') !== NULL)) { ?>
-				<div class="alert alert-danger text-center alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<h4><?= session()->getFlashdata('pesan'); ?></h4>
-				</div>
+                <?= session()->getFlashdata('pesan'); ?>
 			<?php }  ?>
 			<form action="<?= base_url() ?>ceklogin" method="post">
 				<div class="form-group has-feedback">

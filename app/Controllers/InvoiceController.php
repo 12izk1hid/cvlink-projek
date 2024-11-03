@@ -49,8 +49,9 @@ class InvoiceController extends BaseController
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $insert = [
                 'username' => $this->request->getPost('username'),
-                'harga' => 0,
+                'harga' => $this->request->getPost('harga'),
                 'status' => $this->request->getPost('status'),
+                'service' => $this->request->getPost('service')
             ];
 
             $this->invoiceModel->insert($insert);
@@ -61,7 +62,9 @@ class InvoiceController extends BaseController
                     <h4><i class="icon fa fa-check"></i> Berhasil menyimpan data invoice</h4>
                 </div>'
             );
-            return redirect()->to(base_url('infoinvoice'));
+            if($session->get('id_level') === 'admin') return redirect()->to(base_url('infoinvoice'));
+            else if($session->get('id_level') === 'klien') return redirect()->to(base_url('client/order'));
+            
         } else {
             return redirect()->to(base_url());
         }

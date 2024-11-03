@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2024 at 08:20 AM
+-- Generation Time: Nov 03, 2024 at 10:46 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -57,7 +57,10 @@ INSERT INTO `hasil_survei` (`id`, `id_surveyors`, `Tanggal_survei`, `Jenis_insta
 CREATE TABLE `invoice` (
   `id` int(11) NOT NULL,
   `username` varchar(30) DEFAULT NULL,
+  `id_surveyor` int(11) NOT NULL,
+  `id_teknisi` int(11) NOT NULL,
   `harga` varchar(50) NOT NULL,
+  `request_description` text NOT NULL,
   `Status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -65,10 +68,14 @@ CREATE TABLE `invoice` (
 -- Dumping data for table `invoice`
 --
 
-INSERT INTO `invoice` (`id`, `username`, `harga`, `Status`) VALUES
-(23, 'rizki', '0', 'unsurveyed'),
-(24, 'rizki', '0', 'unsurveyed'),
-(25, 'rizki', '0', 'unsurveyed');
+INSERT INTO `invoice` (`id`, `username`, `id_surveyor`, `id_teknisi`, `harga`, `request_description`, `Status`) VALUES
+(27, 'rizki', 0, 0, '0', '', 'unsurveyed'),
+(28, 'rizki', 0, 0, '0', '', 'unsurveyed'),
+(29, 'rizki', 0, 0, '0', '', 'unsurveyed'),
+(30, 'rizki', 0, 0, '0', '', 'unsurveyed'),
+(31, 'rizki', 0, 0, '0', '', 'unsurveyed'),
+(32, 'rizki', 0, 0, '0', '', 'unsurveyed'),
+(33, 'rizki', 0, 0, '0', '', 'unsurveyed');
 
 -- --------------------------------------------------------
 
@@ -504,7 +511,14 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `alamat`, `email`, `n
 (16, 'Dita Rouli', 'dita', '25d55ad283aa400af464c76d713c07ad', 'Jl. STN MHD ARIF', 'dita@mail.com', 87654, 'surveyor'),
 (17, 'rangga', 'rangga', '25d55ad283aa400af464c76d713c07ad', 'jl rangga', 'rangga@gmail.com', 8666333, 'klien'),
 (18, 'agus', 'agus', '25d55ad283aa400af464c76d713c07ad', 'Jl. Agus', 'agus@gmail.com', 85432837, 'klien'),
-(19, 'saya', 'saya', '25d55ad283aa400af464c76d713c07ad', 'Jl saya', 'saya@gmail.com', 859363828, 'klien');
+(19, 'saya', 'saya', '25d55ad283aa400af464c76d713c07ad', 'Jl saya', 'saya@gmail.com', 859363828, 'klien'),
+(20, 'Rikky', 'rikky', '25d55ad283aa400af464c76d713c07ad', 'Jln. ppppp', 'hjdkd@mail.com', 99999, 'klien'),
+(21, 'r', 'r', '4b43b0aee35624cd95b910189b3dc231', 'r', 'r@mail.com', 8, 'klien'),
+(22, 'r', 'r', '4b43b0aee35624cd95b910189b3dc231', 'r', 'r@mail.com', 8, 'klien'),
+(23, 'r', 'r', 'c4ca4238a0b923820dcc509a6f75849b', 'r', 'r@mail.com', 8, 'klien'),
+(24, '8', '8', 'c9f0f895fb98ab9159f51fd0297e236d', '8', '8@MAIL.COM', 7, 'klien'),
+(25, 'p', 'p', '83878c91171338902e0fe0fb97a8c47a', 'p', 'p@gmail.com', 845678, 'klien'),
+(26, 'w', 'w', 'f1290186a5d0b1ceab27f4e77c0c5d68', 'w', 'w@gmail.com', 864433, 'klien');
 
 --
 -- Indexes for dumped tables
@@ -634,7 +648,7 @@ ALTER TABLE `hasil_survei`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `jasa`
@@ -724,7 +738,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

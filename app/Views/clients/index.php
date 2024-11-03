@@ -1,57 +1,5 @@
-<style>
-/* Atur gambar dalam card supaya berbentuk persegi */
-.card img {
-    width: 100%; /* Lebar 100% dari elemen col-md-4 */
-    height: 200px; /* Sesuaikan dengan ukuran persegi yang diinginkan */
-    object-fit: cover; /* Pastikan gambar tetap proporsional dan memenuhi area persegi */
-    border-radius: 0.375rem; /* Sudut rounded yang sama dengan card */
-}
+<link rel="stylesheet" href="<?= base_url('assets/css/client.css') ?>">
 
-/* Atur gambar pada carousel supaya tetap proporsional */
-.carousel-item img {
-    max-height: 500px; /* Atur sesuai kebutuhan agar gambar carousel tidak terlalu tinggi */
-    object-fit: cover; /* Pastikan gambar tetap proporsional dalam carousel */
-}
-
-    /* Efek timbul untuk about-us, order-now, contact, dan card */
-    .about-us, .order-now, .contact, .card {
-        padding: 2rem;
-        background-color: #ffffff;
-        margin-top: 2rem;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Efek timbul */
-        transition: transform 0.3s, box-shadow 0.3s; /* Transisi untuk animasi */
-    }
-
-    /* Animasi saat hover untuk card */
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Animasi saat hover untuk about-us, order-now, contact */
-    .about-us:hover, .order-now:hover, .contact:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Pengaturan teks pada section title */
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        color: #333;
-    }
-
-    /* Carousel styling */
-    .carousel-inner img {
-        height: 500px;
-        object-fit: cover;
-    }
-</style>
-
-
-<!-- Carousel -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -195,7 +143,7 @@
 <div class="order-now container">
     <h2 class="section-title">Pesan Sekarang</h2>
     <p>Hubungi kami sekarang untuk konsultasi dan pemesanan layanan yang Anda butuhkan. Kami siap melayani Anda dengan layanan instalasi yang cepat dan terpercaya.</p>
-    <a href="order-page.html" class="btn btn-primary">Pesan Sekarang</a>
+    <a href="<?= base_url('client/order') ?>" class="btn btn-primary">Pesan Sekarang</a>
 </div>
 
 <!-- Contact Section -->
