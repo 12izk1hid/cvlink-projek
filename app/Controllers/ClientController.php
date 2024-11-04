@@ -22,8 +22,11 @@ class ClientController extends BaseController
     public function index()
     {
         $session = session();
+        // Ambil semua data jasa dari model
+    $jasa = $this->jasaModel->getJasa();
         $data = [
             'loged' => !empty($session->get('username')) && !empty($session->get('id_level'))
+          
         ];
 
         return view('clients/layout/header')

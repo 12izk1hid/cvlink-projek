@@ -15,10 +15,10 @@
         <div class="col-md-4">
             <div class="card profile-card">
                 <div class="card-body text-center">
-                    <img src="<?= base_url('assets/img/profile.png') ?>" alt="Profile Picture" class="img-fluid rounded-circle mb-3" width="100">
+                    <img src="<?= base_url('assets/images/rizki.jpg') ?>" alt="Profile Picture" class="img-fluid rounded-circle mb-3" width="100">
                     <h3><?= esc($user['nama']) ?></h3>
                     <p class="text-muted"><?= esc($user['role']) ?></p>
-                    <button class="btn btn-primary mt-3" onclick="toggleEdit()">Edit Profil</button>
+                   <!-- <button class="btn btn-primary mt-3" onclick="toggleEdit()">Edit Profil</button> -->
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     <h4>Detail Profil</h4>
                 </div>
                 <div class="card-body">
-                    <form id="profileForm" action="<?= base_url('client/updateProfile') ?>" method="post">
+                    <form id="profileForm" action="<?= base_url('') ?>" method="post">
                         <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="nama">Nama</label>

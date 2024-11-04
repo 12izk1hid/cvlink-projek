@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2024 at 05:43 PM
+-- Generation Time: Nov 04, 2024 at 06:12 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -98,7 +98,8 @@ INSERT INTO `jasa` (`id`, `nama_item`, `type`, `min_harga`, `max_harga`, `photo_
 (10, 'Pengeboran Sumur', 'jasa', '45000', '50000', '', '2024-10-29', '2024-10-29'),
 (11, 'Kabel', 'barang', '20000', '30000', '', '2024-10-30', '2024-10-30'),
 (12, 'Selang', 'barang', '5000', '8000', '', '2024-10-30', '2024-10-30'),
-(13, 'Pemasangan Wi-Fi', 'jasa', '67000', '80000', '', '2024-11-03', '2024-11-03');
+(13, 'Pemasangan Wi-Fi', 'jasa', '67000', '80000', '', '2024-11-03', '2024-11-03'),
+(21, 'mesin bor air', 'barang', '150000', '200000', 'pengeboran.jpg', '2024-11-04', '2024-11-04');
 
 -- --------------------------------------------------------
 
@@ -248,7 +249,7 @@ ALTER TABLE `invoice`
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `kontrak`

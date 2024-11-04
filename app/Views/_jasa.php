@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-group">
                         <label for="type">Type</label>
-                        <select class="form-control" name="type" placeholder="Masukan Type Jasa" required>
+                        <select class="form-control" name="type" required>
                             <option value="barang">Barang</option>
                             <option value="jasa">Jasa</option>
                         </select>
@@ -91,6 +91,10 @@
                         <label for="maxHarga">Max Harga</label>
                         <input type="number" class="form-control" name="max_harga" placeholder="Masukan Max Harga" required>
                     </div>
+                    <div class="form-group">
+                        <label for="photo">Foto</label>
+                        <input type="file" class="form-control" name="photo" accept="image/*" required>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -100,6 +104,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Edit Data Jasa -->
 <div class="modal fade" id="edit" tabindex="-1" role="dialog">
@@ -118,7 +123,7 @@
                     </div>
                     <div class="form-group">
                         <label for="type">Type</label>
-                        <select class="form-control" name="type" placeholder="Masukan Type Jasa" required>
+                        <select class="form-control" name="type" id="type" required>
                             <option value="barang">Barang</option>
                             <option value="jasa">Jasa</option>
                         </select>
@@ -131,6 +136,10 @@
                         <label for="maxHarga">Max Harga</label>
                         <input type="number" class="form-control" name="max_harga" id="max_harga" placeholder="Masukan Max Harga" required>
                     </div>
+                    <div class="form-group">
+                        <label for="photo">Foto (jika ingin mengganti)</label>
+                        <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -141,6 +150,7 @@
     </div>
 </div>
 
+
 <script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -150,12 +160,14 @@
             var type = $(this).data('type');
             var min_harga = $(this).data('min_harga');
             var max_harga = $(this).data('max_harga');
+            var photo = $(this).data('photo');
 
             $(".modal-body #id").val(id);
             $(".modal-body #nama_item").val(nama_item);
             $(".modal-body #type").val(type);
             $(".modal-body #min_harga").val(min_harga);
             $(".modal-body #max_harga").val(max_harga);
+            $(".modal-body #photo").val(photo);
         });
     });
 </script>
