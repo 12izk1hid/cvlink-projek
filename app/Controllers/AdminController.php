@@ -31,7 +31,7 @@ class AdminController extends BaseController
                 $this->surveiModel = new SurveiModel();
                 $this->usersModel = new UsersModel();
             } else {
-                echo view('forbidden');
+                echo view('errors/forbidden', ['message' => 'NNN']);
                 exit();
             }
         } else {

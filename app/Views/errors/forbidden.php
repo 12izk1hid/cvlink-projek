@@ -70,11 +70,11 @@
 </head>
 <body>
     <div class="wrap">
-        <h1>404</h1>
+        <h1>403</h1>
 
         <p>
             <?php if (ENVIRONMENT !== 'production') : ?>
-                <?= nl2br(esc($message)) ?>
+                FORBIDDEN
             <?php else : ?>
                 <?= lang('Errors.sorryCannotFind') ?>
             <?php endif ?>

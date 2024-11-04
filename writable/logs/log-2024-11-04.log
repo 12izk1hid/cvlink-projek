@@ -153,3 +153,31 @@ INFO - 2024-11-04 11:55:43 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-11-04 11:55:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-04 11:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-04 11:58:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 12:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 12:04:44 --> Undefined variable $message
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Controllers\AdminController.php(34): view('errors/html/error_404')
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\AdminController->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 12:05:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 12:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 12:06:15 --> Undefined variable $code
+in APPPATH\Views\errors\cli\error_404.php on line 5.
+ 1 APPPATH\Views\errors\cli\error_404.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $code', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\errors\\cli\\error_404.php', 5)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\errors\\cli\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('errors/cli/error_404', [], true)
+ 5 APPPATH\Controllers\AdminController.php(34): view('errors/cli/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\AdminController->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 12:10:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 12:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 12:14:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
