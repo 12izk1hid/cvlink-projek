@@ -44,6 +44,9 @@ $routes->post('client/order/save', 'ClientController::saveOrder');
 // admin dashboard
 $routes->get('admin', 'AdminController::index');
 
+// Surveyor
+$routes->get('surveyor', 'SurveyorController::index');
+
 // jasa
 $routes->get('/infojasa', 'JasaController::index');
 $routes->post('jasa/save', 'JasaController::simpanjasa');
@@ -56,11 +59,11 @@ $routes->post('save', 'UserController::save');
 $routes->post('update', 'UserController::update');
 $routes->get('delete', 'UserController::delete');
 
-// survey
-$routes->get('infosurvei', 'SurveiController::index');
-$routes->post('survey/save', 'SurveiController::save');
-$routes->post('survey/edit', 'SurveiController::update');
-$routes->get('survei/delete', 'SurveiController::delete');
+// // survey
+// $routes->get('infosurvei', 'SurveiController::index');
+// $routes->post('survey/save', 'SurveiController::save');
+// $routes->post('survey/edit', 'SurveiController::update');
+// $routes->get('survei/delete', 'SurveiController::delete');
 
 // kontrak
 $routes->get('infokontrak', 'KontrakController::index');

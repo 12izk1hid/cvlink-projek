@@ -3,3 +3,153 @@ INFO - 2024-11-04 08:15:42 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-11-04 08:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-04 08:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-04 08:16:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:48:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:48:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:49:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-04 10:49:22 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'dbwgsl' in C:\wamp64\www\cvlink-projek\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\wamp64\www\cvlink-projek\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'dbwgsl', 3306, '', 0)
+#1 C:\wamp64\www\cvlink-projek\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\wamp64\www\cvlink-projek\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\wamp64\www\cvlink-projek\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\cvlink-projek\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\cvlink-projek\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\cvlink-projek\app\Controllers\Home.php(29): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\cvlink-projek\system\CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#8 C:\wamp64\www\cvlink-projek\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\wamp64\www\cvlink-projek\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\cvlink-projek\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'dbwgsl' in C:\wamp64\www\cvlink-projek\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\wamp64\www\cvlink-projek\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\wamp64\www\cvlink-projek\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\wamp64\www\cvlink-projek\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\wamp64\www\cvlink-projek\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\wamp64\www\cvlink-projek\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\wamp64\www\cvlink-projek\app\Controllers\Home.php(29): CodeIgniter\BaseModel->first()
+#6 C:\wamp64\www\cvlink-projek\system\CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+#7 C:\wamp64\www\cvlink-projek\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\wamp64\www\cvlink-projek\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\cvlink-projek\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-11-04 10:49:22 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'dbwgsl'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `username` = \'jaya\' AND `password` = \'25d55ad283aa400af464c76d713c07ad\'
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Home.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->ceklogin()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 10:49:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:51:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:51:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:59:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 10:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:00:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:00:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:06:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:06:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:07:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 11:18:49 --> Undefined variable $title
+in APPPATH\Views\surveyors\index.php on line 6.
+ 1 APPPATH\Views\surveyors\index.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('surveyors/index', [], true)
+ 5 APPPATH\Controllers\SurveyorController.php(12): view('surveyors/index')
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\SurveyorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SurveyorController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 11:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 11:21:46 --> Undefined variable $invoice
+in APPPATH\Views\surveyors\index.php on line 36.
+ 1 APPPATH\Views\surveyors\index.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $invoice', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php', 36)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('surveyors/index', [], true)
+ 5 APPPATH\Controllers\SurveyorController.php(12): view('surveyors/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\SurveyorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SurveyorController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 11:30:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 11:30:00 --> Undefined variable $invoice
+in APPPATH\Views\surveyors\index.php on line 36.
+ 1 APPPATH\Views\surveyors\index.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $invoice', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php', 36)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('surveyors/index', [], true)
+ 5 APPPATH\Controllers\SurveyorController.php(18): view('surveyors/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\SurveyorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SurveyorController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 11:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 11:30:16 --> Undefined variable $current_user_id
+in APPPATH\Views\surveyors\index.php on line 38.
+ 1 APPPATH\Views\surveyors\index.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $current_user_id', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('surveyors/index', [], true)
+ 5 APPPATH\Controllers\SurveyorController.php(18): view('surveyors/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\SurveyorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SurveyorController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 11:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 11:32:43 --> Undefined variable $clients
+in APPPATH\Views\surveyors\index.php on line 82.
+ 1 APPPATH\Views\surveyors\index.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $clients', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php', 82)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('surveyors/index', [], true)
+ 5 APPPATH\Controllers\SurveyorController.php(20): view('surveyors/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\SurveyorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SurveyorController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 11:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-04 11:36:08 --> Undefined variable $title
+in APPPATH\Views\surveyors\index.php on line 6.
+ 1 APPPATH\Views\surveyors\index.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\cvlink-projek\\app\\Views\\surveyors\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('surveyors/index', [], true)
+ 5 APPPATH\Controllers\SurveyorController.php(21): view('surveyors/index')
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\SurveyorController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SurveyorController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-04 11:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:47:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:47:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:54:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:54:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:55:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-04 11:58:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

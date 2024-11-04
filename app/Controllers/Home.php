@@ -34,10 +34,12 @@ class Home extends BaseController
             $session->set('nama', $user['nama']);
             $session->set('isLogin', true);
 
-            if ($user['role'] == 'admin' || $user['role'] == 'surveyor') {
-                return redirect()->to(base_url('./admin'));
+            if ($user['role'] == 'admin') {
+                return redirect()->to(base_url('admin'));
             } else if ($user['role'] == 'klien') {
-                return redirect()->to(base_url('./client'));
+                return redirect()->to(base_url('client'));
+            } else if($user['role'] == 'surveyor') {
+                return redirect()->to(base_url('surveyor'));
             }
         } else {
             $session->setFlashdata('pesan', 

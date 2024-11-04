@@ -29,8 +29,13 @@
          <ul class="sidebar-menu">
              <li class="header">MAIN NAVIGATION</li>
              <li>
-                 <a href="<?= base_url() ?>admin">
+                 <a href="<?= base_url('surveyor') ?>">
                      <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+             </li>
+             <li>
+                 <a href="<?= base_url('surveyor/view') ?>">
+                     <i class="fa fa-dashboard"></i> <span>Hasil Survey</span>
+                </a>
              </li>
              <li class="treeview">
                  <a href="#">
@@ -41,21 +46,6 @@
                  </a>
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infojasa"><i class="fa fa-circle-o"></i>Barang dan Jasa</a></li>
-                 </ul>
-                 <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infousers"><i class="fa fa-circle-o"></i>Pengguna</a></li>
-                 </ul>
-                 <!-- <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infosurvei"><i class="fa fa-circle-o"></i>Survei</a></li>
-                 </ul> -->
-                 <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infokontrak"><i class="fa fa-circle-o"></i>Kontrak</a></li>
-                 </ul>
-                 <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infoinvoice"><i class="fa fa-circle-o"></i>Invoice</a></li>
-                 </ul>
-                 <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infopemasangan"><i class="fa fa-circle-o"></i>Pemasangan</a></li>
                  </ul>
              </li>
              <li class="treeview">
