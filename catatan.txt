@@ -1,0 +1,25 @@
+query mendapatkan Harga setiap paket layanan :
+
+SELECT 
+	id_services as id, 
+    s.nama as nama_services, 
+    sum(b.harga * pl.besar) as harga_total
+FROM `paket_layanan` pl
+join services s on s.id = pl.id_services
+join barang b on b.id = pl.id_barang
+GROUP BY id_services
+______________________________________________________
+
+query : daftar item dan Harga sesuai id (contoh id_services 1)
+
+SELECT 
+	id_services as id, 
+    s.nama as nama_services, 
+    b.harga as harga_satuan,
+    pl.besar as jumlah,
+    b.nama as nama_barang,
+    b.harga * pl.besar as harga_total
+FROM `paket_layanan` pl
+join services s on s.id = pl.id_services
+join barang b on b.id = pl.id_barang
+where id_services = 1

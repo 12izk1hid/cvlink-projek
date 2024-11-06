@@ -41,95 +41,24 @@
 
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Card 1 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="assets/images/pengeboran.jpg" class="img-fluid rounded-start" alt="Pengeboran Air">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Pengeboran Air</h5>
-                            <p class="card-text">Pengeboran dilakukan hingga ditemukannya sumber air.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <?php foreach($services as $service)  { ?>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/images/services/<?= $service['gambar_service'] ?>" class="img-fluid rounded-start" alt="Pengeboran Air">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $service['nama_service'] ?></h5>
+                                <p class="card-text"><?= $service['harga_total'] ?></p>
+                                <p class="card-text"><small class="text-muted"><?= $service['deskripsi'] ?></small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="assets/images/jaringan.jpg" class="img-fluid rounded-start" alt="Instalasi Jaringan">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Instalasi Jaringan</h5>
-                            <p class="card-text">Pemasangan jaringan di daerah blank spot.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="assets/images/pipa.jpg" class="img-fluid rounded-start" alt="Instalasi Pipa">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Instalasi Pipa</h5>
-                            <p class="card-text">Instalasi pipa untuk berbagai keperluan rumah dan industri.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="assets/images/cctv.jpg" class="img-fluid rounded-start" alt="Instalasi CCTV">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Instalasi CCTV</h5>
-                            <p class="card-text">Pemasangan berbagai jenis CCTV untuk keamanan.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 15 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="assets/images/petir.jpg" class="img-fluid rounded-start" alt="Penangkal Petir">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Penangkal Petir</h5>
-                            <p class="card-text">Memasang perangkat untuk menangkal petir pada bangunan.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 15 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>
 

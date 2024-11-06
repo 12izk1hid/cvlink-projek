@@ -45,7 +45,7 @@
                      </span>
                  </a>
                  <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infojasa"><i class="fa fa-circle-o"></i>Barang dan Jasa</a></li>
+                     <li><a href="<?= base_url() ?>infosurveyor"><i class="fa fa-circle-o"></i>Barang dan Jasa</a></li>
                  </ul>
              </li>
              <li class="treeview">

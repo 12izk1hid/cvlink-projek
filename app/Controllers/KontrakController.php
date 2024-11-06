@@ -25,7 +25,7 @@ class KontrakController extends AdminController
             ];
             return view('layout/_header')
                 . view('layout/_navigasi')
-                . view('_kontrak', $data) // Mengarahkan ke view jasa
+                . view('_kontrak', $data)
                 . view('layout/_footer');
         } else {
             return redirect()->to(base_url());

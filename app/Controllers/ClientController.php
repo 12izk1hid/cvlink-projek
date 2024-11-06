@@ -5,28 +5,29 @@ namespace App\Controllers;
 use App\Models\JasaModel;
 use App\Models\InvoiceModel;
 use App\Models\UsersModel;
+use App\Models\PaketLayananModel;
 
 class ClientController extends BaseController
 {
     protected $jasaModel;
     protected $invoiceModel;
     protected $usersModel;
+    protected $paketLayananModel;
 
     public function __construct()
     {
         $this->jasaModel = new JasaModel();
         $this->invoiceModel = new InvoiceModel();
         $this->usersModel = new UsersModel();
+        $this->paketLayananModel = new PaketLayananModel();
     }
 
     public function index()
     {
         $session = session();
-        // Ambil semua data jasa dari model
-    $jasa = $this->jasaModel->getJasa();
         $data = [
-            'loged' => !empty($session->get('username')) && !empty($session->get('id_level'))
-          
+            'loged' => !empty($session->get('username')) && !empty($session->get('id_level')),
+            'services' => $this->paketLayananModel->getServiceInfo()
         ];
 
         return view('clients/layout/header')
