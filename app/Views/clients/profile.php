@@ -15,10 +15,10 @@
         <div class="col-md-4">
             <div class="card profile-card">
                 <div class="card-body text-center">
-                    <img src="<?= base_url('assets/images/rizki.jpg') ?>" alt="Profile Picture" class="img-fluid rounded-circle mb-3" width="100">
+                    <!-- Menampilkan gambar profil yang diambil dari kolom photo_url -->
+                    <img src="data:image/png;base64,<?= base64_encode($user['photo_url']) ?>" alt="Profile Picture" class="profile-picture img-fluid rounded-circle mb-3" width="100">
                     <h3><?= esc($user['nama']) ?></h3>
                     <p class="text-muted"><?= esc($user['role']) ?></p>
-                   <!-- <button class="btn btn-primary mt-3" onclick="toggleEdit()">Edit Profil</button> -->
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ class ServicesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_item', 'type', 'min_harga', 'max_harga', 'photo_url']; 
+    protected $allowedFields    = ['nama','deskripsi','img_url','harga']; 
 
 
 }

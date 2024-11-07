@@ -6,6 +6,8 @@ use App\Models\JasaModel;
 use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\PaketLayananModel;
+use App\Models\ServicesModel; // Tambahkan ini di bagian atas
+
 
 class ClientController extends BaseController
 {
@@ -13,6 +15,7 @@ class ClientController extends BaseController
     protected $invoiceModel;
     protected $usersModel;
     protected $paketLayananModel;
+    protected $servicesModel;
 
     public function __construct()
     {
@@ -20,6 +23,7 @@ class ClientController extends BaseController
         $this->invoiceModel = new InvoiceModel();
         $this->usersModel = new UsersModel();
         $this->paketLayananModel = new PaketLayananModel();
+        $this->servicesModel = new ServicesModel();
     }
 
     public function index()
@@ -40,17 +44,20 @@ class ClientController extends BaseController
     {
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
+            $data = [
+                'username' => $session->get('username'),
+                'services' => $this->servicesModel->findAll() // Mengambil semua data layanan
+            ];
+    
             return view('clients/layout/header')
                 .view('clients/layout/navigasi', ['loged' => true])
-                .view('clients/order', [
-                    'username' => $session->get('username'),
-                    'services' => $this->jasaModel->getJasa()
-                ])
+                .view('clients/order', $data)
                 .view('clients/layout/footer');
         } else {
             return redirect()->to(base_url('login'));
         }
     }
+    
 
     public function profile()
     {
