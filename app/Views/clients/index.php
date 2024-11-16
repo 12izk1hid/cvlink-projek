@@ -2,7 +2,8 @@
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"
+         aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
@@ -41,18 +42,20 @@
 
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php foreach($services as $service)  { ?>
+        <?php foreach ($services as $service) { ?>
             <div class="col">
                 <div class="card h-100">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="assets/images/services/<?= $service['gambar_service'] ?>" class="img-fluid rounded-start" alt="Pengeboran Air">
+                            <img src="assets/images/services/<?= $service['gambar_service'] ?>" class="img-fluid rounded-start" alt="<?= $service['nama_service'] ?>">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $service['nama_service'] ?></h5>
                                 <p class="card-text"><?= $service['harga_total'] ?></p>
                                 <p class="card-text"><small class="text-muted"><?= $service['deskripsi'] ?></small></p>
+                                <!-- Tombol + -->
+                                <button class="btn btn-primary btn-add-to-cart" data-id="<?= $service['id'] ?>">+</button>
                             </div>
                         </div>
                     </div>
@@ -62,16 +65,21 @@
     </div>
 </div>
 
+
+
 <!-- About Us Section -->
 <div class="about-us container">
     <h2 class="section-title">About Us</h2>
-    <p>CV LINK adalah perusahaan yang bergerak di bidang instalasi jaringan, pengeboran air, pemasangan CCTV, dan penangkal petir. Kami berkomitmen memberikan layanan terbaik untuk memenuhi kebutuhan pelanggan dengan kualitas dan profesionalitas yang tinggi.</p>
+    <p>CV LINK adalah perusahaan yang bergerak di bidang instalasi jaringan, pengeboran air, pemasangan CCTV, 
+        dan penangkal petir. Kami berkomitmen memberikan layanan terbaik untuk memenuhi kebutuhan pelanggan dengan 
+        kualitas dan profesionalitas yang tinggi.</p>
 </div>
 
 <!-- Order Now Section -->
 <div class="order-now container">
     <h2 class="section-title">Pesan Sekarang</h2>
-    <p>Hubungi kami sekarang untuk konsultasi dan pemesanan layanan yang Anda butuhkan. Kami siap melayani Anda dengan layanan instalasi yang cepat dan terpercaya.</p>
+    <p>Hubungi kami sekarang untuk konsultasi dan pemesanan layanan yang Anda butuhkan. 
+        Kami siap melayani Anda dengan layanan instalasi yang cepat dan terpercaya.</p>
     <a href="<?= base_url('client/order') ?>" class="btn btn-primary">Pesan Sekarang</a>
 </div>
 
@@ -82,6 +90,38 @@
     <ul>
         <li>Email: info@cvlink.com</li>
         <li>Telepon: +62 123 4567 890</li>
-        <li>Alamat: Jl. Contoh Alamat No. 1, Kota Contoh, Indonesia</li>
+        <li>Alamat: Kab. Dairi, Kec. Sidikalang, Jl. Tigalingga km.15 no.95</li>
     </ul>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Event listener untuk tombol +
+        $('.btn-add-to-cart').on('click', function () {
+            const idPaketLayanan = $(this).data('id'); // Ambil id dari data-id tombol
+            console.log('Mengirim id_paket_layanan:', idPaketLayanan);
+
+            // Kirim data ke server menggunakan AJAX
+            $.ajax({
+                url: '<?= base_url('client/order/save') ?>', // Endpoint untuk menambah ke keranjang
+                type: 'POST',
+                data: {
+                    id_paket_layanan: idPaketLayanan,
+                    '<?= csrf_token() ?>': '<?= csrf_hash() ?>' // Format CSRF harus dalam bentuk kunci dan nilai
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message || 'Berhasil menambahkan ke keranjang.');
+                    } else {
+                        alert(response.message || 'Gagal menambahkan ke keranjang.');
+                    }
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON?.message || 'Terjadi kesalahan saat menambahkan ke keranjang.');
+                }
+            });
+        });
+    });
+</script>
+

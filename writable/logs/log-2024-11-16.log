@@ -1,0 +1,578 @@
+INFO - 2024-11-16 14:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:15:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:15:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:15:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:15:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:15:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 15:37:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:03:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:06:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:07:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:10:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:11:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:12:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:12:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:13:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:13:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:14:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:16:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:16:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:16:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:17:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:17:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:17:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:17:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:19:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:19:10 --> Adding to cart: id_paket_layanan=1, id_user=rizki
+ERROR - 2024-11-16 16:19:10 --> There is no data to insert.
+INFO - 2024-11-16 16:19:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:19:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:19:37 --> Adding to cart: id_paket_layanan=1, id_user=rizki
+ERROR - 2024-11-16 16:19:37 --> There is no data to insert.
+INFO - 2024-11-16 16:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:22:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:22:08 --> Adding to cart: id_paket_layanan=1, id_user=rizki
+INFO - 2024-11-16 16:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:22:41 --> Adding to cart: id_paket_layanan=3, id_user=rizki
+INFO - 2024-11-16 16:22:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:24:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:24:15 --> Adding to cart: id_paket_layanan=5, id_user=rizki
+INFO - 2024-11-16 16:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:24:53 --> Adding to cart: id_paket_layanan=5, id_user=rizki
+INFO - 2024-11-16 16:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:25:28 --> Adding to cart: id_paket_layanan=9, id_user=rizki
+INFO - 2024-11-16 16:29:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:29:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:29:36 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 306.
+ 1 SYSTEMPATH\Security\Security.php(306): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(55): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('ceklogin', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:29:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:29:58 --> The action you requested is not allowed.
+in SYSTEMPATH\Security\Security.php on line 306.
+ 1 SYSTEMPATH\Security\Security.php(306): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH\Filters\CSRF.php(55): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 4 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('ceklogin', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:30:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:30:46 --> Adding to cart: id_paket_layanan=2, id_user=rizki
+INFO - 2024-11-16 16:52:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 16:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:52:18 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 7.
+ 1 APPPATH\Views\clients\order.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:54:18 --> Undefined variable $paketLayanans
+in APPPATH\Views\clients\order.php on line 7.
+ 1 APPPATH\Views\clients\order.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $paketLayanans', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:54:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:54:19 --> Undefined variable $paketLayanans
+in APPPATH\Views\clients\order.php on line 7.
+ 1 APPPATH\Views\clients\order.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $paketLayanans', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:54:45 --> Undefined array key "nama"
+in APPPATH\Views\clients\order.php on line 8.
+ 1 APPPATH\Views\clients\order.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:55:55 --> Undefined variable $keranjangDetails
+in APPPATH\Views\clients\order.php on line 25.
+ 1 APPPATH\Views\clients\order.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $keranjangDetails', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 25)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 16:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 16:56:52 --> Undefined variable $keranjangDetails
+in APPPATH\Views\clients\order.php on line 25.
+ 1 APPPATH\Views\clients\order.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $keranjangDetails', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 25)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:09:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:09:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:09:56 --> Adding to cart: id_paket_layanan=2, id_user=rizki
+INFO - 2024-11-16 17:10:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:10:02 --> Adding to cart: id_paket_layanan=2, id_user=rizki
+ERROR - 2024-11-16 17:10:02 --> mysqli_sql_exception: Duplicate entry '1-2' for key 'uq_paket_layanan' in C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\ci4-template\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ke...', 0)
+#1 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ke...')
+#2 C:\xampp\htdocs\ci4-template\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ke...')
+#3 C:\xampp\htdocs\ci4-template\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ke...', Array, false)
+#4 C:\xampp\htdocs\ci4-template\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ci4-template\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ci4-template\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ci4-template\app\Models\KeranjangModel.php(38): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ci4-template\app\Controllers\ClientController.php(83): App\Models\KeranjangModel->addServiceToChart('rizki', '2')
+#9 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(932): App\Controllers\ClientController->saveOrder()
+#10 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+#11 C:\xampp\htdocs\ci4-template\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\ci4-template\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-11-16 17:10:02 --> Duplicate entry '1-2' for key 'uq_paket_layanan'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `keranjang` (`id_paket_layanan`, `id_invoice`) VALUES (\'2\', \'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `keranjang` (`id_paket_layanan`, `id_invoice`) VALUES (\'2\', \'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `keranjang` (`id_paket_layanan`, `id_invoice`) VALUES (\'2\', \'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `keranjang` (`id_paket_layanan`, `id_invoice`) VALUES (:id_paket_layanan:, :id_invoice:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\KeranjangModel.php(38): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\ClientController.php(83): App\Models\KeranjangModel->addServiceToChart('rizki', '2')
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->saveOrder()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:19:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:19:14 --> Undefined variable $keranjangDetails
+in APPPATH\Views\clients\order.php on line 25.
+ 1 APPPATH\Views\clients\order.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $keranjangDetails', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 25)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(58): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:20:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:20:29 --> Undefined array key "nama_layanan"
+in APPPATH\Views\clients\order.php on line 28.
+ 1 APPPATH\Views\clients\order.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_layanan"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 28)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:21:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:21:24 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 31.
+ 1 APPPATH\Views\clients\order.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 31)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:22:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:23:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:24:00 --> Adding to cart: id_paket_layanan=3, id_user=rizki
+INFO - 2024-11-16 17:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:24:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:28:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:28:22 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 8.
+ 1 APPPATH\Views\clients\order.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:29:49 --> Undefined array key "barang"
+in APPPATH\Views\clients\order.php on line 32.
+ 1 APPPATH\Views\clients\order.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 32)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:29:51 --> Undefined array key "barang"
+in APPPATH\Views\clients\order.php on line 32.
+ 1 APPPATH\Views\clients\order.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 32)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:29:53 --> Undefined array key "barang"
+in APPPATH\Views\clients\order.php on line 32.
+ 1 APPPATH\Views\clients\order.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 32)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:31:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:32:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:35:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:36:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:37:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:37:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:37:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:38:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:38:13 --> Undefined array key "besaran"
+in APPPATH\Views\clients\order.php on line 40.
+ 1 APPPATH\Views\clients\order.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "besaran"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:38:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:38:22 --> Undefined array key "harga_satuan"
+in APPPATH\Views\clients\order.php on line 37.
+ 1 APPPATH\Views\clients\order.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "harga_satuan"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 37)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:38:29 --> Undefined array key "besar_jumlah"
+in APPPATH\Views\clients\order.php on line 34.
+ 1 APPPATH\Views\clients\order.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "besar_jumlah"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 34)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:38:45 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 31.
+ 1 APPPATH\Views\clients\order.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 31)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:38:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:38:54 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 31.
+ 1 APPPATH\Views\clients\order.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 31)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:03 --> Undefined array key "nama_layanan"
+in APPPATH\Views\clients\order.php on line 28.
+ 1 APPPATH\Views\clients\order.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_layanan"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 28)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:11 --> Undefined array key "nama"
+in APPPATH\Views\clients\order.php on line 8.
+ 1 APPPATH\Views\clients\order.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:18 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 7.
+ 1 APPPATH\Views\clients\order.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:24 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 6.
+ 1 APPPATH\Views\clients\order.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:32 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 6.
+ 1 APPPATH\Views\clients\order.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:39 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 6.
+ 1 APPPATH\Views\clients\order.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:40 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 6.
+ 1 APPPATH\Views\clients\order.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:39:40 --> Undefined variable $services
+in APPPATH\Views\clients\order.php on line 6.
+ 1 APPPATH\Views\clients\order.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $services', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 6)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:40:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:40:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:44:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:44:34 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 36.
+ 1 APPPATH\Views\clients\order.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 36)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:20 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:21 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:21 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:21 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:22 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:22 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:22 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:23 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 38.
+ 1 APPPATH\Views\clients\order.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-16 17:46:55 --> Undefined array key "nama_barang"
+in APPPATH\Views\clients\order.php on line 36.
+ 1 APPPATH\Views\clients\order.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_barang"', 'C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php', 36)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ci4-template\\app\\Views\\clients\\order.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('clients/order', [], true)
+ 5 APPPATH\Controllers\ClientController.php(59): view('clients/order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-11-16 17:47:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 17:47:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-16 18:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

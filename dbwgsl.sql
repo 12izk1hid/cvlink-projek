@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2024 at 05:26 AM
+-- Generation Time: Nov 16, 2024 at 12:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -53,41 +53,51 @@ INSERT INTO `barang` (`id`, `nama`, `merk`, `harga`, `besaran`) VALUES
 (11, 'Biaya Kendala', '-', 1250000, '/ projek'),
 (12, 'LHG LTE', 'Mikrotik', 7000000, 'unit'),
 (13, 'Router', 'Mi Router', 1000000, 'unit'),
-(14, 'Pipa transmisi PVC dia. 1,5\" AW (dari ground ke thoren)', 'Wavin', 35746, '18,00 m1'),
-(15, 'Pipa distribusi PVC dia. 2\" AW (dari thoren ke pipa distribusi PVC)', 'Rucika', 43227, '12,00 m1'),
-(16, 'Pipa penguras PVC dia. 2\" AW', 'Vinilon', 23775, '12,00 m1'),
-(17, 'Stopkran besi dia. 2\"', 'Onda', 293250, '2,00 buah'),
-(18, 'Check valve dia. 1,5\"', 'Maspion', 267375, '1,00 buah'),
-(19, 'Pipa penyaring besi dia. 2\"', 'Maspion', 405375, '1,00 buah'),
-(20, 'Pengaman pompa dari tralis besi hollow 70x50x70 cm lengkap dengan aksesoris engsel, kunci, finishing cat besi', 'King Hardware', 804068, '1,00 unit'),
-(21, 'Pemasangan railling pipa Galvanis Medium B dia. 2\", h = 1,00 m', 'Galvindo', 222827, '10,30 m1'),
-(22, 'Penggalian tanah biasa sedalam s.d 1 m', '-', 47190, '52,25 m3'),
-(23, 'Pengurugan dengan pasir urug', '-', 105996, '10,45 m3'),
-(24, 'Pipa Header GIP Medium B dia. 4\", panjang 1,50 m', 'TSP', 393270, '1,00 bh'),
-(25, 'Pemasangan pipa PVC dia. 2\" AW', 'Wavin', 43227, '209,00 m1'),
-(26, 'Pemasangan pipa PVC dia. 3/4\" AW', 'Rucika', 15391, '36,00 m1'),
-(27, 'Urugan tanah kembali', '-', 18876, '41,21 m3'),
-(28, '1 m3 Pemadatan tanah', '-', 3767, '41,21 m3'),
-(29, 'Pembuangan tanah sejauh s.d. 30 m', '-', 20691, '11,04 m3'),
-(30, 'Pasang Stop kran PVC dia. 2\"', 'Onda', 79860, '8,00 bh'),
-(31, 'Pemasangan 1 buah kran Ø ¾” atau ½”', 'Krisbow', 83339, '6,00 bh'),
-(32, 'Pasang Reducer PVC dia. 2\"x1\"', 'Maspion', 7920, '15,00 bh'),
-(33, 'Panel PHBTR Lengkap dengan ATS/AMF', 'Schneider Electric', 13750000, '1,00 unit'),
-(34, 'Panel Utama (MDP)', 'ABB', 4400000, '1,00 unit'),
-(35, 'Panel Listrik Kantor', 'Panasonic', 3025000, '1,00 unit'),
-(36, 'Panel Listrik Umum', 'Hager', 2750000, '1,00 unit'),
-(37, 'Panel Kontrol Pompa', 'Siemens', 2200000, '1,00 unit'),
-(38, 'Panel Kontrol Aerator', 'Omron', 1760000, '1,00 unit'),
-(39, 'Material Bantu & Testing Commissioning', '-', 1000000, '1,00 ls'),
-(40, 'Air Terminal', 'Erico', 10000000, '1,00 unit'),
-(41, 'Head penangkal petir type electrostatic / non-radio aktif, R=100m', 'ABB', 10000000, '1,00 unit'),
-(42, 'Kabel NSXY 1C x 35 mm²', 'Supreme', 75000, '18,00 m'),
-(43, 'Konduit High Impact PVC Minimum Ø 20 mm', 'Clipsal', 9350, '18,00 m'),
-(44, 'Klem kabel', 'OBO Bettermann', 99000, '1,00 ls'),
-(45, 'Pentanahan / Grounding System', 'Megger', 5000000, '1,00 unit'),
-(46, 'Tiang penangkal petir tinggi 5 m bahan GIP pipe medium class B Ø 2,5\"', 'Galvanis', 2500000, '1,00 bh'),
-(47, 'Accessories', 'Schneider', 385000, '1,00 ls'),
-(48, 'Testing & Commissioning', 'Siemens', 1250000, '1,00 ls');
+(14, 'Pipa transmisi PVC dia. 1,5\" AW (dari ground ke thoren)', 'Wavin', 35746, 'm'),
+(15, 'Pipa distribusi PVC dia. 2\" AW (dari thoren ke pipa distribusi PVC)', 'Rucika', 43227, 'm'),
+(16, 'Pipa penguras PVC dia. 2\" AW', 'Vinilon', 23775, 'm'),
+(17, 'Stopkran besi dia. 2\"', 'Onda', 293250, 'buah'),
+(18, 'Check valve dia. 1,5\"', 'Maspion', 267375, 'buah'),
+(19, 'Pipa penyaring besi dia. 2\"', 'Maspion', 405375, 'buah'),
+(20, 'Pengaman pompa dari tralis besi hollow 70x50x70 cm lengkap dengan aksesoris engsel, kunci, finishing cat besi', 'King Hardware', 804068, 'unit'),
+(21, 'Pemasangan railling pipa Galvanis Medium B dia. 2\", h = 1,00 m', 'Galvindo', 222827, 'm'),
+(22, 'Penggalian tanah biasa sedalam s.d 1 m', '-', 47190, 'm^3'),
+(23, 'Pengurugan dengan pasir urug', '-', 105996, 'm^3'),
+(24, 'Pipa Header GIP Medium B dia. 4\", panjang 1,50 m', 'TSP', 393270, 'bh'),
+(25, 'Pemasangan pipa PVC dia. 2\" AW', 'Wavin', 43227, 'm'),
+(26, 'Pemasangan pipa PVC dia. 3/4\" AW', 'Rucika', 15391, 'm'),
+(27, 'Urugan tanah kembali', '-', 18876, 'm^3'),
+(28, '1 m3 Pemadatan tanah', '-', 3767, 'm3'),
+(29, 'Pembuangan tanah sejauh s.d. 30 m', '-', 20691, 'm^3'),
+(30, 'Pasang Stop kran PVC dia. 2\"', 'Onda', 79860, 'bh'),
+(31, 'Pemasangan 1 buah kran Ø ¾” atau ½”', 'Krisbow', 83339, 'bh'),
+(32, 'Pasang Reducer PVC dia. 2\"x1\"', 'Maspion', 7920, 'bh'),
+(33, 'Panel PHBTR Lengkap dengan ATS/AMF', 'Schneider Electric', 13750000, 'unit'),
+(34, 'Panel Utama (MDP)', 'ABB', 4400000, 'unit'),
+(35, 'Panel Listrik Kantor', 'Panasonic', 3025000, 'unit'),
+(36, 'Panel Listrik Umum', 'Hager', 2750000, 'unit'),
+(37, 'Panel Kontrol Pompa', 'Siemens', 2200000, 'unit'),
+(38, 'Panel Kontrol Aerator', 'Omron', 1760000, 'unit'),
+(39, 'Material Bantu & Testing Commissioning', '-', 1000000, 'ls'),
+(40, 'Air Terminal', 'Erico', 10000000, 'unit'),
+(41, 'Head penangkal petir type electrostatic / non-radio aktif, R=100m', 'ABB', 10000000, 'unit'),
+(42, 'Kabel NSXY 1C x 35 mm²', 'Supreme', 75000, 'm'),
+(43, 'Konduit High Impact PVC Minimum Ø 20 mm', 'Clipsal', 9350, 'm'),
+(44, 'Klem kabel', 'OBO Bettermann', 99000, 'ls'),
+(45, 'Pentanahan / Grounding System', 'Megger', 5000000, 'unit'),
+(46, 'Tiang penangkal petir tinggi 5 m bahan GIP pipe medium class B Ø 2,5\"', 'Galvanis', 2500000, 'bh'),
+(47, 'Accessories', 'Schneider', 385000, 'ls'),
+(48, 'Testing & Commissioning', 'Siemens', 1250000, 'ls'),
+(49, 'Instalasi CCTV dg kabel CAT 6 + Power dlm pipa conduit PVC dia. 20 mm2', 'Belden', 165000, 'titik'),
+(50, 'IP Colour Camera Outdoor Day & Night Fixed Type', 'Hikvision', 1925000, 'bh'),
+(51, 'IP Dome Camera Indoor Day & Night 180° Type', 'Dahua', 2750000, 'bh'),
+(52, 'NVR kap 16 channel, hardisc 1 T', 'Hikvision', 1650000, 'unit'),
+(53, 'Monitor LED 32\" + assesories', 'Samsung', 1650000, 'unit'),
+(54, 'Power Surge Arester 15 KA', 'Schneider', 550000, 'unit'),
+(55, 'Fitting & Supporting', 'Schneider', 3850000, 'ls'),
+(56, 'UPS 3000 VA 2U Rackmount LCD 230 V online', 'APC', 16250000, 'unit'),
+(57, 'Pompa transfer kap. 30 ltr/menit, tekanan 35 m, motor rated: 0.30 KW; 220 V/I Phase/50 Hz (terpasang)', 'Grundfos', 4950000, 'unit'),
+(58, 'Tangga Monyet', '-', 247500, 'm');
 
 -- --------------------------------------------------------
 
@@ -125,8 +135,16 @@ INSERT INTO `hasil_survei` (`id`, `id_surveyors`, `Tanggal_survei`, `Jenis_insta
 CREATE TABLE `invoice` (
   `id` int(11) NOT NULL,
   `user_username` int(11) NOT NULL,
-  `tanggal_pemesanan` int(11) NOT NULL
+  `tanggal_pemesanan` int(11) NOT NULL,
+  `checkout` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`id`, `user_username`, `tanggal_pemesanan`, `checkout`) VALUES
+(1, 0, 2024, 0);
 
 -- --------------------------------------------------------
 
@@ -168,6 +186,14 @@ CREATE TABLE `keranjang` (
   `id_invoice` int(11) NOT NULL,
   `id_paket_layanan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `keranjang`
+--
+
+INSERT INTO `keranjang` (`id`, `id_invoice`, `id_paket_layanan`) VALUES
+(1, 1, 2),
+(3, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -225,7 +251,48 @@ INSERT INTO `paket_layanan` (`id`, `id_services`, `id_barang`, `besar`) VALUES
 (14, 1, 10, 1),
 (15, 1, 11, 1),
 (16, 1, 12, 1),
-(17, 1, 13, 1);
+(17, 1, 13, 1),
+(18, 5, 17, 2),
+(19, 5, 24, 2),
+(34, 4, 14, 18),
+(35, 4, 15, 12),
+(36, 4, 16, 12),
+(37, 4, 20, 1),
+(38, 4, 17, 2),
+(39, 4, 18, 1),
+(40, 4, 19, 1),
+(41, 4, 21, 10),
+(42, 4, 58, 6),
+(58, 5, 22, 52),
+(59, 5, 23, 10),
+(60, 5, 25, 209),
+(61, 5, 26, 36),
+(62, 5, 27, 41),
+(63, 5, 29, 11),
+(64, 6, 33, 1),
+(65, 6, 34, 1),
+(66, 6, 35, 1),
+(67, 6, 36, 1),
+(68, 6, 37, 1),
+(69, 6, 38, 1),
+(70, 6, 39, 1),
+(71, 8, 40, 1),
+(72, 8, 42, 18),
+(73, 8, 43, 18),
+(74, 8, 44, 1),
+(75, 8, 45, 1),
+(76, 8, 46, 1),
+(77, 8, 47, 1),
+(78, 8, 48, 1),
+(79, 9, 49, 8),
+(80, 9, 50, 4),
+(81, 9, 51, 4),
+(82, 9, 52, 1),
+(83, 9, 53, 1),
+(84, 9, 54, 1),
+(85, 9, 55, 1),
+(86, 9, 56, 1),
+(87, 5, 57, 1);
 
 -- --------------------------------------------------------
 
@@ -278,7 +345,8 @@ INSERT INTO `services` (`id`, `nama`, `deskripsi`, `img_url`, `harga`) VALUES
 (5, 'Instalasi Air Bersih Kawasan', 'sistem distribusi air bersih yang dirancang untuk memenuhi kebutuhan air bersih di suatu kawasan atau area tertentu, seperti perumahan, industri, atau kawasan komersial', 'kawasan.jpg', 0),
 (6, 'PEKERJAAN PANEL LISTRIK (TERMASUK GROUNDING)', 'Serangkaian kegiatan yang melibatkan pemasangan, pengaturan, dan pemeliharaan panel listrik yang berfungsi untuk mengendalikan dan mendistribusikan aliran listrik ke seluruh sistem atau perangkat yang membutuhkan daya listrik.', 'panel.jpg', 0),
 (7, 'INSTALASI KABEL FEEDER', 'proses pemasangan dan pengaturan kabel yang digunakan untuk mentransmisikan daya listrik dari sumber utama, seperti pembangkit listrik atau panel distribusi utama, ke berbagai titik distribusi atau sub-panel di seluruh sistem kelistrikan', 'kabel.jpg', 0),
-(8, 'INSTALASI PENANGKAL PETIR', 'sistem yang dirancang untuk melindungi bangunan, instalasi listrik, dan perangkat lainnya dari dampak bahaya petir dengan cara mengalihkan energi listrik yang ditimbulkan oleh sambaran petir ke tanah, sehingga mencegah kerusakan pada struktur atau peralatan yang ada', 'petir.jpg', 0);
+(8, 'INSTALASI PENANGKAL PETIR', 'sistem yang dirancang untuk melindungi bangunan, instalasi listrik, dan perangkat lainnya dari dampak bahaya petir dengan cara mengalihkan energi listrik yang ditimbulkan oleh sambaran petir ke tanah, sehingga mencegah kerusakan pada struktur atau peralatan yang ada', 'petir.jpg', 0),
+(9, 'Instalasi CCTV', 'Kami menyediakan layanan instalasi CCTV yang handal untuk memastikan keamanan properti Anda, baik untuk rumah, kantor, maupun tempat usaha. Dengan dukungan tenaga ahli berpengalaman,', '', 0);
 
 -- --------------------------------------------------------
 
@@ -356,7 +424,8 @@ ALTER TABLE `jasa`
 -- Indexes for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_paket_layanan` (`id_invoice`,`id_paket_layanan`);
 
 --
 -- Indexes for table `kontrak`
@@ -371,6 +440,7 @@ ALTER TABLE `kontrak`
 ALTER TABLE `paket_layanan`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `services_barang_packeting` (`id_services`,`id_barang`),
+  ADD UNIQUE KEY `uq_paket_layanan_id_services_id_invoice` (`id_services`,`id_barang`),
   ADD KEY `id_barang` (`id_barang`);
 
 --
@@ -399,7 +469,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `hasil_survei`
@@ -411,7 +481,7 @@ ALTER TABLE `hasil_survei`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jasa`
@@ -423,7 +493,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kontrak`
@@ -435,7 +505,7 @@ ALTER TABLE `kontrak`
 -- AUTO_INCREMENT for table `paket_layanan`
 --
 ALTER TABLE `paket_layanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `pemasangan`
@@ -447,7 +517,7 @@ ALTER TABLE `pemasangan`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

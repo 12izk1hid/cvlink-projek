@@ -7,7 +7,7 @@ use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\PaketLayananModel;
 use App\Models\ServicesModel; // Tambahkan ini di bagian atas
-
+use App\Models\KeranjangModel;
 
 class ClientController extends BaseController
 {
@@ -16,6 +16,7 @@ class ClientController extends BaseController
     protected $usersModel;
     protected $paketLayananModel;
     protected $servicesModel;
+    protected $keranjangModel;
 
     public function __construct()
     {
@@ -24,6 +25,7 @@ class ClientController extends BaseController
         $this->usersModel = new UsersModel();
         $this->paketLayananModel = new PaketLayananModel();
         $this->servicesModel = new ServicesModel();
+        $this->keranjangModel = new KeranjangModel();
     }
 
     public function index()
@@ -31,7 +33,7 @@ class ClientController extends BaseController
         $session = session();
         $data = [
             'loged' => !empty($session->get('username')) && !empty($session->get('id_level')),
-            'services' => $this->paketLayananModel->getServiceInfo()
+            'services' => $this->paketLayananModel->getServiceInfo() // Ambil data layanan
         ];
 
         return view('clients/layout/header')
@@ -44,21 +46,77 @@ class ClientController extends BaseController
     {
         $session = session();
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
+            // Mengambil informasi paket layanan
             $data = [
                 'username' => $session->get('username'),
-                'services' => $this->servicesModel->findAll() // Mengambil semua data layanan
+                'loged' => true,
+                'paketLayanan' => $this->paketLayananModel->getServiceInfo(),
+                'keranjangDetails' => $this->paketLayananModel->getKeranjangOf($session->get('username'))
             ];
-    
+
             return view('clients/layout/header')
-                .view('clients/layout/navigasi', ['loged' => true])
-                .view('clients/order', $data)
+                .view('clients/layout/navigasi', $data)
+                .view('clients/order', $data) // Menyertakan data paket layanan ke dalam view
                 .view('clients/layout/footer');
         } else {
             return redirect()->to(base_url('login'));
         }
     }
-    
 
+    public function saveOrder()
+    {
+        $session = session();
+        $idPaketLayanan = $this->request->getPost('id_paket_layanan');
+        $idUser = $session->get('username'); // Menggunakan username dari session sebagai id_user
+    
+        if (!$idPaketLayanan || !$idUser) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'success' => false,
+                'message' => 'Data tidak valid.'
+            ]);
+        }
+
+        try {
+            // Debug log (opsional, hapus di produksi)
+            log_message('info', "Adding to cart: id_paket_layanan=$idPaketLayanan, id_user=$idUser");
+
+            // Memasukkan paket layanan ke dalam keranjang
+            $this->keranjangModel->addServiceToChart($idUser, $idPaketLayanan);
+
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Berhasil menambahkan ke keranjang.'
+            ]);
+        } catch (\Exception $e) {
+            log_message('error', $e->getMessage());
+
+            return $this->response->setStatusCode(500)->setJSON([
+                'success' => false,
+                'message' => 'Terjadi kesalahan pada server.'
+            ]);
+        }
+    }
+
+    // Menampilkan keranjang belanja pengguna
+    public function viewCart()
+    {
+        $session = session();
+        $idUser = $session->get('username');
+        
+        // Mengambil data keranjang berdasarkan user_id
+        $cartItems = $this->keranjangModel->getKeranjangDetails($idUser);
+
+        $data = [
+            'cartItems' => $cartItems,
+            'loged' => true
+        ];
+
+        return view('clients/layout/header')
+            .view('clients/layout/navigasi', $data)
+            .view('clients/cart', $data) // Halaman keranjang
+            .view('clients/layout/footer');
+    }
+    
     public function profile()
     {
         $session = session();
@@ -82,30 +140,5 @@ class ClientController extends BaseController
             .view('clients/layout/navigasi', $data)
             .view('clients/profile', $data)
             .view('clients/layout/footer');
-    }
-
-    public function saveOrder()
-    {
-        $session = session();
-        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $insert = [
-                'username' => $session->get('username'),
-                'harga' => 0,
-                'status' => 'unsurveyed',
-                'request_description' => $this->request->getPost('service')
-            ];
-
-            $this->invoiceModel->insert($insert);
-            $session->setFlashdata(
-                'pesan',
-                '<div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i> Berhasil menyimpan data invoice</h4>
-                </div>'
-            );
-            return redirect()->to(base_url('client/order'));
-        } else {
-            return redirect()->to(base_url());
-        }
     }
 }
