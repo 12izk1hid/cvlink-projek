@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2024 at 12:22 PM
+-- Generation Time: Nov 17, 2024 at 10:16 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -193,7 +193,8 @@ CREATE TABLE `keranjang` (
 
 INSERT INTO `keranjang` (`id`, `id_invoice`, `id_paket_layanan`) VALUES
 (1, 1, 2),
-(3, 1, 3);
+(3, 1, 3),
+(5, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -493,7 +494,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kontrak`
