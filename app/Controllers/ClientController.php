@@ -45,51 +45,76 @@ class ClientController extends BaseController
     public function order()
     {
         $session = session();
+    
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            // Mengambil informasi paket layanan
+            $paketLayanan = $this->paketLayananModel->getServiceInfo();
+            $keranjangDetails = $this->paketLayananModel->getKeranjangOf($session->get('username'));
+    
+            $keranjangBarang = [];
+    
+            foreach ($keranjangDetails as $keranjang) {
+                $idServices = $keranjang['id']; 
+                $dataBarang = $this->paketLayananModel->getBarangByService($idServices);
+    
+                $keranjangBarang[$keranjang['id']] = $dataBarang;
+            }
+
+            // Siapkan data untuk view
             $data = [
                 'username' => $session->get('username'),
                 'loged' => true,
-                'paketLayanan' => $this->paketLayananModel->getServiceInfo(),
-                'keranjangDetails' => $this->paketLayananModel->getKeranjangOf($session->get('username'))
+                'paketLayanan' => $paketLayanan,
+                'keranjangDetails' => $keranjangDetails,
+                'keranjangBarang' => $keranjangBarang // Array baru untuk barang
             ];
 
             return view('clients/layout/header')
                 .view('clients/layout/navigasi', $data)
-                .view('clients/order', $data) // Menyertakan data paket layanan ke dalam view
+                .view('clients/order', $data)
                 .view('clients/layout/footer');
         } else {
+            // Jika session tidak valid, redirect ke login
             return redirect()->to(base_url('login'));
         }
     }
-
+    
     public function saveOrder()
     {
         $session = session();
         $idPaketLayanan = $this->request->getPost('id_paket_layanan');
-        $idUser = $session->get('username'); // Menggunakan username dari session sebagai id_user
+        $idUser = $session->get('username');
     
-        if (!$idPaketLayanan || !$idUser) {
-            return $this->response->setStatusCode(400)->setJSON([
+        // Cek apakah pengguna belum login
+        if (!$idUser) {
+            return $this->response->setStatusCode(401)->setJSON([
                 'success' => false,
-                'message' => 'Data tidak valid.'
+                'message' => 'NOT-LOGGED',
+                'url' => base_url('login')
             ]);
         }
-
+    
+        // Validasi data input
+        if (!$idPaketLayanan) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'success' => false,
+                'message' => 'Data tidak valid. ID Paket Layanan harus diisi.'
+            ]);
+        }
+    
         try {
-            // Debug log (opsional, hapus di produksi)
-            log_message('info', "Adding to cart: id_paket_layanan=$idPaketLayanan, id_user=$idUser");
-
+            // Debug log
+            log_message('info', "Menambahkan ke keranjang: id_paket_layanan=$idPaketLayanan, id_user=$idUser");
+    
             // Memasukkan paket layanan ke dalam keranjang
             $this->keranjangModel->addServiceToChart($idUser, $idPaketLayanan);
-
+    
             return $this->response->setJSON([
                 'success' => true,
                 'message' => 'Berhasil menambahkan ke keranjang.'
             ]);
         } catch (\Exception $e) {
-            log_message('error', $e->getMessage());
-
+            log_message('error', 'Error menambahkan ke keranjang: ' . $e->getMessage());
+    
             return $this->response->setStatusCode(500)->setJSON([
                 'success' => false,
                 'message' => 'Terjadi kesalahan pada server.'

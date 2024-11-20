@@ -111,17 +111,28 @@
                     '<?= csrf_token() ?>': '<?= csrf_hash() ?>' // Format CSRF harus dalam bentuk kunci dan nilai
                 },
                 success: function (response) {
+                    console.log('Response dari server:', response);
                     if (response.success) {
                         alert(response.message || 'Berhasil menambahkan ke keranjang.');
                     } else {
-                        alert(response.message || 'Gagal menambahkan ke keranjang.');
+                        if (response.message === 'NOT-LOGGED') {
+                            alert('Anda harus login terlebih dahulu.');
+                            window.location.href = response.url || '<?= base_url('login') ?>';
+                        } else {
+                            alert(response.message || 'Gagal menambahkan ke keranjang.');
+                        }
                     }
                 },
                 error: function (xhr) {
-                    alert(xhr.responseJSON?.message || 'Terjadi kesalahan saat menambahkan ke keranjang.');
+                    console.log('Error dari server:', xhr);
+                    if (xhr.responseJSON?.message === 'NOT-LOGGED') {
+                        alert('Anda harus login terlebih dahulu.');
+                        window.location.href = xhr.responseJSON?.url || '<?= base_url('login') ?>';
+                    } else {
+                        alert(xhr.responseJSON?.message || 'Terjadi kesalahan saat menambahkan ke keranjang.');
+                    }
                 }
             });
         });
     });
 </script>
-

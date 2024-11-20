@@ -60,4 +60,17 @@ class PaketLayananModel extends Model
             ->getResultArray();
 
     }
+
+    public function getBarangByService($idServices)
+    {
+        // Menggunakan query builder untuk menjalankan SQL
+        $builder = $this->db->table('barang b');
+        $builder->select('DISTINCT b.*, pl.besar as jumlah', false); // Menambahkan DISTINCT
+        $builder->join('paket_layanan pl', 'pl.id_barang = b.id'); // Pastikan join sesuai hubungan tabel
+        $builder->where('pl.id_services', $idServices); // Menentukan layanan yang sesuai
+    
+        // Menjalankan query dan mengembalikan hasilnya
+        return $builder->get()->getResultArray();
+    }
+    
 }
