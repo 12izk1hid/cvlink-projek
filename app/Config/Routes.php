@@ -35,6 +35,13 @@ $routes->get('register', 'Home::register');
 $routes->post('register/save', 'Home::save');
 $routes->get('logout', 'Home::logout');
 
+$routes->get('barang', 'BarangController::index'); // Menampilkan data barang
+$routes->post('barang/save', 'BarangController::save'); // Menyimpan data barang
+$routes->get('barang/delete/(:num)', 'BarangController::delete/$1'); // Menghapus data barang
+$routes->post('barang/update', 'BarangController::update');
+
+
+
 // client
 $routes->get('client', 'ClientController::index');
 $routes->get('client/order', 'ClientController::order');
