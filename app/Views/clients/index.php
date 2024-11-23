@@ -42,30 +42,35 @@
 
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php foreach ($services as $service) { ?>
+        <?php foreach ($services as $service): ?>
             <div class="col">
                 <div class="card h-100">
                     <div class="row g-0">
+                        <!-- Gambar Service -->
                         <div class="col-md-4">
-                            <img src="assets/images/services/<?= $service['gambar_service'] ?>" class="img-fluid rounded-start" alt="<?= $service['nama_service'] ?>">
+                            <img src="data:image/jpeg;base64,<?= base64_encode($service['gambar_service']) ?>" 
+                                class="img-fluid rounded-start" 
+                                alt="<?= $service['nama_service'] ?>">
                         </div>
+                        <!-- Detail Service -->
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $service['nama_service'] ?></h5>
-                                <p class="card-text"><?= $service['harga_total'] ?></p>
-                                <p class="card-text"><small class="text-muted"><?= $service['deskripsi'] ?></small></p>
-                                <!-- Tombol + -->
-                                <button class="btn btn-primary btn-add-to-cart" data-id="<?= $service['id'] ?>">+</button>
+                                <!-- Nama Service -->
+                                <h5 class="card-title"><?= htmlspecialchars($service['nama_service']) ?></h5>
+                                <!-- Harga -->
+                                <p class="card-text text-primary fw-bold">Rp <?= number_format($service['harga_total'], 0, ',', '.') ?></p>
+                                <!-- Deskripsi -->
+                                <p class="card-text"><small class="text-muted"><?= htmlspecialchars($service['deskripsi']) ?></small></p>
+                                <!-- Tombol Tambah ke Keranjang -->
+                                <button class="btn btn-outline-primary btn-add-to-cart" data-id="<?= $service['id'] ?>">Tambah ke Keranjang</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 </div>
-
-
 
 <!-- About Us Section -->
 <div class="about-us container">

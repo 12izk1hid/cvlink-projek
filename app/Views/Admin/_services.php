@@ -22,32 +22,30 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <!-- <th width="5%">ID Jasa</th> -->
-                                    <th>Nama Item</th>
-                                    <th>Type</th>
-                                    <th>Min Harga</th>
-                                    <th>Max Harga</th>
+                                    <th>Nama</th>
+                                    <th>Deskripsi</th>
+                                    <th>Harga</th>
+                                    <th>Foto</th>
                                     <th width="12%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $nom = 1; foreach ($jasa as $dt): ?>
+                                <?php $nom = 1; foreach ($services as $service): ?>
                                     <tr>
-                                    <!-- <td class="text-center"><?= esc($dt['id']); ?></td> -->
-                                        <td><?= htmlspecialchars($dt['nama_item']) ?></td>
-                                        <td><?= htmlspecialchars($dt['type']); ?></td>
-                                        <td><?= number_format($dt['min_harga'], 0, ',', '.'); ?></td>
-                                        <td><?= number_format($dt['max_harga'], 0, ',', '.'); ?></td>
+                                        <td><?= htmlspecialchars($service['nama']) ?></td>
+                                        <td><?= htmlspecialchars($service['deskripsi']) ?></td>
+                                        <td><?= number_format($service['harga'], 0, ',', '.'); ?></td>
+                                        <td><img src="<?= base_url('uploads/' . $service['img_url']) ?>" alt="<?= htmlspecialchars($service['nama']) ?>" width="100"></td>
                                         <td class="text-center">
-                                            <a data-toggle="modal" data-id="<?= $dt['id'] ?>" 
-                                               data-nama_item="<?= htmlspecialchars($dt['nama_item']) ?>" 
-                                               data-type="<?= htmlspecialchars($dt['type']) ?>" 
-                                               data-min_harga="<?= $dt['min_harga'] ?>" 
-                                               data-max_harga="<?= $dt['max_harga'] ?>" 
-                                               href="#edit" class="edit-jasa" title="Edit Jasa">
+                                            <a data-toggle="modal" data-id="<?= $service['id'] ?>"
+                                               data-nama="<?= htmlspecialchars($service['nama']) ?>"
+                                               data-deskripsi="<?= htmlspecialchars($service['deskripsi']) ?>"
+                                               data-harga="<?= $service['harga'] ?>"
+                                               data-img_url="<?= $service['img_url'] ?>"
+                                               href="#edit" class="edit-service" title="Edit Jasa">
                                                 <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
-                                            <a href="<?= base_url('jasa/delete?id=' . $dt['id']); ?>" class="delete" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus jasa ini?');">
+                                            <a href="<?= base_url('service/delete?id=' . $service['id']); ?>" class="delete" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus jasa ini?');">
                                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                             </a>
                                         </td>
@@ -69,31 +67,24 @@
             <div class="modal-header">
                 <h4 class="modal-title">Tambah Jasa</h4>
             </div>
-            <form method="post" action="<?= base_url('jasa/save') ?>" enctype="multipart/form-data">
+            <form method="post" action="<?= base_url('service/save') ?>" enctype="multipart/form-data">
                 <?= csrf_field() ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="namaItem">Nama Item</label>
-                        <input type="text" class="form-control" name="nama_item" placeholder="Masukan Nama Item" required>
+                        <label for="nama">Nama Jasa</label>
+                        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Jasa" required>
                     </div>
                     <div class="form-group">
-                        <label for="type">Type</label>
-                        <select class="form-control" name="type" required>
-                            <option value="barang">Barang</option>
-                            <option value="jasa">Jasa</option>
-                        </select>
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi Jasa" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="minHarga">Min Harga</label>
-                        <input type="number" class="form-control" name="min_harga" placeholder="Masukan Min Harga" required>
+                        <label for="harga">Harga</label>
+                        <input type="number" class="form-control" name="harga" placeholder="Masukkan Harga Jasa" required>
                     </div>
                     <div class="form-group">
-                        <label for="maxHarga">Max Harga</label>
-                        <input type="number" class="form-control" name="max_harga" placeholder="Masukan Max Harga" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Foto</label>
-                        <input type="file" class="form-control" name="photo" accept="image/*" required>
+                        <label for="img_url">Foto Jasa</label>
+                        <input type="file" class="form-control" name="img_url" accept="image/*" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -105,7 +96,6 @@
     </div>
 </div>
 
-
 <!-- Edit Data Jasa -->
 <div class="modal fade" id="edit" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -113,32 +103,26 @@
             <div class="modal-header">
                 <h4 class="modal-title">Edit Jasa</h4>
             </div>
-            <form method="post" action="<?= base_url('jasa/update') ?>" enctype="multipart/form-data">
+            <form method="post" action="<?= base_url('service/update') ?>" enctype="multipart/form-data">
                 <?= csrf_field() ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="namaItem">Nama Item</label>
+                        <label for="nama">Nama Jasa</label>
                         <input type="hidden" class="form-control" name="id" id="id">
-                        <input type="text" class="form-control" name="nama_item" id="nama_item" placeholder="Masukan Nama Item" required>
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama Jasa" required>
                     </div>
                     <div class="form-group">
-                        <label for="type">Type</label>
-                        <select class="form-control" name="type" id="type" required>
-                            <option value="barang">Barang</option>
-                            <option value="jasa">Jasa</option>
-                        </select>
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Masukkan Deskripsi Jasa" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="minHarga">Min Harga</label>
-                        <input type="number" class="form-control" name="min_harga" id="min_harga" placeholder="Masukan Min Harga" required>
+                        <label for="harga">Harga</label>
+                        <input type="number" class="form-control" name="harga" id="harga" placeholder="Masukkan Harga Jasa" required>
                     </div>
                     <div class="form-group">
-                        <label for="maxHarga">Max Harga</label>
-                        <input type="number" class="form-control" name="max_harga" id="max_harga" placeholder="Masukan Max Harga" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Foto (jika ingin mengganti)</label>
-                        <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                        <label for="img_url">Foto Jasa (Jika ingin mengganti)</label>
+                        <input type="file" class="form-control" id="img_url" name="img_url" accept="image/*">
+                        <small>Biarkan kosong jika tidak mengganti foto</small>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -150,24 +134,22 @@
     </div>
 </div>
 
-
 <script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script>
     $(document).ready(function() {
-        $(document).on("click", ".edit-jasa", function() {
+        $(document).on("click", ".edit-service", function() {
             var id = $(this).data('id');
-            var nama_item = $(this).data('nama_item');
-            var type = $(this).data('type');
-            var min_harga = $(this).data('min_harga');
-            var max_harga = $(this).data('max_harga');
-            var photo = $(this).data('photo');
+            var nama = $(this).data('nama');
+            var deskripsi = $(this).data('deskripsi');
+            var harga = $(this).data('harga');
+            var img_url = $(this).data('img_url');
 
             $(".modal-body #id").val(id);
-            $(".modal-body #nama_item").val(nama_item);
-            $(".modal-body #type").val(type);
-            $(".modal-body #min_harga").val(min_harga);
-            $(".modal-body #max_harga").val(max_harga);
-            $(".modal-body #photo").val(photo);
+            $(".modal-body #nama").val(nama);
+            $(".modal-body #deskripsi").val(deskripsi);
+            $(".modal-body #harga").val(harga);
+            $(".modal-body #img_url").val(img_url);
         });
     });
 </script>
+
