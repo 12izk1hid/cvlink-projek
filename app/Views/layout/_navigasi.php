@@ -40,7 +40,7 @@
                      </span>
                  </a>
                  <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infojasa"><i class="fa fa-circle-o"></i>Barang dan Jasa</a></li>
+                     <li><a href="<?= base_url('barang') ?>"><i class="fa fa-circle-o"></i>Barang</a></li>
                  </ul>
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infousers"><i class="fa fa-circle-o"></i>Pengguna</a></li>
@@ -49,7 +49,10 @@
                      <li><a href="<?= base_url() ?>infosurvei"><i class="fa fa-circle-o"></i>Survei</a></li>
                  </ul> -->
                  <ul class="treeview-menu">
-                     <li><a href="<?= base_url() ?>infokontrak"><i class="fa fa-circle-o"></i>Kontrak</a></li>
+                     <li><a href="<?= base_url('services') ?>"><i class="fa fa-circle-o"></i>Layanan</a></li>
+                 </ul>
+                 <ul class="treeview-menu">
+                     <li><a href="<?= base_url('paket') ?>"><i class="fa fa-circle-o"></i>Paket Layanan</a></li>
                  </ul>
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infoinvoice"><i class="fa fa-circle-o"></i>Invoice</a></li>

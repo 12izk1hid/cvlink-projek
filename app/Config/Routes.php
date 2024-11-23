@@ -35,12 +35,17 @@ $routes->get('register', 'Home::register');
 $routes->post('register/save', 'Home::save');
 $routes->get('logout', 'Home::logout');
 
+// Barang
 $routes->get('barang', 'BarangController::index'); // Menampilkan data barang
 $routes->post('barang/save', 'BarangController::save'); // Menyimpan data barang
 $routes->get('barang/delete/(:num)', 'BarangController::delete/$1'); // Menghapus data barang
 $routes->post('barang/update', 'BarangController::update');
 
-
+// Services
+$routes->get('services', 'ServiceController::index');
+$routes->post('service/save', 'ServiceController::save');
+$routes->post('service/update', 'ServiceController::update');
+$routes->get('service/delete/(:num)', 'ServiceController::delete/$1');
 
 // client
 $routes->get('client', 'ClientController::index');

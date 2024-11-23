@@ -35,17 +35,21 @@
                                         <td><?= htmlspecialchars($service['nama']) ?></td>
                                         <td><?= htmlspecialchars($service['deskripsi']) ?></td>
                                         <td><?= number_format($service['harga'], 0, ',', '.'); ?></td>
-                                        <td><img src="<?= base_url('uploads/' . $service['img_url']) ?>" alt="<?= htmlspecialchars($service['nama']) ?>" width="100"></td>
+                                        <td>
+                                            <img src="data:image/jpeg;base64,<?= base64_encode($service['img_url']) ?>" 
+                                                class="img-fluid rounded-start" 
+                                                alt="<?= $service['nama'] ?>" 
+                                                style="width: 40px; height: 40px; object-fit: cover;">
+                                        </td>
                                         <td class="text-center">
                                             <a data-toggle="modal" data-id="<?= $service['id'] ?>"
                                                data-nama="<?= htmlspecialchars($service['nama']) ?>"
                                                data-deskripsi="<?= htmlspecialchars($service['deskripsi']) ?>"
                                                data-harga="<?= $service['harga'] ?>"
-                                               data-img_url="<?= $service['img_url'] ?>"
                                                href="#edit" class="edit-service" title="Edit Jasa">
                                                 <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
                                             </a>
-                                            <a href="<?= base_url('service/delete?id=' . $service['id']); ?>" class="delete" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus jasa ini?');">
+                                            <a href="<?= base_url('service/delete/' . $service['id']); ?>" class="delete" title="Delete" onclick="return confirm('Apakah Anda yakin ingin menghapus jasa ini?');">
                                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                             </a>
                                         </td>

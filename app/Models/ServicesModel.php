@@ -18,8 +18,8 @@ class ServicesModel extends Model
     // Optional: Menambahkan validasi atau metode tambahan jika diperlukan
     // Contoh: validasi untuk gambar yang diupload
     protected $validationRules = [
-        'nama'       => 'required|min_length[3]|max_length[255]', // Validasi nama
-        'deskripsi'  => 'required|min_length[5]|max_length[500]', // Validasi deskripsi
+        'nama'       => 'required|max_length[255]', // Validasi nama
+        'deskripsi'  => 'required|max_length[500]', // Validasi deskripsi
         'img_url'    => 'permit_empty|valid_url',  // Validasi untuk img_url, jika kosong tidak masalah
         'harga'      => 'required|numeric',        // Validasi harga, harus angka
     ];
@@ -27,12 +27,10 @@ class ServicesModel extends Model
     protected $validationMessages = [
         'nama' => [
             'required'    => 'Nama jasa harus diisi.',
-            'min_length'  => 'Nama jasa minimal 3 karakter.',
             'max_length'  => 'Nama jasa maksimal 255 karakter.',
         ],
         'deskripsi' => [
             'required'    => 'Deskripsi harus diisi.',
-            'min_length'  => 'Deskripsi minimal 5 karakter.',
             'max_length'  => 'Deskripsi maksimal 500 karakter.',
         ],
         'img_url' => [

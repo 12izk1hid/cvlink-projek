@@ -7,7 +7,30 @@ use CodeIgniter\Controller;
 
 class ServiceController extends Controller
 {
-    public function create()
+
+    protected $servicesModel;
+
+    public function __construct()
+    {
+        $this->servicesModel = new ServicesModel();
+    }
+
+
+    public function index()
+    {
+        $data = [
+            'title' => 'Data Barang',
+            'services' => $this->servicesModel->findAll()
+        ];
+
+        return view('layout/_header')
+                . view('layout/_navigasi')
+                . view('Admin/_services', $data)
+                . view('layout/_footer');
+    }
+
+
+    public function save()
     {
         // Mengambil data dari input POST
         $data = [
@@ -19,22 +42,78 @@ class ServiceController extends Controller
 
         // Validasi input
         if (!$this->validate([
-            'nama'      => 'required|min_length[3]|max_length[255]',
-            'deskripsi' => 'required|min_length[5]|max_length[500]',
+            'nama'      => 'required|max_length[255]',
+            'deskripsi' => 'required|max_length[500]',
             'harga'     => 'required|numeric',
             'img_url'   => 'permit_empty|is_image[img_url]|max_size[img_url,1024]|ext_in[img_url,jpg,jpeg,png,gif]', // Validasi file gambar dengan ekstensi yang diperbolehkan
         ])) {
             // Menampilkan error validasi dan input kembali
+            dd($this->validator->getErrors());
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
         // Menyimpan data ke dalam database menggunakan model
         $servicesModel = new ServicesModel();
-        $servicesModel->save($data);
+        if(!$servicesModel->save($data)) {
+            $errors = $servicesModel->errors();
+            dd($errors); // dev
+        }
 
         // Menampilkan pesan sukses atau redirect ke halaman tertentu
         return redirect()->to('/services')->with('message', 'Jasa baru berhasil ditambahkan!');
     }
+
+    public function update()
+    {
+        $id = $this->request->getPost('id');
+        $data = [
+            'nama'      => $this->request->getPost('nama'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'harga'     => $this->request->getPost('harga'),
+            'img_url'   => $this->handleImageUpload(), // Menangani upload gambar (opsional)
+        ];
+
+        // Validasi input
+        if (!$this->validate([
+            'nama'      => 'required|max_length[255]',
+            'deskripsi' => 'required|max_length[500]',
+            'harga'     => 'required|numeric',
+            'img_url'   => 'permit_empty|is_image[img_url]|max_size[img_url,1024]|ext_in[img_url,jpg,jpeg,png,gif]', // Validasi file gambar
+        ])) {
+            // Menampilkan error validasi dan input kembali
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // Memperbarui data di dalam database menggunakan model
+        $servicesModel = new ServicesModel();
+        if (!$servicesModel->update($id, $data)) {
+            $errors = $servicesModel->errors();
+            dd($errors); // Debugging (opsional)
+        }
+
+        // Menampilkan pesan sukses atau redirect ke halaman tertentu
+        return redirect()->to('/services')->with('message', 'Data jasa berhasil diperbarui!');
+    }
+
+    public function delete($id)
+    {
+        // Inisialisasi model
+        $servicesModel = new ServicesModel();
+        $service = $servicesModel->find($id);
+        
+        if (!$service) {
+            // Jika tidak ditemukan, tampilkan pesan error
+            return redirect()->to('/services')->with('error', 'Data tidak ditemukan.');
+        }
+
+        if (!$servicesModel->delete($id)) {
+            $errors = $servicesModel->errors();
+            dd($errors); // Debugging (opsional)
+        }
+
+        return redirect()->to('/services')->with('message', 'Data jasa berhasil dihapus!');
+    }
+
 
     /**
      * Menangani proses upload gambar
