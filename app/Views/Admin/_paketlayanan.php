@@ -1,58 +1,72 @@
 <!-- Sertakan CSS Bootstrap dan Bootstrap Select -->
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
 
 <!-- Sertakan JS jQuery, Bootstrap, dan Bootstrap Select -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Dashboard
-            <small><?= $title ?></small>
-        </h1>
+        <h1>Dashboard <small><?= esc($title) ?></small></h1>
     </section>
-    <!-- Main content -->
+
     <section class="content">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#tambah">
-                            <i class="fa fa-plus"></i>
-                            Tambah Kontrak
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                            <i class="fa fa-plus"></i> Tambah Paket Layanan
                         </button>
                     </div>
-                    <div class="box-body">
-                        <?php if (session()->getFlashdata('pesan') !== NULL) {
-                            echo session()->getFlashdata('pesan');
-                        } ?>
-                        <table id="example1" class="table table-bordered table-striped">
+                    <div class="card-body">
+                        <?php if (session()->getFlashdata('pesan')): ?>
+                            <div class="alert alert-success"><?= session()->getFlashdata('pesan'); ?></div>
+                        <?php endif; ?>
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID Invoice</th>
-                                    <th>Barang/Jasa</th>
-                                    <!-- <th>Client</th> -->
-                                    <!-- <th>Created At</th> -->
-                                    <!-- <th>Updated At</th> -->
-                                    <!-- <th>Harga</th> -->
-                                    <th width="12%">Aksi</th>
+                                    <th>ID Paket</th>
+                                    <th>Nama Layanan</th>
+                                    <th>Nama Barang</th>
+                                    <th>Besar</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($kontrak as $dt): ?>
+                                <?php foreach ($paket_layanan as $paket): ?>
                                     <tr>
-                                        <td><?= esc($dt['id_tagihan']); ?></td>
-                                        <td><?= esc($dt['id_jasa']); ?></td>
-                                        <td width="8%" class="text-center">
-                                            <a data-toggle="modal" data-id="<?= esc($dt['id_tagihan']) ?>" 
-                                               href="#edit" class="edit-kontrak" title="Edit kontrak">
-                                                <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
-                                            </a>
-                                            <a href="<?= base_url('kontrak/delete?id=' . esc($dt['id'])); ?>" class="delete" title="Delete">
-                                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <td><?= esc($paket['id']); ?></td>
+                                        <td><?= esc($paket['service_name']); ?></td>
+                                        <td><?= esc($paket['barang_name']); ?></td>
+                                        <td><?= esc($paket['besar']); ?></td>
+                                        <td>
+                                            <?php if ($paket['photo_url']): ?>
+                                                <img src="<?= base_url('uploads/' . esc($paket['photo_url'])); ?>" 
+                                                     alt="Foto <?= esc($paket['service_name']); ?>" 
+                                                     class="img-thumbnail" style="width: 80px;">
+                                            <?php else: ?>
+                                                <span class="text-muted">Tidak ada foto</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm edit-paket" 
+                                                    data-id="<?= esc($paket['id']); ?>" 
+                                                    data-id-services="<?= esc($paket['id_services']); ?>"
+                                                    data-id-barang="<?= esc($paket['id_barang']); ?>" 
+                                                    data-besar="<?= esc($paket['besar']); ?>"
+                                                    data-photo-url="<?= esc($paket['photo_url']); ?>"
+                                                    data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <a href="<?= base_url('paket/delete/' . esc($paket['id'])); ?>" 
+                                               onclick="return confirm('Apakah Anda yakin ingin menghapus paket ini?')" 
+                                               class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -66,111 +80,106 @@
     </section>
 </div>
 
-<!-- Tambah kontrak -->
-<div class="modal fade" id="tambah" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+<!-- Tambah Modal -->
+<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Tambah Kontrak</h4>
-            </div>
-            <form class="form" method="post" action="<?= base_url('kontrak/save') ?>">
+            <form method="post" action="<?= base_url('paket/save') ?>" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tambahModalLabel">Tambah Paket Layanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id">ID Transaksi (Invoice)</label>
-                        <select id="id" name="id" required class='form-control'>
-                            <?php foreach ($tagihan as $t): ?>
-                                <option value="<?= esc($t); ?>"><?= esc($t); ?></option>
+                        <label for="id_services" class="form-label">Nama Layanan</label>
+                        <select name="id_services" class="form-control selectpicker" data-live-search="true" required>
+                            <?php foreach ($services as $service): ?>
+                                <option value="<?= esc($service['id']); ?>"><?= esc($service['nama']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="id_jasa">Jasa/Barang yang Dibutuhkan</label>
-                        <select id="id_jasa" name="id_jasa[]" required class="form-control selectpicker" multiple data-live-search="true">
-                            <?php foreach ($items as $item): ?>
-                                <option value="<?= esc($item['id']); ?>"><?= esc($item['nama_item']); ?></option>
+                        <label for="id_barang" class="form-label">Nama Barang</label>
+                        <select name="id_barang" class="form-control selectpicker" data-live-search="true" required>
+                            <?php foreach ($barang as $barang_item): ?>
+                                <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama']); ?></option>
                             <?php endforeach; ?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="besar" class="form-label">Besar</label>
+                        <input type="text" name="besar" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo_url" class="form-label">Foto</label>
+                        <input type="file" name="photo_url" class="form-control" accept="image/*">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<!-- Edit kontrak -->
-<div class="modal fade" id="edit" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Edit Kontrak</h4>
-            </div>
-            <form class="form" method="post" action="<?= base_url('kontrak/edit') ?>">
+            <form method="post" action="<?= base_url('paket/update') ?>" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Paket Layanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body">
-                <div class="form-group">
-                        <label for="id_hasil_survei">ID Hasil Survei</label>
-                        <input type="hidden" name="id" id="id">
-                        <select id="id_hasil_survei" name="id_hasil_survei" required>
-                            <?php foreach ($tagihan as $t): ?>
-                                <option value="<?= esc($t); ?>"><?= esc($t); ?></option>
+                    <input type="hidden" name="id" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-id_services" class="form-label">Nama Layanan</label>
+                        <select name="id_services" id="edit-id_services" class="form-control selectpicker" data-live-search="true" required>
+                            <?php foreach ($services as $service): ?>
+                                <option value="<?= esc($service['id']); ?>"><?= esc($service['nama']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="id_klien">ID klien</label>
-                        <input type="hidden" name="id" id="id">
-                        <select id="id_klien" name="id_klien" required>
-                        <?php foreach ($kliens as $klien): ?>
-                                <option value="<?= esc($klien['id']); ?>"><?= esc($klien['id']); ?></option>
+                        <label for="edit-id_barang" class="form-label">Nama Barang</label>
+                        <select name="id_barang" id="edit-id_barang" class="form-control selectpicker" data-live-search="true" required>
+                            <?php foreach ($barang as $barang_item): ?>
+                                <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="created_at">Created At</label>
-                        <input type="date" class="form-control" name="created_at" id="created_at" required>
+                        <label for="edit-besar" class="form-label">Besar</label>
+                        <input type="text" name="besar" id="edit-besar" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="updated_at">Updated At</label>
-                        <input type="date" class="form-control" name="updated_at" id="updated_at" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="harga">Harga</label>
-                        <input type="text" class="form-control" name="harga" id="harga" required>
+                        <label for="edit-photo_url" class="form-label">Foto</label>
+                        <input type="file" name="photo_url" class="form-control" accept="image/*">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $(document).on("click", ".edit-kontrak", function() {
-            var id = $(this).data('id');
-            var id_hasil_survei = $(this).data('id_hasil_survei');
-            var id_klien = $(this).data('id_klien');
-            var created_at = $(this).data('created_at');
-            var updated_at = $(this).data('updated_at');
-            var harga = $(this).data('harga');
-
-            // Mengisi data ke modal edit
-            $(".modal-body #id").val(id);
-            $(".modal-body #id_hasil_survei").val(id_hasil_survei);
-            $(".modal-body #id_klien").val(id_klien);
-            $(".modal-body #created_at").val(created_at);
-            $(".modal-body #updated_at").val(updated_at);
-            $(".modal-body #harga").val(harga);
-       
-            // Tampilkan modal edit
-            $('#edit').modal('show');
-        });
+$(document).ready(function () {
+    $('.selectpicker').selectpicker();
+    $('.edit-paket').on('click', function () {
+        $('#edit-id').val($(this).data('id'));
+        $('#edit-id_services').val($(this).data('id-services')).selectpicker('refresh');
+        $('#edit-id_barang').val($(this).data('id-barang')).selectpicker('refresh');
+        $('#edit-besar').val($(this).data('besar'));
+        $('#edit-photo_url').val($(this).data('photo-url'));
     });
+});
 </script>

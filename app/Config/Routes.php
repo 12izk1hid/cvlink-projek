@@ -41,6 +41,15 @@ $routes->post('barang/save', 'BarangController::save'); // Menyimpan data barang
 $routes->get('barang/delete/(:num)', 'BarangController::delete/$1'); // Menghapus data barang
 $routes->post('barang/update', 'BarangController::update');
 
+// Paket Layanan
+$routes->get('paketlayanan', 'PaketLayananController::index');
+$routes->get('paketlayanan/detail/(:num)', 'PaketLayananController::detail/$1');
+$routes->get('paketlayanan/create', 'PaketLayananController::create');
+$routes->post('paketlayanan/store', 'PaketLayananController::store');
+$routes->get('paketlayanan/edit/(:num)', 'PaketLayananController::edit/$1');
+$routes->post('paketlayanan/update/(:num)', 'PaketLayananController::update/$1');
+$routes->get('paketlayanan/delete/(:num)', 'PaketLayananController::delete/$1');
+
 // Services
 $routes->get('services', 'ServiceController::index');
 $routes->post('service/save', 'ServiceController::save');

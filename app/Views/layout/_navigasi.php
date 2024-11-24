@@ -52,8 +52,9 @@
                      <li><a href="<?= base_url('services') ?>"><i class="fa fa-circle-o"></i>Layanan</a></li>
                  </ul>
                  <ul class="treeview-menu">
-                     <li><a href="<?= base_url('paket') ?>"><i class="fa fa-circle-o"></i>Paket Layanan</a></li>
-                 </ul>
+                    <li><a href="<?= base_url('paketlayanan') ?>"><i class="fa fa-circle-o"></i>Paket Layanan</a></li>
+                </ul>
+
                  <ul class="treeview-menu">
                      <li><a href="<?= base_url() ?>infoinvoice"><i class="fa fa-circle-o"></i>Invoice</a></li>
                  </ul>
