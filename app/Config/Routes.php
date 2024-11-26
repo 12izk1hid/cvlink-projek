@@ -49,6 +49,7 @@ $routes->post('paketlayanan/store', 'PaketLayananController::store');
 $routes->get('paketlayanan/edit/(:num)', 'PaketLayananController::edit/$1');
 $routes->post('paketlayanan/update/(:num)', 'PaketLayananController::update/$1');
 $routes->get('paketlayanan/delete/(:num)', 'PaketLayananController::delete/$1');
+$routes->post('paketlayanan/save', 'PaketLayananController::save');
 
 // Services
 $routes->get('services', 'ServiceController::index');

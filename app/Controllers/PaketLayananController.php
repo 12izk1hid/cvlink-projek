@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\PaketLayananModel;
 use App\Models\ServicesModel;
 use App\Models\BarangModel;
+use Throwable;
 
 class PaketLayananController extends BaseController
 {
@@ -63,10 +64,14 @@ class PaketLayananController extends BaseController
         ];
 
         // Insert data into the database
-        if ($this->paketModel->insert($data)) {
-            return redirect()->to('/paket')->with('pesan', 'Paket Layanan berhasil ditambahkan!');
-        } else {
-            return redirect()->back()->with('pesan', 'Gagal menambahkan Paket Layanan.')->withInput();
+        try {
+            if ($this->paketModel->insert($data)) {
+                return redirect()->to(base_url('paketlayanan'))->with('pesan', 'Paket Layanan berhasil ditambahkan!');
+            } else {
+                return redirect()->back()->with('pesan', 'Gagal menambahkan Paket Layanan.')->withInput();    
+            }
+        } catch (Throwable $e) {
+            return redirect()->back()->with('pesan', 'Error: ' . $e->getMessage())->withInput();
         }
     }
 

@@ -36,6 +36,8 @@ class ClientController extends BaseController
             'services' => $this->paketLayananModel->getServiceInfo() // Ambil data layanan
         ];
 
+        if ($session->get('id_level') === 'admin') return redirect()->to('admin');
+
         return view('clients/layout/header')
             .view('clients/layout/navigasi', $data)
             .view('clients/index')
@@ -67,6 +69,8 @@ class ClientController extends BaseController
                 'keranjangDetails' => $keranjangDetails,
                 'keranjangBarang' => $keranjangBarang // Array baru untuk barang
             ];
+
+            // dd($keranjangDetails);
 
             return view('clients/layout/header')
                 .view('clients/layout/navigasi', $data)

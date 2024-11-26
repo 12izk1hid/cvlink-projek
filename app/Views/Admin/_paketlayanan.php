@@ -1,12 +1,8 @@
-<!-- Sertakan CSS Bootstrap dan Bootstrap Select -->
+<!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
-
-<!-- Sertakan JS jQuery, Bootstrap, dan Bootstrap Select -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
 
 <div class="content-wrapper">
     <section class="content-header">
@@ -15,14 +11,14 @@
 
     <section class="content">
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#tambah">
                             <i class="fa fa-plus"></i> Tambah Paket Layanan
                         </button>
                     </div>
-                    <div class="card-body">
+                    <div class="box-body">
                         <?php if (session()->getFlashdata('pesan')): ?>
                             <div class="alert alert-success"><?= session()->getFlashdata('pesan'); ?></div>
                         <?php endif; ?>
@@ -81,10 +77,10 @@
 </div>
 
 <!-- Tambah Modal -->
-<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambah" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="<?= base_url('paket/save') ?>" enctype="multipart/form-data">
+            <form method="post" action="<?= base_url('paketlayanan/save') ?>" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="modal-header">
                     <h5 class="modal-title" id="tambahModalLabel">Tambah Paket Layanan</h5>
@@ -171,6 +167,7 @@
     </div>
 </div>
 
+<!-- 
 <script>
 $(document).ready(function () {
     $('.selectpicker').selectpicker();
@@ -182,4 +179,4 @@ $(document).ready(function () {
         $('#edit-photo_url').val($(this).data('photo-url'));
     });
 });
-</script>
+</script> -->
