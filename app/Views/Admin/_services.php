@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
+            Service
             <small><?= htmlspecialchars($title) ?></small>
         </h1>
     </section>
@@ -87,9 +87,9 @@
                         <input type="number" class="form-control" name="harga" placeholder="Masukkan Harga Jasa" required>
                     </div>
                     <div class="form-group">
-                        <label for="img_url">Foto Jasa</label>
-                        <input type="file" class="form-control" name="img_url" accept="image/*" required>
-                    </div>
+                    <label for="foto">Foto Jasa</label>
+                    <input type="file" class="form-control-file" id="foto" name="foto" accept="image/png, image/jpeg" required>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -124,10 +124,13 @@
                         <input type="number" class="form-control" name="harga" id="harga" placeholder="Masukkan Harga Jasa" required>
                     </div>
                     <div class="form-group">
-                        <label for="img_url">Foto Jasa (Jika ingin mengganti)</label>
-                        <input type="file" class="form-control" id="img_url" name="img_url" accept="image/*">
-                        <small>Biarkan kosong jika tidak mengganti foto</small>
+                    <label for="foto">Foto Jasa</label>
+                    <input type="file" class="form-control-file" id="foto" name="foto" accept="image/png, image/jpeg">
+                    <small>Biarkan kosong jika tidak ingin mengganti foto.</small>
+                    <div class="mt-3">
+                        <img src="data:image/jpeg;base64,<?= base64_encode($service['img_url']); ?>" alt="Foto Saat Ini" width="100">
                     </div>
+    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

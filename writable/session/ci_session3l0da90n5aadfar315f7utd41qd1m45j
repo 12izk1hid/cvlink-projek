@@ -1,4 +1,0 @@
-__ci_last_regenerate|i:1730731868;_ci_previous_url|s:50:"http://localhost:8080/ci4-template/public/infojasa";id|s:2:"14";username|s:4:"jaya";id_level|s:5:"admin";nama|s:12:"Heri Sanjaya";isLogin|b:1;pesan|s:290:"<div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-check"></i> Berhasil menghapus data jasa</h4>
-                    </div>";__ci_vars|a:1:{s:5:"pesan";s:3:"old";}
