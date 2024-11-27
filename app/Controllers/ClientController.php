@@ -44,6 +44,10 @@ class ClientController extends BaseController
             .view('clients/layout/footer');
     }
 
+    public function checkout() {
+        dd('(-_-)');
+    }
+
     public function order()
     {
         $session = session();
@@ -51,7 +55,6 @@ class ClientController extends BaseController
         if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
             $paketLayanan = $this->paketLayananModel->getServiceInfo();
             $keranjangDetails = $this->paketLayananModel->getKeranjangOf($session->get('username'));
-    
             $keranjangBarang = [];
     
             foreach ($keranjangDetails as $keranjang) {
@@ -85,7 +88,7 @@ class ClientController extends BaseController
     public function saveOrder()
     {
         $session = session();
-        $idPaketLayanan = $this->request->getPost('id_paket_layanan');
+        $id_services = $this->request->getPost('id_services');
         $idUser = $session->get('username');
     
         // Cek apakah pengguna belum login
@@ -98,7 +101,7 @@ class ClientController extends BaseController
         }
     
         // Validasi data input
-        if (!$idPaketLayanan) {
+        if (!$id_services) {
             return $this->response->setStatusCode(400)->setJSON([
                 'success' => false,
                 'message' => 'Data tidak valid. ID Paket Layanan harus diisi.'
@@ -107,10 +110,10 @@ class ClientController extends BaseController
     
         try {
             // Debug log
-            log_message('info', "Menambahkan ke keranjang: id_paket_layanan=$idPaketLayanan, id_user=$idUser");
+            log_message('info', "Menambahkan ke keranjang: id_paket_layanan=$id_services, id_user=$idUser");
     
             // Memasukkan paket layanan ke dalam keranjang
-            $this->keranjangModel->addServiceToChart($idUser, $idPaketLayanan);
+            $this->keranjangModel->addServiceToChart($idUser, $id_services);
     
             return $this->response->setJSON([
                 'success' => true,

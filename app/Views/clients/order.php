@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/keranjang.css') ?>">
 
 <div class="modal-body">
-    <!-- Tabel Keranjang -->
-    <table class="table table-bordered">
-        <thead>
+    <table class="table">
+        <thead class='bg-primary text-white'>
             <tr>
-                <th>Nama Layanan</th>
+            <th>Pilih</th>
+                <th>Keranjang Belanja</th>
             </tr>
         </thead>
         <tbody>
@@ -13,6 +13,11 @@
             <?php if (!empty($keranjangDetails)): ?>
                 <?php foreach ($keranjangDetails as $index => $item): ?>
                     <tr>
+                        <td>
+                            <input type="checkbox" class="form-check-input cart-item" 
+                                   data-id="<?= $item['id'] ?>" 
+                                   data-price="<?= $item['harga_total'] ?>">
+                        </td>
                         <!-- Nama Layanan -->
                         <td class="d-flex justify-content-between align-items-center toggle-details" 
                             data-id="<?= $item['id'] ?>" 
@@ -33,8 +38,6 @@
                             </div>
                         </td>
                     </tr>
-
-                    <!-- Detail Barang Tersembunyi -->
                     <tr id="details-<?= $index ?>" class="details-row" style="display: none;">
                         <td colspan="1">
                             <table class="table table-striped">
@@ -74,48 +77,61 @@
     </table>
 </div>
 
-<div class="modal-body my-2 bottom-4">
-    <!-- Tombol Checkout -->
-    <a href="#checkout" class="btn btn-success position-fixed bottom-1 end-0 m-1 rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 24px;" data-bs-toggle="modal" data-bs-target="#checkoutModal">
-        <i class="fa fa-shopping-cart text-white"></i>
-    </a>
-</div>
+<!-- Tombol Checkout -->
+<button id="checkoutButton" class="btn btn-success position-fixed bottom-1 end-0 m-1 rounded-circle d-flex align-items-center justify-content-center" 
+        style="width: 60px; height: 60px; font-size: 24px;">
+    <i class="fa fa-shopping-cart text-white"></i>
+</button>
 
 <!-- Modal Checkout -->
 <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+            <!-- Header Modal -->
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="checkoutModalLabel">
+                    <i class="fa fa-shopping-cart me-2"></i> Checkout
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
+            <!-- Body Modal -->
             <div class="modal-body">
-                <!-- Form Checkout atau Konten Checkout lainnya -->
-                <form method="post" action="<?= base_url('checkout/save') ?>" enctype="multipart/form-data">
+                <form method="post" action="<?= base_url('client/order/checkout') ?>" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
-                    
-                    <!-- Foto Bukti Transfer -->
+
                     <div class="form-group mb-3">
-                        <label for="bukti_transfer" class="form-label">Foto Bukti Transfer</label>
+                        <label for="metode_pembayaran" class="form-label">Metode Pembayaran</label>
+                        <div class="d-flex align-items-center border rounded p-2">
+                            <img src="<?= base_url('assets/images/gopay.png') ?>" 
+                                alt="Logo GoPay" width="50" class="me-3">
+                            <div>
+                                Transfer ke GoPay
+                                <small class="text-muted">
+                                    Nomor Tujuan: <strong>+62 815-3622-3687</strong>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="bukti_transfer" class="form-label">Upload Bukti Transfer</label>
                         <input type="file" name="bukti_transfer" class="form-control" accept="image/*" required>
                     </div>
 
-                    <!-- Pilih Paket Layanan -->
                     <div class="form-group mb-3">
-                        <label for="id_services" class="form-label">Pilih Paket Layanan</label>
-                        <select name="id_services[]" class="form-control selectpicker" multiple data-live-search="true" required>
-                            <?php foreach ($keranjangDetails as $item): ?>
-                                <option value="<?= $item['id'] ?>">
-                                    <?= htmlspecialchars($item['nama_service'], ENT_QUOTES, 'UTF-8') ?> - Rp <?= number_format($item['harga_total'], 0, ',', '.') ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="total_harga_display" class="form-label">Total Harga</label>
+                        <input type="text" id="total_harga_display" class="form-control" value="Rp 0" readonly>
+                        <input type="hidden" id="total_harga" name="total_harga" value="0">
                     </div>
-                    
-                    <!-- Modal Footer -->
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Checkout</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="fa fa-times"></i> Tutup
+                        </button>
+                        <button type="submit" class="btn btn-primary checkout-btn" disabled>
+                            <i class="fa fa-check"></i> Checkout
+                        </button>
                     </div>
                 </form>
             </div>
@@ -123,22 +139,56 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('.toggle-details').on('click', function () {
-            const target = $(this).data('target');
-            $(target).slideToggle(); // Animasi slide
-            $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up'); // Ubah ikon
+    document.addEventListener('DOMContentLoaded', function () {
+        // Selektor tombol checkout
+        const checkoutButton = document.getElementById('checkoutButton');
+        const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'), {
+            keyboard: true
+        });
+
+        // Event klik tombol checkout
+        checkoutButton.addEventListener('click', function () {
+            // Cek apakah tombol checkout diaktifkan
+            const checkoutDisabled = document.querySelector('.checkout-btn').disabled;
+
+            if (!checkoutDisabled) {
+                // Munculkan modal jika tombol aktif
+                checkoutModal.show();
+            } else {
+                alert('Silakan pilih item terlebih dahulu!');
+            }
         });
     });
 </script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka4QAt02FGGRYyAY9xERtzkoxGT5Usz6DA4vQCBP5kHjVgwp7y3qdDLbcSzZ5hAl" crossorigin="anonymous"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.1/dist/js/bootstrap-select.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-        // Inisialisasi selectpicker untuk dropdown multiselect
-        $('.selectpicker').selectpicker();
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.cart-item');
+        const totalHargaInput = document.getElementById('total_harga');
+        const totalHargaDisplay = document.getElementById('total_harga_display');
+        const checkoutButton = document.querySelector('.checkout-btn');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                let totalHarga = 0;
+                let selectedCount = 0;
+
+                checkboxes.forEach(item => {
+                    if (item.checked) {
+                        totalHarga += parseFloat(item.dataset.price);
+                        selectedCount++;
+                    }
+                });
+
+                totalHargaDisplay.value = 'Rp ' + totalHarga.toLocaleString('id-ID', { minimumFractionDigits: 0 });
+                totalHargaInput.value = totalHarga;
+
+                // Aktifkan tombol checkout jika ada item yang dipilih
+                checkoutButton.disabled = selectedCount === 0;
+            });
+        });
     });
 </script>

@@ -34,20 +34,6 @@ class PaketLayananModel extends Model
         }
     }
 
-    // Fungsi untuk mendapatkan detail keranjang berdasarkan user_id
-    public function getKeranjangDetails($idUser)
-    {
-        return $this->db->table('keranjang k')
-            ->select('s.nama as nama_layanan, b.nama as nama_barang, pl.besar as besar_jumlah, 
-                     b.harga as harga_satuan, b.besaran as besaran, b.harga * pl.besar as harga_total')
-            ->join('paket_layanan pl', 'k.id_paket_layanan = pl.id')
-            ->join('services s', 'pl.id_services = s.id')
-            ->join('barang b', 'pl.id_barang = b.id')
-            ->where('k.id_user', $idUser)
-            ->get()
-            ->getResultArray();
-    }
-
     // Fungsi untuk mendapatkan keranjang berdasarkan user_username
     public function getKeranjangOf($user_username)
     {
@@ -56,7 +42,7 @@ class PaketLayananModel extends Model
                     (SUM(b.harga * pl.besar) + s.harga) as harga_total, s.deskripsi')
             ->join('services s', 's.id = pl.id_services')
             ->join('barang b', 'b.id = pl.id_barang')
-            ->join('keranjang k', 'k.id_paket_layanan = pl.id')
+            ->join('keranjang k', 'k.id_services = pl.id_services')
             ->join('invoice i', 'i.id = k.id_invoice')
             ->where('i.user_username', $user_username)
             ->groupBy('pl.id_services')

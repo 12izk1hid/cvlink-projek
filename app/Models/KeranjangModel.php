@@ -9,9 +9,9 @@ class KeranjangModel extends Model
 {
     protected $table = 'keranjang';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['id_paket_layanan', 'id_invoice'];
+    protected $allowedFields = ['id_services', 'id_invoice'];
 
-    public function addServiceToChart($user, $id_paket_layanan)
+    public function addServiceToChart($user, $id_services)
     {
         $invoiceModel = new InvoiceModel();
         $invoice = $invoiceModel->where('user_username', $user)
@@ -31,17 +31,13 @@ class KeranjangModel extends Model
         }
 
         $data = [
-            'id_paket_layanan' => $id_paket_layanan,
+            'id_services' => $id_services,
             'id_invoice' => $id_invoice
         ];
         
         $this->insert($data);
         
         return true;
-    }
-
-    public function getChart() {
-        
     }
 
 }

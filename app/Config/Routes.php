@@ -62,6 +62,7 @@ $routes->get('client', 'ClientController::index');
 $routes->get('client/order', 'ClientController::order');
 $routes->get('client/profile', 'ClientController::profile');
 $routes->post('client/order/save', 'ClientController::saveOrder');
+$routes->post('client/order/checkout', 'ClientController::checkout');
 $routes->post('/barang/get-by-service', 'ClientController::getBarangByServiceAjax');
 
 // admin dashboard

@@ -102,15 +102,13 @@
     $(document).ready(function () {
         // Event listener untuk tombol +
         $('.btn-add-to-cart').on('click', function () {
-            const idPaketLayanan = $(this).data('id'); // Ambil id dari data-id tombol
-            console.log('Mengirim id_paket_layanan:', idPaketLayanan);
+            const id = $(this).data('id'); // Ambil id dari data-id tombol
 
-            // Kirim data ke server menggunakan AJAX
             $.ajax({
                 url: '<?= base_url('client/order/save') ?>', // Endpoint untuk menambah ke keranjang
                 type: 'POST',
                 data: {
-                    id_paket_layanan: idPaketLayanan,
+                    id_services: id,
                     '<?= csrf_token() ?>': '<?= csrf_hash() ?>' // Format CSRF harus dalam bentuk kunci dan nilai
                 },
                 success: function (response) {
