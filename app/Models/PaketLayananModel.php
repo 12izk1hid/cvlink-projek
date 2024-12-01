@@ -56,9 +56,8 @@ class PaketLayananModel extends Model
                     (SUM(b.harga * pl.besar) + s.harga) as harga_total, s.deskripsi')
             ->join('services s', 's.id = pl.id_services')
             ->join('barang b', 'b.id = pl.id_barang')
-            ->join('keranjang k', 'k.id_paket_layanan = pl.id')
-            ->join('invoice i', 'i.id = k.id_invoice')
-            ->where('i.user_username', $user_username)
+            ->join('keranjang k', 'k.id_services = pl.id_services')
+            ->where('k.user_username', $user_username)
             ->groupBy('pl.id_services')
             ->get()
             ->getResultArray();

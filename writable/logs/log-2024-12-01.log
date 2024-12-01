@@ -137,3 +137,227 @@ in SYSTEMPATH\Model.php on line 838.
  3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
  4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-01 18:03:29 --> syntax error, unexpected token "<<", expecting "function" or "const"
+in APPPATH\Models\PaketLayananModel.php on line 37.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\cvlink-projek\\app\\Models\\PaketLayananModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PaketLayananModel')
+ 3 APPPATH\Controllers\ClientController.php(28): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PaketLayananModel')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ClientController->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 18:05:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-01 18:05:06 --> mysqli_sql_exception: Unknown column 'k.id_services' in 'on clause' in C:\xampp\htdocs\cvlink-projek\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cvlink-projek\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT CONCAT("...', 0)
+#1 C:\xampp\htdocs\cvlink-projek\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT CONCAT("...')
+#2 C:\xampp\htdocs\cvlink-projek\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT CONCAT("...')
+#3 C:\xampp\htdocs\cvlink-projek\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT CONCAT("...', Array, false)
+#4 C:\xampp\htdocs\cvlink-projek\app\Models\PaketLayananModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\cvlink-projek\app\Controllers\ClientController.php(67): App\Models\PaketLayananModel->getKeranjangOf('rizki')
+#6 C:\xampp\htdocs\cvlink-projek\system\CodeIgniter.php(932): App\Controllers\ClientController->order()
+#7 C:\xampp\htdocs\cvlink-projek\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+#8 C:\xampp\htdocs\cvlink-projek\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cvlink-projek\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-12-01 18:05:06 --> Unknown column 'k.id_services' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT CONCAT("http://localhost:8080/cvlink-projek/public/", s.img_url) as gambar_service, `pl`.`id_services` as `id`, `s`.`nama` as `nama_service`, (SUM(b.harga * pl.besar) + s.harga) as harga_total, `s`.`deskripsi`
+FROM `paket_layanan` `pl`
+JOIN `services` `s` ON `s`.`id` = `pl`.`id_services`
+JOIN `barang` `b` ON `b`.`id` = `pl`.`id_barang`
+JOIN `keranjang` `k` ON `k`.`id_services` = `pl`.`id_services`
+JOIN `invoice` `i` ON `i`.`id` = `k`.`id_invoice`
+WHERE `i`.`user_username` = \'rizki\'
+GROUP BY `pl`.`id_services`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT CONCAT("http://localhost:8080/cvlink-projek/public/", s.img_url) as gambar_service, `pl`.`id_services` as `id`, `s`.`nama` as `nama_service`, (SUM(b.harga * pl.besar) + s.harga) as harga_total, `s`.`deskripsi`
+FROM `paket_layanan` `pl`
+JOIN `services` `s` ON `s`.`id` = `pl`.`id_services`
+JOIN `barang` `b` ON `b`.`id` = `pl`.`id_barang`
+JOIN `keranjang` `k` ON `k`.`id_services` = `pl`.`id_services`
+JOIN `invoice` `i` ON `i`.`id` = `k`.`id_invoice`
+WHERE `i`.`user_username` = \'rizki\'
+GROUP BY `pl`.`id_services`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT CONCAT("http://localhost:8080/cvlink-projek/public/", s.img_url) as gambar_service, `pl`.`id_services` as `id`, `s`.`nama` as `nama_service`, (SUM(b.harga * pl.besar) + s.harga) as harga_total, `s`.`deskripsi`
+FROM `paket_layanan` `pl`
+JOIN `services` `s` ON `s`.`id` = `pl`.`id_services`
+JOIN `barang` `b` ON `b`.`id` = `pl`.`id_barang`
+JOIN `keranjang` `k` ON `k`.`id_services` = `pl`.`id_services`
+JOIN `invoice` `i` ON `i`.`id` = `k`.`id_invoice`
+WHERE `i`.`user_username` = \'rizki\'
+GROUP BY `pl`.`id_services`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT CONCAT("http://localhost:8080/cvlink-projek/public/", s.img_url) as gambar_service, `pl`.`id_services` as `id`, `s`.`nama` as `nama_service`, (SUM(b.harga * pl.besar) + s.harga) as harga_total, `s`.`deskripsi`
+FROM `paket_layanan` `pl`
+JOIN `services` `s` ON `s`.`id` = `pl`.`id_services`
+JOIN `barang` `b` ON `b`.`id` = `pl`.`id_barang`
+JOIN `keranjang` `k` ON `k`.`id_services` = `pl`.`id_services`
+JOIN `invoice` `i` ON `i`.`id` = `k`.`id_invoice`
+WHERE `i`.`user_username` = :i.user_username:
+GROUP BY `pl`.`id_services`', [...], false)
+ 5 APPPATH\Models\PaketLayananModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ClientController.php(67): App\Models\PaketLayananModel->getKeranjangOf('rizki')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->order()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 18:06:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:08:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:15:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:18:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:19:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:20:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:32:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:40:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:40:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:41:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:05:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:06:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:08:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:12:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:13:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:13:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:25:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:25:58 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\ClientController.php on line 65.
+ 1 APPPATH\Controllers\ClientController.php(65): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:26:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:26:26 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:27:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:27:40 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:28:23 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:28:27 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:29:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:29:04 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:29:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:29:42 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:30:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:30:43 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:31:06 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:34:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:35:26 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(75): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:39:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:39:16 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\ClientController.php(76): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\ClientController->checkout()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:40:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:42:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:45:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:45:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:52:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:52:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 19:52:44 --> Call to undefined method App\Models\InvoiceModel::getKontrak
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\InvoiceController.php(17): CodeIgniter\Model->__call('getKontrak', [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\InvoiceController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InvoiceController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-01 19:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -54,85 +54,115 @@ class ClientController extends BaseController
             . view('clients/index', $data)
             . view('clients/layout/footer');
     }
-    
-    
 
+    public function checkout()
+    {
+        $buktiTransfer = $this->request->getFile('bukti_transfer');
+        $idServices = $this->request->getPost('id_services');
+        $username = $this->session->get('username');
+    
+        if ($buktiTransfer && $buktiTransfer->isValid() && !$buktiTransfer->hasMoved()) {
+            $idServicesArray = explode(',', $idServices);
+            $idServicesArray = array_map('intval', $idServicesArray);
+            $newFileName = uniqid() . '.' . $buktiTransfer->getExtension();
+            $buktiTransfer->move(ROOTPATH . 'assets/images/evidence', $newFileName);
+            $invoiceData = [ 'bukti_bayar' => $newFileName ];    
+            $invoiceId = $this->invoiceModel->insert($invoiceData);
 
-    // Menampilkan halaman order
+            if ($invoiceId) {
+                $this->keranjangModel->where('user_username', $username)
+                               ->whereIn('id_services', $idServicesArray)
+                               ->set(['id_invoice' => $invoiceId])
+                               ->update();
+                return redirect()->to('/client/order')
+                                 ->with('success', 'Checkout berhasil! Bukti pembayaran telah diunggah.');
+            } else {
+                unlink(ROOTPATH . 'assets/images/evidence/' . $newFileName);
+                return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data invoice.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Bukti transfer tidak valid atau tidak diunggah.');
+        }
+    }
+        
     public function order()
     {
-        $username = $this->session->get('username');
-        $idLevel = $this->session->get('id_level');
-
-        if ($username && $idLevel) {
-            // Mengambil data keranjang dengan cara yang lebih efisien
-            $keranjangDetails = $this->keranjangModel->getKeranjangDetails($username);
-
-            if (empty($keranjangDetails)) {
-                return redirect()->to(base_url('order'))->with('error', 'Keranjang kosong.');
-            }
-
+        $session = session();
+    
+        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
+            $paketLayanan = $this->paketLayananModel->getServiceInfo();
+            $keranjangDetails = $this->paketLayananModel->getKeranjangOf($session->get('username'));
             $keranjangBarang = [];
+    
             foreach ($keranjangDetails as $keranjang) {
-                $idServices = $keranjang['id'];
+                $idServices = $keranjang['id']; 
                 $dataBarang = $this->paketLayananModel->getBarangByService($idServices);
+    
                 $keranjangBarang[$keranjang['id']] = $dataBarang;
             }
 
+            // Siapkan data untuk view
             $data = [
-                'username' => $username,
+                'username' => $session->get('username'),
                 'loged' => true,
+                'paketLayanan' => $paketLayanan,
                 'keranjangDetails' => $keranjangDetails,
-                'keranjangBarang' => $keranjangBarang,
+                'keranjangBarang' => $keranjangBarang // Array baru untuk barang
             ];
 
+            // dd($keranjangDetails);
+
             return view('clients/layout/header')
-                . view('clients/layout/navigasi', $data)
-                . view('clients/order', $data)
-                . view('clients/layout/footer');
+                .view('clients/layout/navigasi', $data)
+                .view('clients/order', $data)
+                .view('clients/layout/footer');
         } else {
-            return redirect()->to(base_url('login'))->with('error', 'Anda belum login.');
+            // Jika session tidak valid, redirect ke login
+            return redirect()->to(base_url('login'));
         }
     }
-
-    // Menyimpan pesanan ke dalam keranjang
+    
     public function saveOrder()
     {
-        $idPaketLayanan = $this->request->getPost('id_paket_layanan');
-        $idUser = $this->session->get('username');
-
+        $session = session();
+        $id_services = $this->request->getPost('id_services');
+        $idUser = $session->get('username');
+    
+        // Cek apakah pengguna belum login
         if (!$idUser) {
             return $this->response->setStatusCode(401)->setJSON([
                 'success' => false,
-                'message' => 'Anda belum login.',
-                'url' => base_url('login'),
+                'message' => 'NOT-LOGGED',
+                'url' => base_url('login')
             ]);
         }
-
-        if (!$idPaketLayanan) {
+    
+        // Validasi data input
+        if (!$id_services) {
             return $this->response->setStatusCode(400)->setJSON([
                 'success' => false,
-                'message' => 'ID Paket Layanan harus diisi.',
+                'message' => 'Data tidak valid. ID Paket Layanan harus diisi.'
             ]);
         }
 
-        try {
-            $this->keranjangModel->addServiceToCart($idUser, $idPaketLayanan);
+        $data = [
+            'id_services' => $id_services,
+            'user_username' => $idUser
+        ];
+
+        if($this->keranjangModel->insert($data)) {
             return $this->response->setJSON([
                 'success' => true,
-                'message' => 'Berhasil menambahkan ke keranjang.',
+                'message' => 'Berhasil menambahkan ke keranjang.'
             ]);
-        } catch (\Exception $e) {
-            log_message('error', 'Error menambahkan ke keranjang: ' . $e->getMessage());
-
+        } else {
             return $this->response->setStatusCode(500)->setJSON([
                 'success' => false,
-                'message' => 'Terjadi kesalahan pada server.',
+                'message' => 'Terjadi kesalahan pada server.'
             ]);
         }
-    }
 
-    
+    }
 
     // Menampilkan keranjang belanja pengguna
     public function viewCart()

@@ -58,13 +58,12 @@ $routes->post('services/update', 'ServiceController::update');
 $routes->get('uploads/(:segment)', 'ImageController::showImage/$1');
 $routes->get('service/delete/(:num)', 'ServiceController::delete/$1');
 
-
-
 // client
 $routes->get('client', 'ClientController::index');
 $routes->get('client/order', 'ClientController::order');
 $routes->get('client/profile', 'ClientController::profile');
 $routes->post('client/order/save', 'ClientController::saveOrder');
+$routes->post('client/order/checkout', 'ClientController::checkout');
 $routes->post('/barang/get-by-service', 'ClientController::getBarangByServiceAjax');
 $routes->get('images/(:any)', 'ImageController::show/$1');
 
