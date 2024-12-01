@@ -40,35 +40,65 @@
 
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php foreach ($services as $service): ?>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="row g-0">
-                        <!-- Gambar Service -->
-                        <div class="col-md-4">
-                            <img src="data:image/jpeg;base64,<?= base64_encode($service['gambar_service']) ?>" 
-                                class="img-fluid rounded-start" 
-                                alt="<?= $service['nama_service'] ?>">
-                        </div>
-                        <!-- Detail Service -->
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <!-- Nama Service -->
-                                <h5 class="card-title"><?= htmlspecialchars($service['nama_service']) ?></h5>
-                                <!-- Harga -->
-                                <p class="card-text text-primary fw-bold">Rp <?= number_format($service['harga_total'], 0, ',', '.') ?></p>
-                                <!-- Deskripsi -->
-                                <p class="card-text"><small class="text-muted"><?= htmlspecialchars($service['deskripsi']) ?></small></p>
-                                <!-- Tombol Tambah ke Keranjang -->
-                                <button class="btn btn-outline-primary btn-add-to-cart" data-id="<?= $service['id'] ?>">Tambah ke Keranjang</button>
+        <?php if (!empty($services)) : ?>
+            <?php foreach ($services as $service) : ?>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <!-- Gambar Service -->
+                            <div class="col-md-4">
+                                <?php 
+                                // Ambil img_url dari database
+                                $imgUrl = $service['img_url'];
+
+                                // Cek apakah gambar valid
+                                if (!empty($imgUrl) && file_exists($imgUrl)) : ?>
+                                    <img src="<?= base_url($imgUrl) ?>" 
+                                         class="img-fluid rounded-start" 
+                                         alt="<?= esc($service['nama_service'] ?? 'Gambar Service', 'html') ?>" 
+                                         style="width: 100%; height: 150px; object-fit: cover;">
+                                <?php else : ?>
+                                    <!-- Tampilkan gambar default -->
+                                    <img src="<?= base_url('assets/images/default.png') ?>" 
+                                         class="img-fluid rounded-start" 
+                                         alt="Default Image" 
+                                         style="width: 100%; height: 150px; object-fit: cover;">
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Detail Service -->
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <?= esc($service['nama_service'] ?? 'Nama Service Tidak Diketahui', 'html') ?>
+                                    </h5>
+                                    <p class="card-text text-primary fw-bold">
+                                        Rp <?= number_format($service['harga_total'] ?? 0, 0, ',', '.') ?>
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <?= esc($service['deskripsi'] ?? 'Deskripsi tidak tersedia', 'html') ?>
+                                        </small>
+                                    </p>
+                                    <button class="btn btn-outline-primary btn-add-to-cart" 
+                                            data-id="<?= esc($service['id'] ?? '', 'html') ?>"
+                                            aria-label="Tambah <?= esc($service['nama_service'] ?? 'Service', 'html') ?> ke Keranjang">
+                                        Tambah ke Keranjang
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <p class="text-center text-muted">Tidak ada layanan yang tersedia saat ini.</p>
+        <?php endif; ?>
     </div>
 </div>
+
+
+
 
 <!-- About Us Section -->
 <div class="about-us container">
@@ -102,15 +132,13 @@
     $(document).ready(function () {
         // Event listener untuk tombol +
         $('.btn-add-to-cart').on('click', function () {
-            const idPaketLayanan = $(this).data('id'); // Ambil id dari data-id tombol
-            console.log('Mengirim id_paket_layanan:', idPaketLayanan);
+            const id = $(this).data('id'); // Ambil id dari data-id tombol
 
-            // Kirim data ke server menggunakan AJAX
             $.ajax({
                 url: '<?= base_url('client/order/save') ?>', // Endpoint untuk menambah ke keranjang
                 type: 'POST',
                 data: {
-                    id_paket_layanan: idPaketLayanan,
+                    id_services: id,
                     '<?= csrf_token() ?>': '<?= csrf_hash() ?>' // Format CSRF harus dalam bentuk kunci dan nilai
                 },
                 success: function (response) {

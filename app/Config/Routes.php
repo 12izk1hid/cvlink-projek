@@ -51,11 +51,14 @@ $routes->post('paketlayanan/update/(:num)', 'PaketLayananController::update/$1')
 $routes->get('paketlayanan/delete/(:num)', 'PaketLayananController::delete/$1');
 $routes->post('paketlayanan/save', 'PaketLayananController::save');
 
-// Services
+//service
 $routes->get('services', 'ServiceController::index');
-$routes->post('service/save', 'ServiceController::save');
-$routes->post('service/update', 'ServiceController::update');
+$routes->post('services/save', 'ServiceController::save');
+$routes->post('services/update', 'ServiceController::update');
+$routes->get('uploads/(:segment)', 'ImageController::showImage/$1');
 $routes->get('service/delete/(:num)', 'ServiceController::delete/$1');
+
+
 
 // client
 $routes->get('client', 'ClientController::index');
@@ -63,6 +66,7 @@ $routes->get('client/order', 'ClientController::order');
 $routes->get('client/profile', 'ClientController::profile');
 $routes->post('client/order/save', 'ClientController::saveOrder');
 $routes->post('/barang/get-by-service', 'ClientController::getBarangByServiceAjax');
+$routes->get('images/(:any)', 'ImageController::show/$1');
 
 // admin dashboard
 $routes->get('admin', 'AdminController::index');

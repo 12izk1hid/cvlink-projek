@@ -6,7 +6,7 @@ use App\Models\JasaModel;
 use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\PaketLayananModel;
-use App\Models\ServicesModel; // Tambahkan ini di bagian atas
+use App\Models\ServicesModel;
 use App\Models\KeranjangModel;
 
 class ClientController extends BaseController
@@ -17,157 +17,167 @@ class ClientController extends BaseController
     protected $paketLayananModel;
     protected $servicesModel;
     protected $keranjangModel;
+    protected $session;
 
     public function __construct()
     {
+        // Inisialisasi model dan session
         $this->jasaModel = new JasaModel();
         $this->invoiceModel = new InvoiceModel();
         $this->usersModel = new UsersModel();
         $this->paketLayananModel = new PaketLayananModel();
         $this->servicesModel = new ServicesModel();
         $this->keranjangModel = new KeranjangModel();
+        $this->session = session(); // Menyimpan session untuk akses lebih mudah
     }
 
+    // Menampilkan halaman utama
     public function index()
     {
-        $session = session();
+        $services = $this->paketLayananModel->getServiceInfo();
+        // Ambil data layanan dan pastikan 'img_url' ada di dalam data tersebut
         $data = [
-            'loged' => !empty($session->get('username')) && !empty($session->get('id_level')),
-            'services' => $this->paketLayananModel->getServiceInfo() // Ambil data layanan
+            'loged' => $this->session->get('username') && $this->session->get('id_level'),
+            'services' => $services, // Data layanan dengan 'img_url'
         ];
 
-        if ($session->get('id_level') === 'admin') return redirect()->to('admin');
-
+        // dd($services);
+    
+        // Cek jika admin, arahkan ke halaman admin
+        if ($this->session->get('id_level') === 'admin') {
+            return redirect()->to('admin');
+        }
+    
+        // Gabungkan semua view dalam satu string dan kirim data layanan ke view
         return view('clients/layout/header')
-            .view('clients/layout/navigasi', $data)
-            .view('clients/index')
-            .view('clients/layout/footer');
+            . view('clients/layout/navigasi', $data)
+            . view('clients/index', $data)
+            . view('clients/layout/footer');
     }
+    
+    
 
+
+    // Menampilkan halaman order
     public function order()
     {
-        $session = session();
-    
-        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $paketLayanan = $this->paketLayananModel->getServiceInfo();
-            $keranjangDetails = $this->paketLayananModel->getKeranjangOf($session->get('username'));
-    
+        $username = $this->session->get('username');
+        $idLevel = $this->session->get('id_level');
+
+        if ($username && $idLevel) {
+            // Mengambil data keranjang dengan cara yang lebih efisien
+            $keranjangDetails = $this->keranjangModel->getKeranjangDetails($username);
+
+            if (empty($keranjangDetails)) {
+                return redirect()->to(base_url('order'))->with('error', 'Keranjang kosong.');
+            }
+
             $keranjangBarang = [];
-    
             foreach ($keranjangDetails as $keranjang) {
-                $idServices = $keranjang['id']; 
+                $idServices = $keranjang['id'];
                 $dataBarang = $this->paketLayananModel->getBarangByService($idServices);
-    
                 $keranjangBarang[$keranjang['id']] = $dataBarang;
             }
 
-            // Siapkan data untuk view
             $data = [
-                'username' => $session->get('username'),
+                'username' => $username,
                 'loged' => true,
-                'paketLayanan' => $paketLayanan,
                 'keranjangDetails' => $keranjangDetails,
-                'keranjangBarang' => $keranjangBarang // Array baru untuk barang
+                'keranjangBarang' => $keranjangBarang,
             ];
 
-            // dd($keranjangDetails);
-
             return view('clients/layout/header')
-                .view('clients/layout/navigasi', $data)
-                .view('clients/order', $data)
-                .view('clients/layout/footer');
+                . view('clients/layout/navigasi', $data)
+                . view('clients/order', $data)
+                . view('clients/layout/footer');
         } else {
-            // Jika session tidak valid, redirect ke login
-            return redirect()->to(base_url('login'));
+            return redirect()->to(base_url('login'))->with('error', 'Anda belum login.');
         }
     }
-    
+
+    // Menyimpan pesanan ke dalam keranjang
     public function saveOrder()
     {
-        $session = session();
         $idPaketLayanan = $this->request->getPost('id_paket_layanan');
-        $idUser = $session->get('username');
-    
-        // Cek apakah pengguna belum login
+        $idUser = $this->session->get('username');
+
         if (!$idUser) {
             return $this->response->setStatusCode(401)->setJSON([
                 'success' => false,
-                'message' => 'NOT-LOGGED',
-                'url' => base_url('login')
+                'message' => 'Anda belum login.',
+                'url' => base_url('login'),
             ]);
         }
-    
-        // Validasi data input
+
         if (!$idPaketLayanan) {
             return $this->response->setStatusCode(400)->setJSON([
                 'success' => false,
-                'message' => 'Data tidak valid. ID Paket Layanan harus diisi.'
+                'message' => 'ID Paket Layanan harus diisi.',
             ]);
         }
-    
+
         try {
-            // Debug log
-            log_message('info', "Menambahkan ke keranjang: id_paket_layanan=$idPaketLayanan, id_user=$idUser");
-    
-            // Memasukkan paket layanan ke dalam keranjang
-            $this->keranjangModel->addServiceToChart($idUser, $idPaketLayanan);
-    
+            $this->keranjangModel->addServiceToCart($idUser, $idPaketLayanan);
             return $this->response->setJSON([
                 'success' => true,
-                'message' => 'Berhasil menambahkan ke keranjang.'
+                'message' => 'Berhasil menambahkan ke keranjang.',
             ]);
         } catch (\Exception $e) {
             log_message('error', 'Error menambahkan ke keranjang: ' . $e->getMessage());
-    
+
             return $this->response->setStatusCode(500)->setJSON([
                 'success' => false,
-                'message' => 'Terjadi kesalahan pada server.'
+                'message' => 'Terjadi kesalahan pada server.',
             ]);
         }
     }
+
+    
 
     // Menampilkan keranjang belanja pengguna
     public function viewCart()
     {
-        $session = session();
-        $idUser = $session->get('username');
-        
-        // Mengambil data keranjang berdasarkan user_id
-        $cartItems = $this->keranjangModel->getKeranjangDetails($idUser);
+        $idUser = $this->session->get('username');
 
-        $data = [
-            'cartItems' => $cartItems,
-            'loged' => true
-        ];
-
-        return view('clients/layout/header')
-            .view('clients/layout/navigasi', $data)
-            .view('clients/cart', $data) // Halaman keranjang
-            .view('clients/layout/footer');
-    }
-    
-    public function profile()
-    {
-        $session = session();
-        $username = $session->get('username'); // Ambil username dari session
-
-        // Ambil data pengguna dari database berdasarkan username
-        $user = $this->usersModel->where('username', $username)->first();
-
-        // Cek apakah data pengguna ditemukan
-        if (!$user) {
+        if (!$idUser) {
             return redirect()->to(base_url('login'));
         }
 
-        // Kirim data $user ke view
+        // Mengecek apakah keranjang kosong
+        $cartItems = $this->keranjangModel->getKeranjangDetails($idUser);
+        if (empty($cartItems)) {
+            return redirect()->to(base_url('order'))->with('error', 'Keranjang Anda kosong.');
+        }
+
         $data = [
-            'user' => $user,
-            'loged' => true
+            'cartItems' => $cartItems,
+            'loged' => true,
         ];
 
         return view('clients/layout/header')
-            .view('clients/layout/navigasi', $data)
-            .view('clients/profile', $data)
-            .view('clients/layout/footer');
+            . view('clients/layout/navigasi', $data)
+            . view('clients/cart', $data)
+            . view('clients/layout/footer');
+    }
+
+    // Menampilkan profil pengguna
+    public function profile()
+    {
+        $username = $this->session->get('username');
+        $user = $this->usersModel->where('username', $username)->first();
+
+        if (!$user) {
+            return redirect()->to(base_url('login'))->with('error', 'Pengguna tidak ditemukan.');
+        }
+
+        $data = [
+            'user' => $user,
+            'loged' => true,
+        ];
+
+        return view('clients/layout/header')
+            . view('clients/layout/navigasi', $data)
+            . view('clients/profile', $data)
+            . view('clients/layout/footer');
     }
 }

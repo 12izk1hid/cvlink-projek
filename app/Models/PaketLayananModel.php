@@ -15,7 +15,7 @@ class PaketLayananModel extends Model
     {
         if (is_null($id_services)) {
             return $this->db->table('paket_layanan pl')
-                ->select('s.img_url as gambar_service, pl.id_services as id, s.nama as nama_service, 
+                ->select('s.img_url, pl.id_services as id, s.nama as nama_service, 
                          (SUM(b.harga * pl.besar) + s.harga) as harga_total, s.deskripsi')
                 ->join('services s', 's.id = pl.id_services')
                 ->join('barang b', 'b.id = pl.id_barang')
@@ -38,8 +38,8 @@ class PaketLayananModel extends Model
     public function getKeranjangDetails($idUser)
     {
         return $this->db->table('keranjang k')
-            ->select('s.nama as nama_layanan, b.nama as nama_barang, pl.besar as besar_jumlah, 
-                     b.harga as harga_satuan, b.besaran as besaran, b.harga * pl.besar as harga_total')
+            ->select('CONCAT("' . base_url() . '", s.img_url) as gambar_service, s.nama as nama_layanan, b.nama as nama_barang, 
+                     pl.besar as besar_jumlah, b.harga as harga_satuan, b.besaran as besaran, b.harga * pl.besar as harga_total')
             ->join('paket_layanan pl', 'k.id_paket_layanan = pl.id')
             ->join('services s', 'pl.id_services = s.id')
             ->join('barang b', 'pl.id_barang = b.id')
@@ -52,7 +52,7 @@ class PaketLayananModel extends Model
     public function getKeranjangOf($user_username)
     {
         return $this->db->table('paket_layanan pl')
-            ->select('s.img_url as gambar_service, pl.id_services as id, s.nama as nama_service, 
+            ->select('CONCAT("' . base_url() . '", s.img_url) as gambar_service, pl.id_services as id, s.nama as nama_service, 
                     (SUM(b.harga * pl.besar) + s.harga) as harga_total, s.deskripsi')
             ->join('services s', 's.id = pl.id_services')
             ->join('barang b', 'b.id = pl.id_barang')
@@ -74,7 +74,9 @@ class PaketLayananModel extends Model
         return $builder->get()->getResultArray();
     }
 
+
     // Fungsi CRUD
+
     /**
      * Tambahkan paket layanan baru.
      */

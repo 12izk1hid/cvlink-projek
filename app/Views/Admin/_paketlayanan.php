@@ -52,11 +52,11 @@
                                         <td>
                                             <button class="btn btn-success btn-sm edit-paket" 
                                                     data-id="<?= esc($paket['id']); ?>" 
-                                                    data-id-services="<?= esc($paket['id_services']); ?>"
-                                                    data-id-barang="<?= esc($paket['id_barang']); ?>" 
+                                                    data-idservices="<?= esc($paket['id_services']); ?>"
+                                                    data-idbarang="<?= esc($paket['id_barang']); ?>" 
                                                     data-besar="<?= esc($paket['besar']); ?>"
-                                                    data-photo-url="<?= esc($paket['photo_url']); ?>"
-                                                    data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    data-photourl="<?= esc($paket['photo_url']); ?>"
+                                                    data-toggle="modal" data-target="#editModal">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                             <a href="<?= base_url('paket/delete/' . esc($paket['id'])); ?>" 
@@ -135,7 +135,7 @@
                     <input type="hidden" name="id" id="edit-id">
                     <div class="form-group">
                         <label for="edit-id_services" class="form-label">Nama Layanan</label>
-                        <select name="id_services" id="edit-id_services" class="form-control selectpicker" data-live-search="true" required>
+                        <select name="id_services" id="id_services" class="form-control selectpicker" data-live-search="true" required>
                             <?php foreach ($services as $service): ?>
                                 <option value="<?= esc($service['id']); ?>"><?= esc($service['nama']); ?></option>
                             <?php endforeach; ?>
@@ -167,16 +167,16 @@
     </div>
 </div>
 
-<!-- 
+
 <script>
 $(document).ready(function () {
     $('.selectpicker').selectpicker();
     $('.edit-paket').on('click', function () {
         $('#edit-id').val($(this).data('id'));
-        $('#edit-id_services').val($(this).data('id-services')).selectpicker('refresh');
-        $('#edit-id_barang').val($(this).data('id-barang')).selectpicker('refresh');
+        $('#edit-id_services').val($(this).data('idservices')).selectpicker('refresh');
+        $('#edit-id_barang').val($(this).data('idbarang')).selectpicker('refresh');
         $('#edit-besar').val($(this).data('besar'));
-        $('#edit-photo_url').val($(this).data('photo-url'));
+        $('#edit-photo_url').val($(this).data('photourl'));
     });
 });
-</script> -->
+</script>
