@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2024 at 01:56 PM
+-- Generation Time: Dec 03, 2024 at 02:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -144,7 +144,8 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`id`, `bukti_bayar`, `tanggal_checkout`, `confirmed`) VALUES
-(21, '674c5a839daa9.jpg', '2024-12-01 19:45:55', NULL);
+(35, '674e813526a78.jpg', '2024-12-03 10:55:33', -1),
+(36, '674ead6f648b0.jpg', '2024-12-03 14:04:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -193,11 +194,8 @@ CREATE TABLE `keranjang` (
 --
 
 INSERT INTO `keranjang` (`id`, `user_username`, `id_invoice`, `id_services`) VALUES
-(1, 'rizki', 21, 2),
-(3, 'rizki', 21, 3),
-(5, 'rizki', NULL, 8),
-(6, 'rizki', 21, 1),
-(7, 'rizki', NULL, 29);
+(8, 'rizki', 36, 1),
+(9, 'rizki', 35, 3);
 
 -- --------------------------------------------------------
 
@@ -347,17 +345,17 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `nama`, `deskripsi`, `img_url`, `harga`) VALUES
-(1, 'Pemasangan WiFi RT', 'Kecepatan 670 mb/s', 'assets/images/1732952912_e91c45d8e7dedba05cde.jpg', 20000000),
-(2, 'Pemasangan Wifi Kantor', 'Ini adalah pemasangan wifi di daerah kantor', '', 0),
-(3, 'Pengeboran Air', 'Ini adalah pengeboran air', '????\0JFIF\0\0`\0`\0\0??\0\"Exif\0\0MM\0*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0??\0C\0\r	\n\n\r\r\")\"1+320+/.6<MB69I:./C\\DIPRWWW4A_f^TeMUWS??\0C\'\'S7/7SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS??\0?\"\0??\0\0\0\0\0\0\0\0\0\0\0	\n??\0?\0', 0),
-(4, 'Pembangunan Menara Air dan Instalasi Air Bersih ', 'embangunan menara air adalah konstruksi yang digunakan untuk menampung dan mendistribusikan air bersih ke berbagai lokasi di sekitar wilayah. Instalasi air bersih mencakup seluruh sistem yang digunakan untuk mengambil, mengolah, dan mendistribusikan air yang aman untuk dikonsumsi oleh masyarakat', '????\0JFIF\0\0`\0`\0\0??\0C\0\r	\n\n\r\n\r \' .)10.)-,3:J>36F7,-@WAFLNRSR2>ZaZP`JQRO??\0C&&O5-5OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO??\0?\"\0??\0\0\0\0\0\0\0\0\0\0\0	\n??\0?\0\0\0}\0!1AQa\"q2???', 0),
-(5, 'Instalasi Air Bersih Kawasan', 'sistem distribusi air bersih yang dirancang untuk memenuhi kebutuhan air bersih di suatu kawasan atau area tertentu, seperti perumahan, industri, atau kawasan komersial', 'assets/images/1733049550_ace1c4629ed2537037f6.jpg', 0),
-(6, 'PEKERJAAN PANEL LISTRIK (TERMASUK GROUNDING)', 'Serangkaian kegiatan yang melibatkan pemasangan, pengaturan, dan pemeliharaan panel listrik yang berfungsi untuk mengendalikan dan mendistribusikan aliran listrik ke seluruh sistem atau perangkat yang membutuhkan daya listrik.', '????\0JFIF\0\0\0\0\0\0??\0?\0		\n\n	\r\r++&.%#%.&D5//5DNB>BN_UU_wqw???		\n\n	\r\r++&.%#%.&D5//5DNB>BN_UU_wqw?????\0@U\"\0??\01\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0??\0\0\0\0?y????s?%?s&??\0\0', 0),
-(7, 'INSTALASI KABEL FEEDER', 'proses pemasangan dan pengaturan kabel yang digunakan untuk mentransmisikan daya listrik dari sumber utama, seperti pembangkit listrik atau panel distribusi utama, ke berbagai titik distribusi atau sub-panel di seluruh sistem kelistrikan', 'kabel.jpg', 0),
-(8, 'INSTALASI PENANGKAL PETIR', 'sistem yang dirancang untuk melindungi bangunan, instalasi listrik, dan perangkat lainnya dari dampak bahaya petir dengan cara mengalihkan energi listrik yang ditimbulkan oleh sambaran petir ke tanah, sehingga mencegah kerusakan pada struktur atau peralatan yang ada', '????\0JFIF\0\0`\0`\0\0??\0C\0\n\n\n\r\r??\0C		\r\r??\04?\"\0??\0\0\0\0\0\0\0\0\0\0\0	\n??\0?\0\0\0}\0!1AQa\"q2???', 0),
-(9, 'Instalasi CCTV', 'Kami menyediakan layanan instalasi CCTV yang handal untuk memastikan keamanan properti Anda, baik untuk rumah, kantor, maupun tempat usaha. Dengan dukungan tenaga ahli berpengalaman,', 'assets/images/1733049558_ff562abeea6ea9276ab5.jpg', 0),
-(29, 'h', 'h', 'assets/images/1733049538_f7a657c92e05d96af4bd.jpg', 100),
-(30, 'v', 'v', 'assets/images/1732953336_7e105c382813cd0a934a.jpg', 120);
+(1, 'Pemasangan WiFi RT', 'Kecepatan 670 mb/s', 'assets/images/1733153152_61387f4515f377b36cbd.jpg', 20000000),
+(2, 'Pemasangan Wifi Kantor', 'Ini adalah pemasangan wifi di daerah kantor', 'assets/images/1733152993_c248d13c00ea3f4afebd.jpg', 0),
+(3, 'Pengeboran Air', 'Ini adalah pengeboran air', 'assets/images/1733153587_a4aba936dd9d24931beb.jpg', 0),
+(4, 'Pembangunan Menara Air dan Instalasi Air Bersih ', 'embangunan menara air adalah konstruksi yang digunakan untuk menampung dan mendistribusikan air bersih ke berbagai lokasi di sekitar wilayah. Instalasi air bersih mencakup seluruh sistem yang digunakan untuk mengambil, mengolah, dan mendistribusikan air yang aman untuk dikonsumsi oleh masyarakat', 'assets/images/1733153183_a500da6bc518ff3a115f.jpg', 0),
+(5, 'Instalasi Air Bersih Kawasan', 'sistem distribusi air bersih yang dirancang untuk memenuhi kebutuhan air bersih di suatu kawasan atau area tertentu, seperti perumahan, industri, atau kawasan komersial', 'assets/images/1733153171_9a9eb0805816cbc51f88.jpg', 0),
+(6, 'PEKERJAAN PANEL LISTRIK (TERMASUK GROUNDING)', 'Serangkaian kegiatan yang melibatkan pemasangan, pengaturan, dan pemeliharaan panel listrik yang berfungsi untuk mengendalikan dan mendistribusikan aliran listrik ke seluruh sistem atau perangkat yang membutuhkan daya listrik.', 'assets/images/1733152981_164bd72bf818132957f3.jpg', 0),
+(7, 'INSTALASI KABEL FEEDER', 'proses pemasangan dan pengaturan kabel yang digunakan untuk mentransmisikan daya listrik dari sumber utama, seperti pembangkit listrik atau panel distribusi utama, ke berbagai titik distribusi atau sub-panel di seluruh sistem kelistrikan', 'assets/images/1733152938_592f36c2113552b1a788.jpg', 0),
+(8, 'INSTALASI PENANGKAL PETIR', 'sistem yang dirancang untuk melindungi bangunan, instalasi listrik, dan perangkat lainnya dari dampak bahaya petir dengan cara mengalihkan energi listrik yang ditimbulkan oleh sambaran petir ke tanah, sehingga mencegah kerusakan pada struktur atau peralatan yang ada', 'assets/images/1733152958_a52477a9c802d8bb4fa4.jpg', 0),
+(9, 'Instalasi CCTV', 'Kami menyediakan layanan instalasi CCTV yang handal untuk memastikan keamanan properti Anda, baik untuk rumah, kantor, maupun tempat usaha. Dengan dukungan tenaga ahli berpengalaman,', 'assets/images/1733152864_946a80a540749d6b43d0.jpg', 0),
+(29, 'h', 'h', 'assets/images/1733153629_6a6a47237ddd54dba637.jpg', 100),
+(30, 'v', 'v', 'assets/images/1733153615_8550624e0cd939b5a511.jpg', 120);
 
 -- --------------------------------------------------------
 
@@ -492,7 +490,7 @@ ALTER TABLE `hasil_survei`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `jasa`
@@ -504,7 +502,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kontrak`
