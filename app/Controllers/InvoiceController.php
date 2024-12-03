@@ -1,136 +1,101 @@
 <?php
-
 namespace App\Controllers;
+
+use App\Models\InvoiceModel;
+use App\Models\UsersModel;
 
 class InvoiceController extends AdminController
 {
+    protected $invoiceModel;
+    protected $usersModel;
+    protected $session;
+
     public function __construct()
     {
         parent::__construct();
+        $this->invoiceModel = new InvoiceModel(); // Memuat model Invoice
+        $this->usersModel = new UsersModel(); // Memuat model Users
+        $this->session = session(); // Memuat session untuk digunakan di setiap method
     }
 
+    /**
+     * Menampilkan halaman daftar invoice.
+     */
     public function index()
     {
-        $session = session();
-        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            // Mengambil data kontrak dari model KontrakModel
-            $kontrak = $this->invoiceModel->getKontrak();
+        // Memeriksa apakah pengguna sudah login
+        if ($this->session->get('username') && $this->session->get('id_level')) {
+            // Mengambil data invoice
+            $invoices = $this->invoiceModel->getInvoiceDetails(); 
+    
+            // Cek jika data kosong
+            if (empty($invoices)) {
+                $this->session->setFlashdata('pesan', '<div class="alert alert-warning">Tidak ada data invoice yang tersedia.</div>');
+            }
+    
             $data = [
-                'title' => 'Invoice',
-                'invoice' => $this->invoiceModel->getData(),
-                'kontrak' => $kontrak,
-                'clients' => $this->usersModel->getUserByRole('klien'),
-                'technicians' => $this->usersModel->getUserByRole('teknisi'),
-                'surveyors' => $this->usersModel->getUserByRole('surveyor'),
+                'title'    => 'Invoice',
+                'invoice'  => $invoices,
             ];
+
+            // dd($invoices);
+    
+            // Mengembalikan view dengan data invoice
             return view('layout/_header')
                 . view('layout/_navigasi')
-                . view('_invoice', $data)
+                . view('admin/_invoice', $data)
                 . view('layout/_footer');
         } else {
             return redirect()->to(base_url());
         }
     }
-
-    public function save()
-    {
-        $session = session();
-        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $insert = [
-                'username' => $this->request->getPost('username'),
-                'harga' => $this->request->getPost('harga'),
-                'status' => $this->request->getPost('status'),
-                'service' => $this->request->getPost('service'),
-                'id_teknisi' => $this->request->getPost('teknisi'),
-                'id_surveyor' => $this->request->getPost('surveyor'),
-            ];
-            // dd($insert);
-
-            $this->invoiceModel->insert($insert);
-            $session->setFlashdata(
-                'pesan',
-                '<div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i> Berhasil menyimpan data invoice</h4>
-                </div>'
-            );
-            if($session->get('id_level') === 'admin') return redirect()->to(base_url('infoinvoice'));
-            else if($session->get('id_level') === 'klien') return redirect()->to(base_url('client/order'));
-            
-        } else {
-            return redirect()->to(base_url());
-        }
-    }
-
-    public function update()
-    {
-        $session = session();
-        // dd($this->request->getPost('status'));
-        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            $id = $this->request->getPost('id');
-            $update = [
-                'harga' => $this->request->getPost('harga'),
-                'status' => $this->request->getPost('status')
-            ];
-
-            $this->invoiceModel->update($id, $update);
-            $session->setFlashdata(
-                'pesan',
-                '<div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i> Berhasil mengupdate data invoice</h4>
-                </div>'
-            );
-            return redirect()->to(base_url('infoinvoice'));
-        } else {
-            return redirect()->to(base_url());
-        }
-    }
-
-    public function delete()
-    {
-        $id = $this->request->getGet('id');
-        $session = session();
-
-        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
-            if (!empty($id)) {
-                if ($this->invoiceModel->delete($id)) {
-                    $session->setFlashdata(
-                        'pesan',
-                        '<div class="alert alert-success alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-check"></i> Berhasil menghapus data kontrak</h4>
-                        </div>'
-                    );
-                } else {
-                    $session->setFlashdata(
-                        'pesan',
-                        '<div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-times"></i> Gagal menghapus data kontrak</h4>
-                        </div>'
-                    );
-                }
-            } else {
-                $session->setFlashdata(
-                    'pesan',
-                    '<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-times"></i> ID kontrak tidak valid</h4>
-                    </div>'
-                );
-            }
-            return redirect()->to(base_url('infoinvoice'));
-        } else {
-            return redirect()->to(base_url());
-        }
-    }
-    public function getHargaByIdKontrak()
-{
-    $id_kontrak = $this->request->getGet('id_kontrak');
-    $harga = $this->invoiceModel->getHargaById($id_kontrak); // Pastikan Anda membuat metode ini di model
     
-    return $this->response->setJSON(['harga' => $harga]);
-}
+    public function accept($invoice_id)
+    {
+        $session = session();
+    
+        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
+            $data = [
+                'confirmed' => 1,
+            ];
+    
+            $this->invoiceModel->update($invoice_id, $data);
+    
+            $session->setFlashdata('pesan', 
+                '<div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-check"></i> Invoice Accepted</h4>
+                </div>'
+            );
+    
+            return redirect()->to(base_url('infoinvoice'));
+        } else {
+            return redirect()->to(base_url());
+        }
+    }
 
+    public function reject($invoice_id)
+    {
+        $session = session();
+
+        if (!empty($session->get('username')) && !empty($session->get('id_level'))) {
+            $data = [
+                'confirmed' => -1,
+            ];
+
+            $this->invoiceModel->update($invoice_id, $data);
+
+            $session->setFlashdata('pesan', 
+                '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-times"></i> Invoice Rejected</h4>
+                </div>'
+            );
+
+            return redirect()->to(base_url('infoinvoice'));
+        } else {
+            return redirect()->to(base_url());
+        }
+    }
+    
 }

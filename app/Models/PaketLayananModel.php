@@ -52,12 +52,28 @@ class PaketLayananModel extends Model
     public function getKeranjangOf($user_username)
     {
         return $this->db->table('paket_layanan pl')
-            ->select('CONCAT("' . base_url() . '", s.img_url) as gambar_service, pl.id_services as id, s.nama as nama_service, 
+            ->select('CONCAT("' . base_url() . '", s.img_url) as gambar_service, k.id_invoice,pl.id_services as id, s.nama as nama_service, 
                     (SUM(b.harga * pl.besar) + s.harga) as harga_total, s.deskripsi')
             ->join('services s', 's.id = pl.id_services')
             ->join('barang b', 'b.id = pl.id_barang')
             ->join('keranjang k', 'k.id_services = pl.id_services')
             ->where('k.user_username', $user_username)
+            ->where('k.id_invoice', NULL)
+            ->groupBy('pl.id_services')
+            ->get()
+            ->getResultArray();
+    }
+
+    public function getInvoiceOf($user_username)
+    {
+        return $this->db->table('paket_layanan pl')
+            ->select('CONCAT("' . base_url() . '", s.img_url) as gambar_service, k.id_invoice,pl.id_services as id, s.nama as nama_service, 
+                    (SUM(b.harga * pl.besar) + s.harga) as harga_total, s.deskripsi')
+            ->join('services s', 's.id = pl.id_services')
+            ->join('barang b', 'b.id = pl.id_barang')
+            ->join('keranjang k', 'k.id_services = pl.id_services')
+            ->where('k.user_username', $user_username)
+            ->where('k.id_invoice IS NOT NULL')
             ->groupBy('pl.id_services')
             ->get()
             ->getResultArray();

@@ -13,46 +13,80 @@ class InvoiceModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields = ['bukti_bayar'];
+    protected $allowedFields    = ['bukti_bayar', 'tanggal_checkout', 'confirmed']; // Menambahkan id_users
+
+
+    public function getInvoiceDetails() {
+        // Subquery to calculate harga_layanan
+        $subQuery = $this->db->table('paket_layanan pl')
+            ->select('pl.id_services, (SUM(b.harga) * pl.besar) as harga_layanan')
+            ->join('barang b', 'b.id = pl.id_barang')
+            ->groupBy('pl.id_services')
+            ->getCompiledSelect(); // Get the SQL for the subquery
     
+        // Main query with JOINs
+        return $this->db->table('keranjang k')
+            ->select('k.id_invoice, s.nama, i.bukti_bayar, i.tanggal_checkout, i.confirmed, pl.harga_layanan')
+            ->join('users s', 's.username = k.user_username')
+            ->join('invoice i', 'i.id = k.id_invoice')
+            ->join("($subQuery) as pl", 'pl.id_services = k.id_services', 'left') // Using subquery here
+            ->groupBy('k.id_invoice')
+            ->get()
+            ->getResultArray();
+    }
+    
+    
+    
+    /**
+     * Mengambil semua data invoice
+     */
+    public function getAllInvoices()
+    {
+        return $this->findAll();
+    }
+
+    /**
+     * Mengambil data invoice berdasarkan ID
+     *
+     * @param int $id
+     * @return array|null
+     */
+    public function getInvoiceById($id)
+    {
+        return $this->where('id', $id)->first();
+    }
+
+    /**
+     * Menyimpan data invoice baru
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function saveInvoice($data)
+    {
+        return $this->insert($data);
+    }
+
+    /**
+     * Memperbarui data invoice berdasarkan ID
+     *
+     * @param int $id
+     * @param array $data
+     * @return bool
+     */
+    public function updateInvoice($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    /**
+     * Menghapus invoice berdasarkan ID
+     *
+     * @param int $id
+     * @return bool
+     */
+    public function deleteInvoice($id)
+    {
+        return $this->delete($id);
+    }
 }
-
-    // // Fungsi untuk mengambil data id dari pengguna yang role-nya surveyor
-    // public function getKontrak()
-    // {
-    //     return $this->db->table('kontrak')
-    //                     ->select('id','harga')
-    //                     ->get()
-    //                     ->getResultArray();  
-    // }
-
-    // public function getHargaByKontrak($id_kontrak) {
-    //     return $this->db->table('nama_tabel')
-    //                     ->select('harga')
-    //                     ->where('id_kontrak', $id_kontrak)
-    //                     ->get()
-    //                     ->getResultArray(); // Pastikan ini mengembalikan row yang sesuai
-    // }
-
-    // public function getIdUnsurveyedInvoice() {
-    //     return array_column(
-    //         $this->db->table('invoice')
-    //             ->select('id')
-    //             ->where('status', 'unsurveyed')
-    //             ->get()
-    //             ->getResultArray(),
-    //         'id'
-    //     );
-        
-    // }
-
-    // public function getData() {
-    //     return $this->db->table('invoice')
-    //             ->select('invoice.*, s.nama as nama_user, t.nama as teknisi, r.nama as surveyor')
-    //             ->join('users s', 's.username = invoice.username')
-    //             ->join('users t', 't.username = invoice.id_teknisi', 'left')
-    //             ->join('users r', 'r.username = invoice.id_surveyor', 'left')
-    //             ->get()
-    //             ->getResultArray();
-    // }
-

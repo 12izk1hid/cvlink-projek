@@ -61,6 +61,7 @@ $routes->get('service/delete/(:num)', 'ServiceController::delete/$1');
 // client
 $routes->get('client', 'ClientController::index');
 $routes->get('client/order', 'ClientController::order');
+$routes->get('client/invoice', 'ClientController::invoice');
 $routes->get('client/profile', 'ClientController::profile');
 $routes->post('client/order/save', 'ClientController::saveOrder');
 $routes->post('client/order/checkout', 'ClientController::checkout');
@@ -99,9 +100,13 @@ $routes->get('kontrak/delete', 'KontrakController::delete');
 
 // invoice
 $routes->get('infoinvoice', 'InvoiceController::index');
-$routes->post('invoice/save', 'InvoiceController::save');
-$routes->post('invoice/update', 'InvoiceController::update');
-$routes->get('invoice/delete', 'InvoiceController::delete');
+// $routes->post('invoice/save', 'InvoiceController::save');
+// $routes->post('invoice/update', 'InvoiceController::update');
+// $routes->get('invoice/delete', 'InvoiceController::delete');
+$routes->get('evidence/(:any)', 'EvidenceController::getImage/$1');
+$routes->get('invoice/accept/(:num)', 'InvoiceController::accept/$1');
+$routes->get('invoice/reject/(:num)', 'InvoiceController::reject/$1');
+
 
 // pemasangan
 $routes->get('infopemasangan', 'PemasanganController::index');
