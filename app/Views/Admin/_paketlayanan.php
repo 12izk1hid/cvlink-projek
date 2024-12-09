@@ -59,7 +59,7 @@
                                                     data-toggle="modal" data-target="#editModal">
                                                 <i class="fa fa-edit"></i>
                                             </button>
-                                            <a href="<?= base_url('paket/delete/' . esc($paket['id'])); ?>" 
+                                            <a href="<?= base_url('paketlayanan/delete/' . esc($paket['id'])); ?>" 
                                                onclick="return confirm('Apakah Anda yakin ingin menghapus paket ini?')" 
                                                class="btn btn-danger btn-sm">
                                                 <i class="fa fa-trash"></i>
@@ -107,10 +107,7 @@
                         <label for="besar" class="form-label">Besar</label>
                         <input type="text" name="besar" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <label for="photo_url" class="form-label">Foto</label>
-                        <input type="file" name="photo_url" class="form-control" accept="image/*">
-                    </div>
+                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -157,9 +154,14 @@
                         <label for="edit-photo_url" class="form-label">Foto</label>
                         <input type="file" name="photo_url" class="form-control" accept="image/*">
                     </div>
+                    <!-- Gambar Foto jika ada -->
+                    <div class="form-group">
+                        <label for="currentImg" class="form-label">Foto Sebelumnya</label>
+                        <img id="currentImg" src="" class="img-thumbnail" style="max-width: 100px; display: none;" alt="Foto Sebelumnya">
+                    </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
@@ -170,13 +172,34 @@
 
 <script>
 $(document).ready(function () {
+    // Pastikan selectpicker diaktifkan untuk setiap elemen select
     $('.selectpicker').selectpicker();
+
+    // Fungsi untuk menangani klik pada tombol Edit
     $('.edit-paket').on('click', function () {
-        $('#edit-id').val($(this).data('id'));
-        $('#edit-id_services').val($(this).data('idservices')).selectpicker('refresh');
-        $('#edit-id_barang').val($(this).data('idbarang')).selectpicker('refresh');
-        $('#edit-besar').val($(this).data('besar'));
-        $('#edit-photo_url').val($(this).data('photourl'));
+        const id = $(this).data('id');  // Ambil ID Paket
+        const idservices = $(this).data('idservices');  // Ambil ID Layanan
+        const idbarang = $(this).data('idbarang');  // Ambil ID Barang
+        const besar = $(this).data('besar');  // Ambil Besar
+        const photourl = $(this).data('photourl');  // Ambil URL Foto
+
+        // Isi input form modal dengan data yang diterima
+        $('#edit-id').val(id);  // Isi field ID
+        $('#id_services').val(idservices).selectpicker('refresh');  // Isi field Layanan dengan ID layanan
+        $('#edit-id_barang').val(idbarang).selectpicker('refresh');  // Isi field Barang dengan ID barang
+        $('#edit-besar').val(besar);  // Isi field Besar
+
+        // Periksa apakah ada foto dan tampilkan jika ada
+        if (photourl && photourl.trim() !== "") {
+            $('#edit-photo_url').val(photourl);  // Set field foto URL
+            // Jika ingin menampilkan foto sebelumnya, Anda bisa menambahkan elemen gambar
+            $('#currentImg').attr('src', '<?= base_url('uploads/') ?>' + photourl).show();
+        } else {
+            $('#edit-photo_url').val('');  // Jika tidak ada foto, biarkan kosong
+            $('#currentImg').hide();  // Sembunyikan gambar jika tidak ada foto
+        }
     });
 });
+
+
 </script>

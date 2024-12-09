@@ -57,23 +57,15 @@ class PaketLayananController extends BaseController
         if (!$this->validate([
             'id_services' => 'required|integer',
             'id_barang' => 'required|integer',
-            'besar' => 'required|decimal',
-            'photo_url' => 'uploaded[photo_url]|max_size[photo_url,2048]|is_image[photo_url]|mime_in[photo_url,image/jpg,image/jpeg,image/png]'
+            'besar' => 'required|decimal'
         ])) {
             return redirect()->back()->with('pesan', 'Gagal menambahkan Paket Layanan.')->withInput();
         }
 
-        // Mengelola file gambar
-        $photo = $this->request->getFile('photo_url');
-        $photo_name = $photo->getRandomName();
-        $photo->move('assets/images', $photo_name); // Pindahkan ke folder tujuan
-
-        // Simpan data
         $data = [
             'id_services' => $this->request->getPost('id_services'),
             'id_barang' => $this->request->getPost('id_barang'),
-            'besar' => $this->request->getPost('besar'),
-            'photo_url' => 'assets/images/' . $photo_name
+            'besar' => $this->request->getPost('besar')
         ];
 
         try {

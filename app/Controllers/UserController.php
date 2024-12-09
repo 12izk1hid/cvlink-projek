@@ -34,7 +34,7 @@ class UserController extends AdminController
             $insert = [
             'nama'      => $this->request->getPost('nama'),
             'username'  => $this->request->getPost('username'),
-            'password'  => md5($this->request->getPost('password')), // Hash password
+            'password'  => hash('sha256', $this->request->getPost('password')), // Hash password
             'alamat'    => $this->request->getPost('alamat'),
             'email'     => $this->request->getPost('email'),
             'no_hp'     => $this->request->getPost('no_hp'),
@@ -63,7 +63,7 @@ class UserController extends AdminController
                 'id'        => $this->request->getPost('id'),
                 'nama'      => $this->request->getPost('nama'),
                 'username'  => $this->request->getPost('username'),
-                'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Hash password
+                'password'  => hash('sha256', $this->request->getPost('password')), // Hash password
                 'alamat'    => $this->request->getPost('alamat'),
                 'email'     => $this->request->getPost('email'),
                 'no_hp'     => $this->request->getPost('no_hp'),

@@ -62,6 +62,7 @@ $routes->get('service/delete/(:num)', 'ServiceController::delete/$1');
 $routes->get('client', 'ClientController::index');
 $routes->get('client/order', 'ClientController::order');
 $routes->get('client/invoice', 'ClientController::invoice');
+$routes->get('invoice/print/(:num)', 'InvoiceController::print/$1');
 $routes->get('client/profile', 'ClientController::profile');
 $routes->post('client/order/save', 'ClientController::saveOrder');
 $routes->post('client/order/checkout', 'ClientController::checkout');
@@ -71,8 +72,7 @@ $routes->get('images/(:any)', 'ImageController::show/$1');
 // admin dashboard
 $routes->get('admin', 'AdminController::index');
 
-// Surveyor
-$routes->get('surveyor', 'SurveyorController::index');
+
 
 // jasa
 $routes->get('/infojasa', 'JasaController::index');

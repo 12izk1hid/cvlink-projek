@@ -4,27 +4,19 @@
     <table class="table">
         <thead class='bg-primary text-white'>
             <tr>
-                <!-- <th>Pilih</th> -->
                 <th>Service Yang Dibayar</th>
+                <th>Aksi</th> <!-- Tambahkan kolom aksi untuk tombol cetak -->
             </tr>
         </thead>
         <tbody>
             <?php if (!empty($keranjangDetails)): ?>
                 <?php foreach ($keranjangDetails as $index => $item): ?>
                     <tr>
-                        <!-- <td>
-                            <input type="checkbox" class="form-check-input cart-item" 
-                                   data-id="<?= $item['id'] ?>" 
-                                   data-price="<?= $item['harga_total'] ?>">
-                        </td> -->
-                        <!-- Nama Layanan -->
                         <td class="d-flex justify-content-between align-items-center toggle-details" 
                             data-id="<?= $item['id'] ?>" 
                             data-target="#details-<?= $index ?>" 
                             style="cursor: pointer;">
-                            
                             <span class="text-start"><?= htmlspecialchars($item['nama_service'], ENT_QUOTES, 'UTF-8') ?></span>
-                            
                             <div class="d-flex align-items-center">
                                 <span class="fw-bold text-success me-2">
                                     Rp <?= number_format($item['harga_total'], 0, ',', '.') ?>
@@ -32,9 +24,13 @@
                                 <i class="fa fa-chevron-down text-muted"></i>
                             </div>
                         </td>
+                        <td>
+                            <!-- Tombol Cetak Invoice untuk setiap layanan -->
+                            <button class="btn btn-primary print-invoice" data-invoice-id="<?= $item['id'] ?>">Cetak Invoice</button>
+                        </td>
                     </tr>
                     <tr id="details-<?= $index ?>" class="details-row" style="display: none;">
-                        <td colspan="3">
+                        <td colspan="4">
                             <table class="table table-striped">
                                 <thead class='bg-primary text-white'>
                                     <tr>
@@ -45,7 +41,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Data Barang -->
                                     <?php if (isset($keranjangBarang[$item['id']])): ?>
                                         <?php foreach ($keranjangBarang[$item['id']] as $barang): ?>
                                             <tr>
@@ -73,10 +68,16 @@
 </div>
 
 <script type="text/javascript" src="<?= base_url() ?>/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
-
 <script>
+    // Toggle detail layanan
     $(document).on('click', '.toggle-details', function () {
-        const targetId = $(this).data('target'); 
-        $(targetId).toggle(); 
+        const targetId = $(this).data('target');
+        $(targetId).toggle();
+    });
+
+    // Cetak invoice untuk setiap pesanan
+    $(document).on('click', '.print-invoice', function () {
+        const invoiceId = $(this).data('invoice-id');
+        window.open('<?= base_url("invoice/print/") ?>' + invoiceId, '_blank');
     });
 </script>

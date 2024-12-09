@@ -25,7 +25,7 @@ class Home extends BaseController
         $session = session();
         $userModel = new UsersModel();
         $username     = $this->request->getVar('username');
-        $password     = md5($this->request->getVar('password'));
+        $password     = hash('sha256', $this->request->getPost('password'));
         $user = $userModel->where("username ='$username' AND password='$password'")->first();
         if ($user) {
             $session->set('id', $user['id']);
@@ -69,7 +69,7 @@ class Home extends BaseController
         $insert = [
             'nama'      => $this->request->getPost('nama'),
             'username'  => $this->request->getPost('username'),
-            'password'  => md5($this->request->getPost('password')), // Hash password
+            'password'  => hash('sha256', $this->request->getPost('password')), // Hash password
             'alamat'    => $this->request->getPost('alamat'),
             'email'     => $this->request->getPost('email'),
             'no_hp'     => $this->request->getPost('no_hp'),
