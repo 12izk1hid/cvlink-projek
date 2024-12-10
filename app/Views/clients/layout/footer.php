@@ -2,28 +2,12 @@
         <div class="container p-4">
             <div class="row">
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Footer Content</h5>
-                    <p>
-                        This is a simple footer section where you can include some information about your website or company.
-                    </p>
+                    <h1 class="text-uppercase">CV. LINK</h1>
+                   
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
+                 
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -55,8 +39,7 @@
         </div>
 
         <div class="text-center p-3" style="background-color: rgba(255, 255, 255, 0.2);">
-            © 2024 Copyright:
-            <a class="text-white" href="#">YourWebsite.com</a>
+           
         </div>
     </footer>
 

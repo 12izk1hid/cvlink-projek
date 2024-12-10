@@ -49,31 +49,6 @@ class InvoiceController extends AdminController
         }
     }
 
-    /**
-     * Menampilkan halaman invoice untuk dicetak.
-     */
-    public function print($invoice_id)
-    {
-        // Pastikan pengguna sudah login
-        if (!session()->has('user_id')) {
-            return redirect()->to('/login');
-        }
-    
-        // Ambil data invoice berdasarkan ID
-        $invoice = $this->invoiceModel->find($invoice_id);
-        if (!$invoice) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
-        }
-    
-        return view('clients/print_invoice', ['invoice' => $invoice]);
-    }
-    
-    
-    
-
-    /**
-     * Menerima invoice.
-     */
     public function accept($invoice_id)
     {
         if ($this->session->get('username') && $this->session->get('id_level')) {

@@ -1,8 +1,5 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <div class="content-wrapper">
     <section class="content-header">
@@ -51,12 +48,13 @@
                                         </td>
                                         <td>
                                             <button class="btn btn-success btn-sm edit-paket" 
+                                                    data-toggle="modal" data-target="#editModal"
                                                     data-id="<?= esc($paket['id']); ?>" 
                                                     data-idservices="<?= esc($paket['id_services']); ?>"
                                                     data-idbarang="<?= esc($paket['id_barang']); ?>" 
                                                     data-besar="<?= esc($paket['besar']); ?>"
                                                     data-photourl="<?= esc($paket['photo_url']); ?>"
-                                                    data-toggle="modal" data-target="#editModal">
+                                                    >
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                             <a href="<?= base_url('paketlayanan/delete/' . esc($paket['id'])); ?>" 
@@ -169,12 +167,12 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
 
 <script>
 $(document).ready(function () {
-    // Pastikan selectpicker diaktifkan untuk setiap elemen select
-    $('.selectpicker').selectpicker();
-
     // Fungsi untuk menangani klik pada tombol Edit
     $('.edit-paket').on('click', function () {
         const id = $(this).data('id');  // Ambil ID Paket
@@ -183,10 +181,12 @@ $(document).ready(function () {
         const besar = $(this).data('besar');  // Ambil Besar
         const photourl = $(this).data('photourl');  // Ambil URL Foto
 
+        alert('id', idservices);
+
         // Isi input form modal dengan data yang diterima
         $('#edit-id').val(id);  // Isi field ID
-        $('#id_services').val(idservices).selectpicker('refresh');  // Isi field Layanan dengan ID layanan
-        $('#edit-id_barang').val(idbarang).selectpicker('refresh');  // Isi field Barang dengan ID barang
+        $('#id_services').val(idservices);  // Isi field Layanan dengan ID layanan
+        $('#edit-id_barang').val(idbarang);  // Isi field Barang dengan ID barang
         $('#edit-besar').val(besar);  // Isi field Besar
 
         // Periksa apakah ada foto dan tampilkan jika ada
@@ -200,6 +200,4 @@ $(document).ready(function () {
         }
     });
 });
-
-
 </script>

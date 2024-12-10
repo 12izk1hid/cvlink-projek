@@ -66,6 +66,7 @@ $routes->get('invoice/print/(:num)', 'InvoiceController::print/$1');
 $routes->get('client/profile', 'ClientController::profile');
 $routes->post('client/order/save', 'ClientController::saveOrder');
 $routes->post('client/order/checkout', 'ClientController::checkout');
+$routes->get('client/invoice/print/(:num)', 'ClientController::generateInvoice/$1');
 $routes->post('/barang/get-by-service', 'ClientController::getBarangByServiceAjax');
 $routes->get('images/(:any)', 'ImageController::show/$1');
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Pengguna</title>
-    <link rel="stylesheet" href="<?= base_url('assets/css/profile.css') ?>"> <!-- Sesuaikan path CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="public/assets/css/profile.css"> <!-- Path ke file CSS -->
 </head>
+
 <body>
 
 <div class="container mt-5">
@@ -16,7 +17,7 @@
             <div class="card profile-card">
                 <div class="card-body text-center">
                     <!-- Menampilkan gambar profil yang diambil dari kolom photo_url -->
-                    <img src="data:image/png;base64,<?= base64_encode($user['photo_url']) ?>" alt="Profile Picture" class="profile-picture img-fluid rounded-circle mb-3" width="100">
+                    <img src="data:image/png;base64,<?= base64_encode($user['photo_url']) ?>" alt="Profile Picture" class="profile-picture img-fluid rounded-circle mb-3">
                     <h3><?= esc($user['nama']) ?></h3>
                     <p class="text-muted"><?= esc($user['role']) ?></p>
                 </div>

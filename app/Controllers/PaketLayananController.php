@@ -43,6 +43,8 @@ class PaketLayananController extends BaseController
             'barang' => $this->barangModel->findAll()
         ];
 
+        // dd($data);
+
         // Load view
         return view('layout/_header')
             . view('layout/_navigasi')

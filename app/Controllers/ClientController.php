@@ -8,6 +8,7 @@ use App\Models\UsersModel;
 use App\Models\PaketLayananModel;
 use App\Models\ServicesModel;
 use App\Models\KeranjangModel;
+use Dompdf\Dompdf;
 
 class ClientController extends BaseController
 {
@@ -134,33 +135,29 @@ class ClientController extends BaseController
     public function invoice()
     {
         $username = $this->session->get('username');
-    
-        if ($username) {
-            $paketLayanan = $this->paketLayananModel->getServiceInfo();
-            $keranjangDetails = $this->paketLayananModel->getInvoiceOf($username);
-            $keranjangBarang = [];
 
-            foreach ($keranjangDetails as $keranjang) {
-                $idServices = $keranjang['id']; 
-                $dataBarang = $this->paketLayananModel->getBarangByService($idServices);
-                $keranjangBarang[$keranjang['id']] = $dataBarang;
+        if ($this->session->get('username') && $this->session->get('id_level')) {
+            $invoices = $this->invoiceModel->getInvoiceDetailsPerUsers($username); 
+            
+            // Cek jika data kosong
+            if (empty($invoices)) {
+                $this->session->setFlashdata('pesan', '<div class="alert alert-warning">Tidak ada data invoice yang tersedia.</div>');
             }
-
+    
             $data = [
-                'username' => $username,
-                'loged' => true,
-                'paketLayanan' => $paketLayanan,
-                'keranjangDetails' => $keranjangDetails,
-                'keranjangBarang' => $keranjangBarang
+                'title'    => 'Invoice',
+                'invoice'  => $invoices,
             ];
 
+            // Mengembalikan view dengan data invoice
             return view('clients/layout/header')
-                . view('clients/layout/navigasi', $data)
+                . view('clients/layout/navigasi')
                 . view('clients/invoice', $data)
                 . view('clients/layout/footer');
+
         } else {
-            // If user is not logged in, redirect to login
-            return redirect()->to(base_url('login'));
+            // Jika tidak ada sesi login, redirect ke halaman login
+            return redirect()->to(base_url());
         }
     }
 
@@ -202,6 +199,132 @@ class ClientController extends BaseController
             ]);
         }
     }
+
+    public function generateInvoice($invoiceId)
+    {
+        // Ambil data invoice dari model berdasarkan invoiceId
+        $invoice = $this->invoiceModel->getInvoiceDetailsPerInvoice($invoiceId);
+
+        // Pastikan data invoice ditemukan
+        if (empty($invoice)) {
+            return "Invoice tidak ditemukan!";
+        }
+
+        $invoice = $invoice[0]; // Mengambil data pertama (karena query menghasilkan array)
+        
+        // Menentukan status konfirmasi
+        $confirmedStatus = 'Belum Dikonfirmasi'; // Default jika tidak ada status
+        if ($invoice['confirmed'] !== null) {
+            $confirmedStatus = ($invoice['confirmed'] == 1) ? 'Valid' : 'Invalid';
+        }
+
+        // Menyiapkan data invoice untuk ditampilkan di PDF
+        $invoiceData = [
+            'invoice_id' => $invoiceId,
+            'nama_pengguna' => $invoice['nama'],
+            'bukti_bayar' => $invoice['bukti_bayar'],  // Link bukti bayar, bisa ditampilkan jika diperlukan
+            'tanggal_checkout' => $invoice['tanggal_checkout'],
+            'confirmed' => $confirmedStatus,
+            'harga_layanan' => $invoice['harga_layanan'],
+        ];
+
+        // Mengambil data layanan terkait invoice
+        $services = $this->invoiceModel->getServicesByInvoice($invoiceId);
+
+        // dd($services);
+        // Mulai menggunakan Dompdf
+        $dompdf = new Dompdf();
+
+        // Template HTML untuk invoice
+        $html = '
+        <html>
+        <head>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    color: #333;
+                }
+                .invoice-header {
+                    background-color: #f5f5f5;
+                    padding: 20px;
+                    text-align: center;
+                }
+                .invoice-header h1 {
+                    margin: 0;
+                    font-size: 24px;
+                }
+                .invoice-body {
+                    margin: 20px;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                }
+                .invoice-body table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+                .invoice-body table th, .invoice-body table td {
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    text-align: left;
+                }
+                .invoice-footer {
+                    text-align: center;
+                    margin-top: 20px;
+                    font-size: 12px;
+                    color: #777;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="invoice-header">
+                <h1>Invoice Layanan</h1>
+                <p>CV. Link</p>
+            </div>
+            <div class="invoice-body">
+                <p><strong>Invoice ID:</strong> ' . htmlspecialchars($invoiceData['invoice_id']) . '</p>
+                <p><strong>Nama Pengguna:</strong> ' . htmlspecialchars($invoiceData['nama_pengguna']) . '</p>
+                <p><strong>Tanggal Checkout:</strong> ' . htmlspecialchars($invoiceData['tanggal_checkout']) . '</p>
+                <p><strong>Status Konfirmasi:</strong> ' . htmlspecialchars($invoiceData['confirmed']) . '</p>
+                <p><strong>Harga Layanan:</strong> Rp ' . number_format($invoiceData['harga_layanan'], 0, ',', '.') . '</p>
+
+                <table>
+                    <tr>
+                        <th>Item</th>
+                    </tr>';
+
+        // Loop untuk menampilkan data jasa terkait
+        foreach ($services as $service) {
+            $html .= '
+            <tr>
+                <td>' . htmlspecialchars($service['nama']) . '</td>
+            </tr>';
+        }
+
+        $html .= '
+                </table>
+            </div>
+            <div class="invoice-footer">
+                <p>Terima kasih telah menggunakan layanan kami!</p>
+            </div>
+        </body>
+        </html>';
+
+        // Memuat HTML ke Dompdf
+        $dompdf->loadHtml($html);
+
+        // Mengatur ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render PDF
+        $dompdf->render();
+
+        // Menampilkan PDF ke browser tanpa mengunduh (attachment => false)
+        $dompdf->stream('Invoice-' . $invoiceId . '.pdf', ['Attachment' => false]);
+    }
+
 
     // View cart
     public function viewCart()
