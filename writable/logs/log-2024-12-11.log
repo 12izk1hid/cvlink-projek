@@ -1,0 +1,159 @@
+INFO - 2024-12-11 09:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 09:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 09:43:56 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:46:44 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:49:06 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:49:07 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:55:31 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:55:49 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:55:59 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:56:08 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 35.
+ 1 APPPATH\Controllers\PaketLayananController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-12-11 09:57:34 --> Undefined array key "nama"
+in APPPATH\Controllers\PaketLayananController.php on line 36.
+ 1 APPPATH\Controllers\PaketLayananController.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Controllers\\PaketLayananController.php', 36)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:00:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 10:00:17 --> Undefined array key "nama"
+in APPPATH\Views\Admin\_paketlayanan.php on line 100.
+ 1 APPPATH\Views\Admin\_paketlayanan.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php', 100)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('Admin/_PaketLayanan', [], true)
+ 5 APPPATH\Controllers\PaketLayananController.php(54): view('Admin/_PaketLayanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 10:01:23 --> Undefined array key "service_name"
+in APPPATH\Views\Admin\_paketlayanan.php on line 92.
+ 1 APPPATH\Views\Admin\_paketlayanan.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "service_name"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php', 92)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('Admin/_PaketLayanan', [], true)
+ 5 APPPATH\Controllers\PaketLayananController.php(54): view('Admin/_PaketLayanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 10:01:36 --> Undefined array key "barang_name"
+in APPPATH\Views\Admin\_paketlayanan.php on line 100.
+ 1 APPPATH\Views\Admin\_paketlayanan.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "barang_name"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php', 100)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('Admin/_PaketLayanan', [], true)
+ 5 APPPATH\Controllers\PaketLayananController.php(54): view('Admin/_PaketLayanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 10:02:23 --> Undefined array key "nama"
+in APPPATH\Views\Admin\_paketlayanan.php on line 143.
+ 1 APPPATH\Views\Admin\_paketlayanan.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php', 143)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('Admin/_PaketLayanan', [], true)
+ 5 APPPATH\Controllers\PaketLayananController.php(54): view('Admin/_PaketLayanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 10:02:46 --> Undefined array key "service_name"
+in APPPATH\Views\Admin\_paketlayanan.php on line 92.
+ 1 APPPATH\Views\Admin\_paketlayanan.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "service_name"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php', 92)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('Admin/_PaketLayanan', [], true)
+ 5 APPPATH\Controllers\PaketLayananController.php(54): view('Admin/_PaketLayanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-11 10:04:36 --> Undefined array key "nama"
+in APPPATH\Views\Admin\_paketlayanan.php on line 143.
+ 1 APPPATH\Views\Admin\_paketlayanan.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php', 143)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\cvlink-projek\\app\\Views\\Admin\\_paketlayanan.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1176): CodeIgniter\View\View->render('Admin/_PaketLayanan', [], true)
+ 5 APPPATH\Controllers\PaketLayananController.php(54): view('Admin/_PaketLayanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\PaketLayananController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PaketLayananController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-12-11 10:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:06:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:07:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:07:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:07:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:07:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:08:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:08:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-11 10:08:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

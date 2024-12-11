@@ -29,10 +29,13 @@ class PaketLayananController extends BaseController
         // Retrieve service and barang details
         foreach ($paket_layanan as &$paket) {
             $service = $this->servicesModel->find($paket['id_services']);
+            // dd($service);
             $paket['service_name'] = $service ? $service['nama'] : 'Unknown'; // Handle missing service
-            
+
             $barang = $this->barangModel->find($paket['id_barang']);
-            $paket['barang_name'] = $barang ? $barang['nama'] : 'Unknown'; // Handle missing barang
+            // dd($barang);
+
+            $paket['barang_name'] = $barang ? $barang['nama_barang'] : 'Unknown'; // Handle missing barang
         }
 
         // Prepare data for view

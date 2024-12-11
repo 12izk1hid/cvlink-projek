@@ -97,7 +97,7 @@
                         <label for="id_barang" class="form-label">Nama Barang</label>
                         <select name="id_barang" class="form-control selectpicker" data-live-search="true" required>
                             <?php foreach ($barang as $barang_item): ?>
-                                <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama']); ?></option>
+                                <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama_barang']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -140,7 +140,7 @@
                         <label for="edit-id_barang" class="form-label">Nama Barang</label>
                         <select name="id_barang" id="edit-id_barang" class="form-control selectpicker" data-live-search="true" required>
                             <?php foreach ($barang as $barang_item): ?>
-                                <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama']); ?></option>
+                                <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama_barang']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -168,8 +168,8 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <script>
 $(document).ready(function () {
@@ -181,9 +181,6 @@ $(document).ready(function () {
         const besar = $(this).data('besar');  // Ambil Besar
         const photourl = $(this).data('photourl');  // Ambil URL Foto
 
-        alert('id', idservices);
-
-        // Isi input form modal dengan data yang diterima
         $('#edit-id').val(id);  // Isi field ID
         $('#id_services').val(idservices);  // Isi field Layanan dengan ID layanan
         $('#edit-id_barang').val(idbarang);  // Isi field Barang dengan ID barang
