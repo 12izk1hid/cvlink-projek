@@ -41,13 +41,13 @@
                                 <?php foreach ($barang as $b): ?>
                                     <tr>
                                         <td><?= esc($b['id']); ?></td>
-                                        <td><?= esc($b['nama']); ?></td>
+                                        <td><?= esc($b['nama_barang']); ?></td>
                                         <td><?= esc($b['merk']); ?></td>
                                         <td><?= esc($b['harga']); ?></td>
                                         <td><?= esc($b['besaran']); ?></td>
                                         <td>
                                             <button class="btn btn-sm btn-success edit-barang" data-id="<?= esc($b['id']); ?>"
-                                                    data-nama="<?= esc($b['nama']); ?>" data-merk="<?= esc($b['merk']); ?>"
+                                                    data-nama="<?= esc($b['nama_barang']); ?>" data-merk="<?= esc($b['merk']); ?>"
                                                     data-harga="<?= esc($b['harga']); ?>" data-besaran="<?= esc($b['besaran']); ?>">
                                                 <i class="fa fa-edit"></i> Edit
                                             </button>

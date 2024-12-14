@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 11, 2024 at 04:11 AM
+-- Generation Time: Dec 14, 2024 at 08:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -283,10 +283,7 @@ INSERT INTO `services` (`id`, `nama`, `deskripsi`, `img_url`, `harga`) VALUES
 (7, 'INSTALASI KABEL FEEDER', 'proses pemasangan dan pengaturan kabel yang digunakan untuk mentransmisikan daya listrik dari sumber utama, seperti pembangkit listrik atau panel distribusi utama, ke berbagai titik distribusi atau sub-panel di seluruh sistem kelistrikan', 'assets/images/1733152938_592f36c2113552b1a788.jpg', 0),
 (8, 'INSTALASI PENANGKAL PETIR', 'sistem yang dirancang untuk melindungi bangunan, instalasi listrik, dan perangkat lainnya dari dampak bahaya petir dengan cara mengalihkan energi listrik yang ditimbulkan oleh sambaran petir ke tanah, sehingga mencegah kerusakan pada struktur atau peralatan yang ada', 'assets/images/1733152958_a52477a9c802d8bb4fa4.jpg', 0),
 (9, 'Instalasi CCTV', 'Kami menyediakan layanan instalasi CCTV yang handal untuk memastikan keamanan properti Anda, baik untuk rumah, kantor, maupun tempat usaha. Dengan dukungan tenaga ahli berpengalaman,', 'assets/images/1733152864_946a80a540749d6b43d0.jpg', 0),
-(29, 'h', 'h', 'assets/images/1733153629_6a6a47237ddd54dba637.jpg', 100),
 (30, 'v', 'v', 'assets/images/1733153615_8550624e0cd939b5a511.jpg', 120),
-(32, 'instalasi', 'instalasi', 'assets/images/1733240830_5f0614fd2fd6a2849179.jpg', 1000),
-(33, 'Air Bersih Rumah', 'Memberikan air bersih untuk rumah tangga', 'assets/images/1733644655_88a9ca6fe3b608922169.jpg', 1000000),
 (35, 'air bersih rumah', 'menyediakan air bersih untuk rumah tangga', 'assets/images/1733749080_97790d06779ea3bd08b1.jpg', 1000);
 
 -- --------------------------------------------------------
@@ -376,7 +373,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `invoice`
@@ -400,13 +397,13 @@ ALTER TABLE `kontrak`
 -- AUTO_INCREMENT for table `paket_layanan`
 --
 ALTER TABLE `paket_layanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `users`

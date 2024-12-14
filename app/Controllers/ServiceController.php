@@ -82,30 +82,43 @@ class ServiceController extends Controller
         }
     }
 
-    // Menghapus layanan
     public function delete($id)
     {
         $service = $this->servicesModel->find($id);
-
+    
         if ($service) {
             $imgPath = FCPATH . $service['img_url']; // Path lengkap gambar
-
+    
             // Hapus file gambar jika ada
             if (is_file($imgPath)) {
                 unlink($imgPath);
             }
-
-            // Hapus data dari database
-            if ($this->servicesModel->delete($id)) {
-                return redirect()->to('/services')->with('message', 'Layanan berhasil dihapus!');
-            } else {
-                return redirect()->to('/services')->with('error', 'Gagal menghapus layanan.');
+    
+            // Coba hapus data dari database dan tangani exception jika ada constraint
+            try {
+                if ($this->servicesModel->delete($id)) {
+                    session()->setFlashdata('pesan', 'Layanan berhasil dihapus!');
+                    return redirect()->to('/services');
+                } else {
+                    session()->setFlashdata('pesan', 'Gagal menghapus layanan.');
+                    return redirect()->to('/services');
+                }
+            } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+                // Cek jika error terkait foreign key constraint
+                if (strpos($e->getMessage(), 'foreign key constraint fails') !== false) {
+                    session()->setFlashdata('pesan', 'Tidak bisa menghapus layanan ini karena masih terkait dengan paket layanan');
+                    return redirect()->to('/services');
+                }
+                // Untuk error lain yang mungkin terjadi
+                session()->setFlashdata('pesan', 'Gagal menghapus layanan: ' . $e->getMessage());
+                return redirect()->to('/services');
             }
         }
-
-        return redirect()->to('/services')->with('error', 'Layanan tidak ditemukan!');
+    
+        session()->setFlashdata('pesan', 'Layanan tidak ditemukan!');
+        return redirect()->to('/services');
     }
-
+    
     // Memperbarui layanan
     public function update()
     {
