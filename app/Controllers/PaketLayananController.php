@@ -56,31 +56,38 @@ class PaketLayananController extends BaseController
     }
 
     // Menambahkan Paket Layanan baru
-    public function save()
-    {
-        // Validasi input
-        if (!$this->validate([
-            'id_services' => 'required|integer',
-            'id_barang' => 'required|integer',
-            'besar' => 'required|decimal'
-        ])) {
-            return redirect()->back()->with('pesan', 'Gagal menambahkan Paket Layanan.')->withInput();
-        }
-
-        $data = [
-            'id_services' => $this->request->getPost('id_services'),
-            'id_barang' => $this->request->getPost('id_barang'),
-            'besar' => $this->request->getPost('besar')
-        ];
-
-        try {
-            if ($this->paketModel->insert($data)) {
-                return redirect()->to('/paketlayanan')->with('pesan', 'Paket Layanan berhasil ditambahkan!');
-            }
-        } catch (Throwable $e) {
-            return redirect()->back()->with('pesan', 'Error: ' . $e->getMessage())->withInput();
-        }
+    // Menambahkan Paket Layanan baru
+public function save()
+{
+    // Validasi input
+    if (!$this->validate([
+        'id_services' => 'required|integer',
+        'id_barang' => 'required|integer',
+        'besar' => 'required|decimal'
+    ])) {
+        return redirect()->back()->with('pesan', 'Gagal menambahkan Paket Layanan.')->withInput();
     }
+
+    $data = [
+        'id_services' => $this->request->getPost('id_services'),
+        'id_barang' => $this->request->getPost('id_barang'),
+        'besar' => $this->request->getPost('besar')
+    ];
+
+    try {
+        if ($this->paketModel->insert($data)) {
+            return redirect()->to('/paketlayanan')->with('pesan', 'Paket Layanan berhasil ditambahkan!');
+        }
+    } catch (\Throwable $e) {
+        // Tangkap error Duplicate Entry
+        if ($e->getCode() == 1062) {
+            // Tampilkan pesan alert jika duplikasi entri terjadi
+            return redirect()->back()->with('pesan', 'Duplikasi entri ditemukan: Kombinasi Layanan dan Barang sudah ada.')->withInput();
+        }
+        // Tampilkan error lainnya
+        return redirect()->back()->with('pesan', 'Error: ' . $e->getMessage())->withInput();
+    }
+}
 
     // Menampilkan form edit Paket Layanan
     public function edit($id)

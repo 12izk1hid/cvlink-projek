@@ -78,19 +78,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Barang" required>
                     </div>
                     <div class="form-group">
                         <label for="merk">Merk</label>
-                        <input type="text" class="form-control" id="merk" name="merk" required>
+                        <input type="text" class="form-control" id="merk" name="merk" placeholder="Masukkan Merek Barang"required>
                     </div>
                     <div class="form-group">
                         <label for="harga">Harga</label>
-                        <input type="number" class="form-control" id="harga" name="harga" required>
+                        <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga Barang" required>
                     </div>
                     <div class="form-group">
                         <label for="besaran">Besaran</label>
-                        <input type="text" class="form-control" id="besaran" name="besaran" required>
+                        <input type="text" class="form-control" id="besaran" name="besaran" placeholder="Masukkan Besaran" required>
                     </div>
                 </div>
                 <div class="modal-footer">

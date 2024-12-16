@@ -53,7 +53,7 @@
                                     <?php if (isset($keranjangBarang[$item['id']])): ?>
                                         <?php foreach ($keranjangBarang[$item['id']] as $barang): ?>
                                             <tr>
-                                                <td><?= htmlspecialchars($barang['nama'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                <td><?= htmlspecialchars($barang['nama_barang'], ENT_QUOTES, 'UTF-8') ?></td>
                                                 <td><?= htmlspecialchars($barang['jumlah'], ENT_QUOTES, 'UTF-8') ?></td>
                                                 <td><?= number_format($barang['harga'], 0, ',', '.') ?> per <?= htmlspecialchars($barang['besaran'], ENT_QUOTES, 'UTF-8') ?></td>
                                                 <td> Rp <?= number_format($barang['jumlah'] * $barang['harga'], 0, ',', '.') ?> </td>

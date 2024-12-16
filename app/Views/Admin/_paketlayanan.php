@@ -120,7 +120,7 @@
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="<?= base_url('paket/update') ?>" enctype="multipart/form-data">
+            <form method="post" action="<?= base_url('paketlayanan/update/' . $paket['id'])  ?>" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit Paket Layanan</h5>
@@ -130,7 +130,7 @@
                     <input type="hidden" name="id" id="edit-id">
                     <div class="form-group">
                         <label for="edit-id_services" class="form-label">Nama Layanan</label>
-                        <select name="id_services" id="id_services" class="form-control selectpicker" data-live-search="true" required>
+                        <select name="id_services" id="id_services" class="form-control" data-live-search="true" required>
                             <?php foreach ($services as $service): ?>
                                 <option value="<?= esc($service['id']); ?>"><?= esc($service['nama']); ?></option>
                             <?php endforeach; ?>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="form-group">
                         <label for="edit-id_barang" class="form-label">Nama Barang</label>
-                        <select name="id_barang" id="edit-id_barang" class="form-control selectpicker" data-live-search="true" required>
+                        <select name="id_barang" id="edit-id_barang" class="form-control" data-live-search="true" required>
                             <?php foreach ($barang as $barang_item): ?>
                                 <option value="<?= esc($barang_item['id']); ?>"><?= esc($barang_item['nama_barang']); ?></option>
                             <?php endforeach; ?>

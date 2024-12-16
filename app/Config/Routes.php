@@ -46,10 +46,11 @@ $routes->get('paketlayanan', 'PaketLayananController::index');
 $routes->get('paketlayanan/detail/(:num)', 'PaketLayananController::detail/$1');
 $routes->get('paketlayanan/create', 'PaketLayananController::create');
 $routes->post('paketlayanan/store', 'PaketLayananController::store');
-$routes->get('paketlayanan/edit/(:num)', 'PaketLayananController::edit/$1');
-$routes->post('paketlayanan/update/(:num)', 'PaketLayananController::update/$1');
+$routes->get('paketlayanan/edit/(:num)', 'PaketLayananController::edit/$1');  // Menampilkan form edit
+$routes->post('paketlayanan/update/(:num)', 'PaketLayananController::update/$1'); // Menangani update
 $routes->get('paketlayanan/delete/(:num)', 'PaketLayananController::delete/$1');
 $routes->post('paketlayanan/save', 'PaketLayananController::save');
+
 
 //service
 $routes->get('services', 'ServiceController::index');

@@ -106,8 +106,9 @@
                             <option value="">Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="klien">Klien</option>
-                            <option value="surveyor">Surveyor</option>
-                            <option value="teknisi">Teknisi</option>
+                            <option value="admin">Surveyor</option>
+                            <option value="klien">Teknisi</option>
+                           
                         </select>
                     </div>
                 </div>
@@ -160,8 +161,8 @@
                             <option value="">Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="klien">Klien</option>
-                            <option value="surveyor">Surveyor</option>
-                            <option value="teknisi">Teknisi</option>
+                            <option value="admin">Surveyor</option>
+                            <option value="klien">Teknisi</option>
                         </select>
                     </div>
                 </div>
